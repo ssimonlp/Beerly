@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  
+  resources :bars, only: [:show]
+
+  resource :managers do 
+    resources :bars, only: [:edit, :destroy, :create, :update, :new]
+  end 
+
   devise_for :managers, path: 'managers', controllers: {
     sessions: 'managers/sessions'
   }
