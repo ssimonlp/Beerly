@@ -220,10 +220,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   chromedriver-helper
   coffee-rails (~> 4.2)
-<<<<<<< HEAD
-=======
   devise
->>>>>>> dev
   dotenv
   httparty
   jbuilder (~> 2.5)
