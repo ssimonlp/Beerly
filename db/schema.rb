@@ -10,10 +10,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_04_101838) do
+ActiveRecord::Schema.define(version: 2018_12_04_131318) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bars", force: :cascade do |t|
+    t.bigint "manager_id"
+    t.string "name"
+    t.text "address"
+    t.string "photo"
+    t.text "opening_time"
+    t.text "happy_hours"
+    t.text "description"
+    t.decimal "lat"
+    t.decimal "{:precision=>10, :scale=>6}"
+    t.decimal "lng"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["manager_id"], name: "index_bars_on_manager_id"
+  end
 
   create_table "managers", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -39,4 +55,5 @@ ActiveRecord::Schema.define(version: 2018_12_04_101838) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "bars", "managers"
 end

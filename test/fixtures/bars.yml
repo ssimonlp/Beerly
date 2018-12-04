@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  manager: one
+  name: MyString
+  address: MyText
+  photo: MyString
+  opening_time: MyText
+  happy_hours: MyText
+  description: MyText
+
+two:
+  manager: two
+  name: MyString
+  address: MyText
+  photo: MyString
+  opening_time: MyText
+  happy_hours: MyText
+  description: MyText
