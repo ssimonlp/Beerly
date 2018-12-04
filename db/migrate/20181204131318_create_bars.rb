@@ -10,7 +10,7 @@ class CreateBars < ActiveRecord::Migration[5.2]
       t.text :description, optional: true
       t.decimal :lat, {:precision=>10, :scale=>6}, optional: true 
       t.decimal :lng, {:precision=>10, :scale=>6}, optional: true 
-
+      t.boolean :state, default: false 
 
       t.timestamps
     end
