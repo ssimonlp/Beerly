@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  pint_price: 9.99
+  half_pint_price: 9.99
+  bottle_price: 9.99
+  beer: one
+  bar: one
+
+two:
+  pint_price: 9.99
+  half_pint_price: 9.99
+  bottle_price: 9.99
+  beer: two
+  bar: two
