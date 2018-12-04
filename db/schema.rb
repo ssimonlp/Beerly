@@ -26,9 +26,41 @@ ActiveRecord::Schema.define(version: 2018_12_04_131318) do
     t.decimal "lat"
     t.decimal "{:precision=>10, :scale=>6}"
     t.decimal "lng"
+    t.boolean "state", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["manager_id"], name: "index_bars_on_manager_id"
+  end
+
+  create_table "beers", force: :cascade do |t|
+    t.string "name"
+    t.string "image_url"
+    t.text "description"
+    t.decimal "abv"
+    t.decimal "ibu"
+    t.boolean "verified", default: false
+    t.bigint "category_id"
+    t.bigint "style_id"
+    t.bigint "brewery_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["brewery_id"], name: "index_beers_on_brewery_id"
+    t.index ["category_id"], name: "index_beers_on_category_id"
+    t.index ["style_id"], name: "index_beers_on_style_id"
+  end
+
+  create_table "breweries", force: :cascade do |t|
+    t.string "name"
+    t.boolean "verified", default: false
+    t.string "image_url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "managers", force: :cascade do |t|
@@ -41,6 +73,14 @@ ActiveRecord::Schema.define(version: 2018_12_04_131318) do
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_managers_on_email", unique: true
     t.index ["reset_password_token"], name: "index_managers_on_reset_password_token", unique: true
+  end
+
+  create_table "styles", force: :cascade do |t|
+    t.string "name"
+    t.bigint "category_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["category_id"], name: "index_styles_on_category_id"
   end
 
   create_table "users", force: :cascade do |t|
