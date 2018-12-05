@@ -14381,3 +14381,64 @@ Processing by HomeController#index as HTML
 Completed 200 OK in 113ms (Views: 107.8ms | ActiveRecord: 0.0ms)
 
 
+Started GET "/" for 127.0.0.1 at 2018-12-05 10:49:28 +0100
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/louismartindunord/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.9ms)
+Completed 500 Internal Server Error in 758ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (Missing partial shared/_header with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/louismartindunord/Desktop/formation_thp/Beerly/app/views"
+  * "/Users/louismartindunord/.rvm/gems/ruby-2.5.1/gems/devise-4.5.0/app/views"
+):
+     8:     <%= stylesheet_link_tag 'application', media: 'all' %>
+     9:     
+    10:   </head>
+    11:   <%= render"shared/header" %>
+    12: 
+    13:   <body>
+    14:     <%= yield %>
+  
+app/views/layouts/application.html.erb:11:in `_app_views_layouts_application_html_erb___2847793843511925510_70095866139200'
+Started GET "/" for 127.0.0.1 at 2018-12-05 10:50:41 +0100
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/louismartindunord/.rvm/gems/ruby-2.5.1/gems/activerecord-5.2.1/lib/active_record/log_subscriber.rb:98
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (1.0ms)
+Completed 500 Internal Server Error in 199ms (ActiveRecord: 0.0ms)
+
+
+  
+ActionView::Template::Error (Missing partial shared/_header with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :coffee, :jbuilder]}. Searched in:
+  * "/Users/louismartindunord/Desktop/formation_thp/Beerly/app/views"
+  * "/Users/louismartindunord/.rvm/gems/ruby-2.5.1/gems/devise-4.5.0/app/views"
+):
+     8:     <%= stylesheet_link_tag 'application', media: 'all' %>
+     9:     
+    10:   </head>
+    11:   <%= render"shared/header" %>
+    12: 
+    13:   <body>
+    14:     <%= yield %>
+  
+app/views/layouts/application.html.erb:11:in `_app_views_layouts_application_html_erb__633170484001121114_70233709549520'
+Started GET "/" for 127.0.0.1 at 2018-12-05 10:51:30 +0100
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 73ms (Views: 68.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2018-12-05 10:55:14 +0100
+Processing by HomeController#index as HTML
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (0.9ms)
+  Rendered shared/_header.html.erb (0.4ms)
+Completed 200 OK in 56ms (Views: 47.4ms | ActiveRecord: 0.0ms)
+
+

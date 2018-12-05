@@ -8,11 +8,10 @@
     <%= stylesheet_link_tag 'application', media: 'all' %>
     
   </head>
-  <%= render"shared/header" %>
-
-  <body>
+ <%= render"shared/header" %> 
+   <body>
     <%= yield %>
-    <%= render"shared/footer" %>
+
     <%= javascript_include_tag 'application' %>
   </body>
 </html>
