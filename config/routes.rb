@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
   
-  resources :bars, only: [:show]
+  resources :bars
 
   resource :managers do 
     resources :bars, only: [:edit, :destroy, :create, :update, :new]
