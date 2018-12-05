@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  get 'resultpage/index'
   resources :bars, only: [:show]
 
   resource :managers do 
@@ -13,6 +14,10 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
 
+  get 'result', to: 'resultpage#index'
+
   root 'home#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
+
+
