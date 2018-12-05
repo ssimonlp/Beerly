@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  get 'resultpage/index'
   resources :bars, only: [:show]
 
   resource :managers do 
