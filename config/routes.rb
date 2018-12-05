@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
   
+  get 'apropos/index'
   resources :bars
 
   resource :managers do 
@@ -15,8 +16,14 @@ Rails.application.routes.draw do
   }
 
   get 'resultpage/index' , to: "resultpage#index"
+  get 'contact', to: "contact#index"
+  get 'apropos', to: "apropos#index"
 
   root 'home#index'
+
+
+
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
 
