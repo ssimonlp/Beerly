@@ -1,5 +1,5 @@
 class Bar < ApplicationRecord
   belongs_to :manager
-  has_many :beers, trough: :beer_lists
+  has_many :beers, through: :beer_lists
 
 end
