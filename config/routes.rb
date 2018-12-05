@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
   
+  get 'mentionlegale/index'
   get 'apropos/index'
   resources :bars
 
@@ -18,7 +19,7 @@ Rails.application.routes.draw do
   get 'resultpage/index' , to: "resultpage#index"
   get 'contact', to: "contact#index"
   get 'apropos', to: "apropos#index"
-
+  get 'mentions-legales', to: "mentionlegale#index"
   root 'home#index'
 
   resources :map, only: [:index]
