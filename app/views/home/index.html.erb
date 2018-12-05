@@ -1,7 +1,98 @@
-
-<div class="jumbotron jumbotron-fluid">
+<div class="jumbotron jumbotron-fluid" id="home">
   <div class="container">
-    <h1 class="display-4">Fluid jumbotron</h1>
-    <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+    <h1 class="display-6 mt-5 mb-3">La bière que tu veux, à côté de chez toi.</h1>
+    
+    <div class="row justify-content-center mt-5">
+        <div class="col-12 col-md-10 col-lg-8">
+            <form class="card search card-sm" style="border: none;">
+                <div class="card-body row no-gutters align-items-center">
+                    <!--end of col-->
+                    <div class="col">
+                        <input class="form-control form-control-lg form-control-borderless" type="search" placeholder="Chercher une bière">
+                    </div>
+                    <div class="col-auto">
+                        <button class="btn btn-lg btn-primary" type="submit">Search</button>
+                    </div>
+                    <!--end of col-->
+                </div>
+            </form>
+        </div>
+        <!--end of col-->
+    </div>
   </div>
 </div>
+
+<div class="container mt-5 mb-5">
+
+  <h4 class="mb-5">Explorer les différents type de bières</h4>
+
+  <div class="row">
+
+  <div class="col-lg-4 col-md-4 col-sm-12">
+    
+    <div class="card mb-3">
+      <a href="#">
+      <%= image_tag("lager.jpg", class: "card-img-top", alt: "beer") %>
+      </a>
+      <div class="card-body">
+        <h5>Lager</h5>
+      </div>
+    </div>
+  
+  </div>
+  <div class="col-lg-4 col-md-4 col-sm-12">
+    <div class="card mb-3">
+      <a href="#">
+      <%= image_tag("ale.jpg", class: "card-img-top", alt: "beer") %>
+      </a>
+      <div class="card-body">
+        <h5>Ale</h5>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-4 col-md-4 col-sm-12">
+    <div class="card mb-3">
+      <a href="#">
+      <%= image_tag("stout.jpg", class: "card-img-top", alt: "beer") %>
+      </a>
+      <div class="card-body">
+       <h5>Stout</h5>
+      </div>
+    </div>
+  </div>
+
+  
+ 
+</div>
+
+</div>
+
+<div class="container mb-5">
+  <h4 class="mb-5">Le bar de la semaine</h4>
+
+  <div class="row">
+  <div class="col-sm-2 col-md-6 col-lg-6"><%= image_tag("bar.jpg", class: "img-fluid mb-2", alt: "bar") %></div>
+  <div class="col-sm-10 col-md-6 col-lg-6">
+    <h3 class="mb-3">Le bar</h3>
+    <p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble des morceaux de texte pour réaliser un livre spécimen de polices de texte.</p>
+     <button class="btn btn-primary">Voir les détails</button>
+  </div>
+  
+  </div>
+  
+</div>
+
+<div class="container-fluid mb-5">
+  <div class="container">
+  <h4 class="mb-5">Vous avez un bar ?</h4>
+  <p>Rejoignez Beerly pour augmenter votre visibilité et attirer de nouveaux clients</p>
+
+  <button type="button" class="btn btn-primary btn-lg mt-3">Sign up</button>
+  </div>
+  
+</div>
+
+
+
+
+
