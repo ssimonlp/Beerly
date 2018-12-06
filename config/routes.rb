@@ -3,11 +3,9 @@ Rails.application.routes.draw do
   
   get 'mentionlegale/index'
   get 'apropos/index'
-  resources :bars
+  
 
-  resource :managers do 
-    resources :bars, only: [:edit, :destroy, :create, :update, :new]
-  end 
+ 
 
   devise_for :managers, path: 'managers', controllers: {
     sessions: 'managers/sessions'
@@ -15,6 +13,12 @@ Rails.application.routes.draw do
   devise_for :users, path:  'users', controllers: {
     sessions: 'users/sessions'
   }
+
+  resources :bars, only: [:show]
+
+  resource :managers do 
+    resources :bars, only: [:edit, :destroy, :create, :update, :new]
+  end 
 
   get 'resultpage/index' , to: "resultpage#index"
   get 'contact', to: "contact#index"

@@ -6,10 +6,4 @@ class Bar < ApplicationRecord
   geocoded_by :address
   after_validation :geocode
   
-  validates :name, presence: true
-  validates :address, presence: true
-  validates :photo, presence: true
-  validates :opening_time, presence: true
-  validates :happy_hours, presence: true
-  validates :description, presence: true
 end

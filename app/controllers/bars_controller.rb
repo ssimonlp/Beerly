@@ -1,4 +1,7 @@
 class BarsController < ApplicationController
+ 
+  before_action: current_bar 
+ 
   def index
     @bars = Bar.all 
   end
@@ -9,11 +12,6 @@ class BarsController < ApplicationController
 
   def new
     @bar = Bar.new 
-  end
-
-  def create
-    @bar = Bar.create(manager_id: current_manager.id)
-    redirect_to edit_manager_bar_path(@current_manager.id, @bar.id)
   end
 
   def update
@@ -36,4 +34,20 @@ class BarsController < ApplicationController
     def bar_params
       params.require(:bar).permit(:name, :address, :photo, :opening_time, :happy_hours, :description)
     end 
+
+    def current_bar
+      if current_manager && session[:bar_id]
+        bar = Bar.find_by(id: session[:bar_id])
+           if bar.present?
+             @current_bar = bar 
+            else session[:bar_id] = nil 
+            end 
+      end 
+
+      if session[:bar_id] == nil && current_manager 
+        @current_bar = Bar.create(manager_id: current_manager.id)
+        sesssion[:bar_id] = @current_bar.id 
+      end 
+    end 
+      
 end
