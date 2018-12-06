@@ -1,23 +1,23 @@
-class BarsController < ApplicationController
-
+class BeersController < ApplicationController
+  
   def index
-    @bars = Bar.all 
+    @beers = Beers.all 
   end
 
   def show
-    @bar = Bar.find(params[:id])
+    @beer = Beer.find(params[:id])
   end
 
   def new
-    if current_manager.bar.id != nil
-      redirect_to root_path
+    if current_manager
+      @beer = Beer.new
     else 
-    @bar = Bar.new 
+    redirect_to root_path
     end 
   end
 
   def create
-    @bar = Bar.create(manager_id: current_manager.id)
+    @beer = Beer.create(beer_params)
     redirect_to edit_manager_bar_path(@bar.id)
   end
 
@@ -26,6 +26,7 @@ class BarsController < ApplicationController
     @bar.update(bar_params)
     redirect_to bar_path(@bar.id)
   end
+
   def edit
     if current_manager.bar.id != params[:id].to_i
       redirect_to root_path
@@ -41,8 +42,7 @@ class BarsController < ApplicationController
   end
 
   private 
-    def bar_params
+    def beer_params
       params.require(:bar).permit(:name, :address, :photo, :opening_time, :happy_hours, :description)
     end 
-
 end

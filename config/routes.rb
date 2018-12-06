@@ -1,18 +1,13 @@
 Rails.application.routes.draw do
   
-  
-  get 'mentionlegale/index'
-  get 'apropos/index'
   resources :bars, only: [:show]
-
-
 
   devise_for :managers, path: 'managers', controllers: {
     sessions: 'managers/sessions', registrations: 'managers/registrations'
   }
 
   resource :managers do 
-    resources :bars, only: [:edit, :destroy, :create, :update, :new]
+    resources :bars, only: [:edit, :destroy, :create, :update, :new] 
   end 
 
   devise_for :users, path:  'users', controllers: {
