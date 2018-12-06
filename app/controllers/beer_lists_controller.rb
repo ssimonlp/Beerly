@@ -1,48 +1,28 @@
 class BeerListsController < ApplicationController
 
   def index
-    @beerlists = BeerList.where[bar_id: ]
-  end
-
-  def show
-    @bar = Bar.find(params[:id])
-  end
-
-  def new
-    if current_manager.bar.id != nil
-      redirect_to root_path
-    else 
-    @bar = Bar.new 
-    end 
+    @beerlist = BeerList.where(bar_id: current_manager.bar.id)
   end
 
   def create
-    @bar = Bar.create(manager_id: current_manager.id)
-    redirect_to edit_manager_bar_path(@bar.id)
+    @beerlist = BeerList.create(beerlist_params)
   end
 
   def update
-    @bar = Bar.find(bar_params)
-    @bar.update(bar_params)
-    redirect_to bar_path(@bar.id)
-  end
-
-  def edit
-    if current_manager.bar.id != params[:id].to_i
-      redirect_to root_path
-    else 
-      @bar = Bar.find(current_manager.bar.id)
-    end  
+    @beerlist = BeerList.find(bar_params)
+    @beerlist.update(berlist_params)
   end
 
   def destroy
-    @bar = Bar.find(params[:id])
-    @bar.destroy 
-    redirect_to bar_path
+    @beerlist = BeerList.find(params[:id])
+    @beerlist.destroy 
   end
 
+  def archive
+  end 
+
   private 
-    def bar_params
-      params.require(:bar).permit(:name, :address, :photo, :opening_time, :happy_hours, :description)
+    def beerlist_params
+      params.require(:beerlist).permit(:beer_id, :manager_id, :pint_price, :half_pint_price, :bottle_price)
     end 
 end
