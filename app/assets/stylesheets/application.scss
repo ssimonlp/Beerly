@@ -10,17 +10,68 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require r-chrome
+ *= require r-firefox
+ *= require r-safari
  *= require bootstrap.min
  *= require_tree .
  *= require_self
  */
 
+ @import url('https://fonts.googleapis.com/css?family=Lato');
+
+*{
+	margin: 0;
+	padding: 0;
+	font-family: 'Lato', sans-serif;
+}
+
+body{
+	background-color: #ffffff;
+	margin: 0;
+	padding: 0;
+}
 
 .mt-6 {
 	margin-top: 100px !important;
 }
 
-.logo {
-	height: 2em;
+header {
+	-webkit-box-shadow: 0px 7px 19px 0px rgba(0,0,0,0.20);
+	-moz-box-shadow: 0px 7px 19px 0px rgba(0,0,0,0.20);
+	box-shadow: 0px 7px 19px 0px rgba(0,0,0,0.20);
+	
 }
 
+
+
+.navbar-light .navbar-toggler {
+    color: #000;
+    border: none;
+}
+
+.logo {
+	height: 2em;
+	transition: 0.3s;
+	opacity: 0.7;
+}
+
+.logo:hover {
+
+	opacity:1;
+}
+
+p {
+	line-height: 1.7;
+}
+
+#home{
+	color: #fff;
+	height: 80vh;
+	background-color: #fff !important;
+	
+	background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+	
+}
