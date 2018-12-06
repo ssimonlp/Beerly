@@ -11,12 +11,18 @@ class Bar < ApplicationRecord
   
   validates :name, presence: true
   validates :address, presence: true
-  validates :photo, presence: true
-  validates :opening_time, presence: true
-  validates :happy_hours, presence: true
-  validates :description, presence: true
+  #validates :photo, presence: true
+  #validates :opening_time, presence: true
+  #validates :happy_hours, presence: true
+  #validates :description, presence: true
 
-   pg_search_scope :search_by_beer, :associated_against => {
-    :beers => [:name]
+   pg_search_scope :search_by_beer, 
+   associated_against: {
+    beers: [:name]
+   }, 
+   using: {
+    tsearch: {
+      prefix: true
+    }
   }
 end
