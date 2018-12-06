@@ -30,6 +30,10 @@ body{
 	background-color: #ffffff;
 	margin: 0;
 	padding: 0;
+	background-image : url("background.png"); 
+	background-position: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 h1 {
@@ -38,7 +42,6 @@ h1 {
 
 h1, h2, h3, h4, h5, h6 {
 	font-family: 'Montserrat', sans-serif;
-
 }
 
 a{
@@ -105,13 +108,4 @@ p {
 	line-height: 1.7;
 }
 
-#home{
-	color: #fff;
-	height: 70vh;
-	background-color: #fff !important;
-	
-	background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-	
-}
+
