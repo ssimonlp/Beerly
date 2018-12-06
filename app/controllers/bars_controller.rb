@@ -22,7 +22,7 @@ class BarsController < ApplicationController
   end
 
   def update
-    @bar = Bar.find(bar_params)
+    @bar = Bar.find(params[:id])
     @bar.update(bar_params)
     redirect_to bar_path(@bar.id)
   end
@@ -32,6 +32,9 @@ class BarsController < ApplicationController
       redirect_to root_path
     else 
       @bar = Bar.find(current_manager.bar.id)
+      @beerlist = BeerList.where(bar_id: current_manager.bar.id)
+      @beers = []
+      @beers << Beer.where(verified: true) 
     end  
   end
 
