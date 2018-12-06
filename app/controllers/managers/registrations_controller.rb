@@ -12,9 +12,11 @@ class Managers::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+   def create
+     super
+     @bar = Bar.new(manager_id: current_manager.id) 
+     @bar.save(validate: false)
+   end
 
   # GET /resource/edit
   # def edit
