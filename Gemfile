@@ -69,4 +69,4 @@ gem 'devise'
 gem 'geocoder'
 
 # Generate DB diagram
-gem 'rails-erd'
+
