@@ -2,6 +2,7 @@ class Bar < ApplicationRecord
   include PgSearch
   belongs_to :manager
   has_many :beers, through: :beer_lists
+  has_one :beer_list
   
   # Geocoding
   geocoded_by :address

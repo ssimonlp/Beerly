@@ -1,2 +1,22 @@
 <h1>Bars#edit</h1>
 <p>Find me in app/views/bars/edit.html.erb</p>
+
+
+<%= form_for @bar, url = {action: "update"} do |f| %>
+  <%= f.label :nom %>
+  <%= f.text_field :name %>
+  <%= f.label :adresse %>
+  <%= f.text_field :address %>
+  <%= f.label :photo %>
+  <%= f.text_field :photo %>
+  <%= f.label :opening_times %>
+  <%= f.text_area :opening_time %>
+  <%= f.label :happy_hours %>
+  <%= f.text_area :happy_hours %>
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+  <%= f.submit "update" %> 
+<% end %>
+
+<%= @beerlist.each do |item| %>
+  <%= Beer.find(item.beer_id) %>
