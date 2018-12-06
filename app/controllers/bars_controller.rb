@@ -26,7 +26,6 @@ class BarsController < ApplicationController
     @bar.update(bar_params)
     redirect_to bar_path(@bar.id)
   end
-
   def edit
     if current_manager.bar.id != params[:id].to_i
       redirect_to root_path
