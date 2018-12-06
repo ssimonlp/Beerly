@@ -2,17 +2,58 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-@import url('https://fonts.googleapis.com/css?family=Lato');
-
-
-*{
-	font-family: 'Lato', sans-serif;
-}
 
 .home {
-	height: 80vh;
+	height: 70vh;
 }
 
 .card {
 	background-color: transparent;
+}
+
+.form-control {
+	border: none;
+}
+
+.form-control-lg {
+	border-bottom: 2px solid #000;
+	-webkit-transition: all 500ms cubic-bezier(0.230, 1.000, 0.320, 1.000); 
+	   -moz-transition: all 500ms cubic-bezier(0.230, 1.000, 0.320, 1.000); 
+	     -o-transition: all 500ms cubic-bezier(0.230, 1.000, 0.320, 1.000); 
+	        transition: all 500ms cubic-bezier(0.230, 1.000, 0.320, 1.000); /* easeOutQuint */
+
+	-webkit-transition-timing-function: cubic-bezier(0.230, 1.000, 0.320, 1.000); 
+	   -moz-transition-timing-function: cubic-bezier(0.230, 1.000, 0.320, 1.000); 
+	     -o-transition-timing-function: cubic-bezier(0.230, 1.000, 0.320, 1.000); 
+	        transition-timing-function: cubic-bezier(0.230, 1.000, 0.320, 1.000); /* easeOutQuint */
+}
+
+.form-control:focus {
+	color: #495057;
+    background-color: #fff;
+    border-bottom: 2px solid #2FCC2F;
+    outline: 0;
+   	box-shadow: none;
+}
+
+#search{
+	border: none;
+	font-size: 1.5em;
+	opacity: 0.7;
+	-webkit-transition: all 500ms cubic-bezier(0.230, 1.000, 0.320, 1.000); 
+	   -moz-transition: all 500ms cubic-bezier(0.230, 1.000, 0.320, 1.000); 
+	     -o-transition: all 500ms cubic-bezier(0.230, 1.000, 0.320, 1.000); 
+	        transition: all 500ms cubic-bezier(0.230, 1.000, 0.320, 1.000); /* easeOutQuint */
+
+	-webkit-transition-timing-function: cubic-bezier(0.230, 1.000, 0.320, 1.000); 
+	   -moz-transition-timing-function: cubic-bezier(0.230, 1.000, 0.320, 1.000); 
+	     -o-transition-timing-function: cubic-bezier(0.230, 1.000, 0.320, 1.000); 
+	        transition-timing-function: cubic-bezier(0.230, 1.000, 0.320, 1.000); /* easeOutQuint */
+}
+
+#search:hover {
+	opacity: 1;
+	color: #2FCC2F;
+	cursor: pointer;
+	
 }

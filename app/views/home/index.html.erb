@@ -1,6 +1,6 @@
 <div class="jumbotron jumbotron-fluid" id="home">
   <div class="container">
-    <h1 class="display-6 mt-5 mb-3">La bière que tu veux, à côté de chez toi.</h1>
+    <h1 class="display-6 mt-5 mb-3 text-dark">La bière que tu veux, à côté de chez toi.</h1>
     
     <div class="row justify-content-center mt-5">
         <div class="col-12 col-md-10 col-lg-8">
@@ -11,7 +11,9 @@
                         <input class="form-control form-control-lg form-control-borderless" type="search" placeholder="Chercher une bière">
                     </div>
                     <div class="col-auto">
-                        <button class="btn btn-lg btn-primary" type="submit">Search</button>
+
+                        
+                        <button id="search" class="fas fa-search" type="submit"></button>
                     </div>
                     <!--end of col-->
                 </div>
@@ -104,7 +106,7 @@
   <h4 class="mb-5">Vous avez un bar ?</h4>
   <p>Rejoignez Beerly pour augmenter votre visibilité et attirer de nouveaux clients</p>
 
-  <%= link_to 'Publiez votre bar', new_manager_registration_path, class: "btn btn-primary" %>
+  <%= link_to 'Publiez votre carte', new_manager_registration_path, class: "btn btn-primary" %>
   </div>
   
 </div>
