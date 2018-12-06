@@ -17,19 +17,28 @@
  *= require_tree .
  *= require_self
  */
-
- @import url('https://fonts.googleapis.com/css?family=Lato');
+ @import url('https://fonts.googleapis.com/css?family=Montserrat:400,500');
+ @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
 *{
 	margin: 0;
 	padding: 0;
-	font-family: 'Lato', sans-serif;
+	font-family: 'Open Sans', sans-serif;
 }
 
 body{
 	background-color: #ffffff;
 	margin: 0;
 	padding: 0;
+}
+
+h1 {
+	font-size: 2em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Montserrat', sans-serif;
+
 }
 
 a{
@@ -43,10 +52,16 @@ a{
 	   -moz-transition-timing-function: cubic-bezier(0.230, 1.000, 0.320, 1.000); 
 	     -o-transition-timing-function: cubic-bezier(0.230, 1.000, 0.320, 1.000); 
 	        transition-timing-function: cubic-bezier(0.230, 1.000, 0.320, 1.000); /* easeOutQuint */
+
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 500;
+	color: #000 !important;
+	opacity: 0.8;
 }
 
 a:hover {
 	cursor: pointer;
+	opacity: 1;
 }
 
 .mt-6 {
@@ -77,6 +92,10 @@ header {
 	opacity: 0.9;
 }
 
+.logo-footer {
+	height: 6em;
+}
+
 .logo:hover {
 
 	opacity:1;
@@ -88,7 +107,7 @@ p {
 
 #home{
 	color: #fff;
-	height: 80vh;
+	height: 70vh;
 	background-color: #fff !important;
 	
 	background-position: center;
