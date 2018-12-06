@@ -10,18 +10,76 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require r-chrome
+ *= require r-firefox
+ *= require r-safari
  *= require bootstrap.min
  *= require_tree .
  *= require_self
  */
 
+ @import url('https://fonts.googleapis.com/css?family=Lato');
+
+*{
+	margin: 0;
+	padding: 0;
+	font-family: 'Lato', sans-serif;
+}
+
+body{
+	background-color: #ffffff;
+	margin: 0;
+	padding: 0;
+}
+
+a{
+	text-decoration: none !important;
+	-webkit-transition: all 500ms cubic-bezier(0.230, 1.000, 0.320, 1.000); 
+	   -moz-transition: all 500ms cubic-bezier(0.230, 1.000, 0.320, 1.000); 
+	     -o-transition: all 500ms cubic-bezier(0.230, 1.000, 0.320, 1.000); 
+	        transition: all 500ms cubic-bezier(0.230, 1.000, 0.320, 1.000); /* easeOutQuint */
+
+	-webkit-transition-timing-function: cubic-bezier(0.230, 1.000, 0.320, 1.000); 
+	   -moz-transition-timing-function: cubic-bezier(0.230, 1.000, 0.320, 1.000); 
+	     -o-transition-timing-function: cubic-bezier(0.230, 1.000, 0.320, 1.000); 
+	        transition-timing-function: cubic-bezier(0.230, 1.000, 0.320, 1.000); /* easeOutQuint */
+}
+
+a:hover {
+	cursor: pointer;
+}
 
 .mt-6 {
 	margin-top: 100px !important;
 }
 
+
+header {
+	-webkit-box-shadow: 0px 7px 19px 0px rgba(0,0,0,0.20);
+	-moz-box-shadow: 0px 7px 19px 0px rgba(0,0,0,0.20);
+	box-shadow: 0px 7px 19px 0px rgba(0,0,0,0.20);
+	
+}
+
+.navbar-light .navbar-toggler {
+    color: #000;
+    border: none;
+}
+
+.navbar-expand-lg .navbar-nav .nav-link{
+	padding-right: .7rem;
+    padding-left: .7rem;
+}
+
 .logo {
-	height: 2em;
+	height: 3em;
+	transition: 0.3s;
+	opacity: 0.9;
+}
+
+.logo:hover {
+
+	opacity:1;
 }
 
 p {
@@ -31,8 +89,8 @@ p {
 #home{
 	color: #fff;
 	height: 80vh;
-	background-color: #000 !important;
-	background-image: image-url('welcome.jpg');
+	background-color: #fff !important;
+	
 	background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
