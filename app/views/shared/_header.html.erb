@@ -21,20 +21,31 @@
       <li class="nav-item">
       <%= link_to 'Se déconnecter', destroy_user_session_path, method: :delete, class:"nav-link" %> 
       </li> 
-      <% elsif manager_signed_in? %>
-      <li class="nav-item">
-      <%= link_to 'Mon bar', class:"nav-link" %> 
-      </li>       
-      <li class="nav-item">
-      <%= link_to 'Se déconnecter', destroy_manager_session_path, method: :delete, class:"nav-link" %> 
-      </li> 
-      <% else %>
+      <% elsif !current_manager %>
       <li class="nav-item">
       <%= link_to 'Se connecter', new_user_session_path, class:"nav-link" %> 
       </li>
       <li class="nav-item">
       <%= link_to "S'inscrire", new_user_registration_path, class:"nav-link" %> 
       </li>
+      <% end %>
+
+      <% if manager_signed_in? && current_manager.bar.id != nil %>
+      <li class="nav-item">
+      <%= link_to 'Mon bar', edit_managers_bar_path(current_manager.bar.id), class:"nav-link" %> 
+      </li>       
+      <li class="nav-item">
+      <%= link_to 'Se déconnecter', destroy_manager_session_path, method: :delete, class:"nav-link" %> 
+      </li> 
+      <% end %>
+
+      <% if manager_signed_in? && current_manager.bar.id = nil %>
+      <li class="nav-item">
+      <%= link_to 'Mon bar', new_managers_bar_path(current_manager.bar.id), class:"nav-link" %> 
+      </li>       
+      <li class="nav-item">
+      <%= link_to 'Se déconnecter', destroy_manager_session_path, method: :delete, class:"nav-link" %> 
+      </li> 
       <% end %>
       
     </ul>
