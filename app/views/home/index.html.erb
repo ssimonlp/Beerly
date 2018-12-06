@@ -1,6 +1,6 @@
 <div class="jumbotron jumbotron-fluid" id="home">
   <div class="container">
-    <h1 class="display-6 mt-5 mb-3 text-dark">La bière que tu veux, à côté de chez toi.</h1>
+    <h1 class="mt-5 mb-3 text-dark">La bière que tu veux, à côté de chez toi.</h1>
     
     <div class="row justify-content-center mt-5">
         <div class="col-12 col-md-10 col-lg-8">
@@ -38,8 +38,8 @@
       <div class="hovereffect">
         <%= image_tag("lager.jpg", class: "img-fluid rounded", alt: "beer") %>
           <div class="overlay">
-            <h2>Lager</h2>
-            <a href="#">Voir les bars</a>
+            <a href="#"><h2>Lager</h2></a>
+            <p>Voir les bars</p>
           </div>
       </div>
     </div>
@@ -47,8 +47,8 @@
       <div class="hovereffect">
         <%= image_tag("lager.jpg", class: "img-fluid rounded", alt: "beer") %>
           <div class="overlay">
-            <h2>Lager</h2>
-            <a href="#">Voir les bars</a>
+            <a href="#"><h2>Lager</h2></a>
+            <p>Voir les bars</p>
           </div>
       </div>
     </div>
@@ -56,8 +56,8 @@
       <div class="hovereffect">
         <%= image_tag("lager.jpg", class: "img-fluid rounded", alt: "beer") %>
           <div class="overlay">
-            <h2>Lager</h2>
-            <a href="#">Voir les bars</a>
+            <a href="#"><h2>Lager</h2></a>
+            <p>Voir les bars</p>
           </div>
       </div>
     </div>
@@ -65,12 +65,11 @@
       <div class="hovereffect">
         <%= image_tag("lager.jpg", class: "img-fluid rounded", alt: "beer") %>
           <div class="overlay">
-            <h2>Lager</h2>
-            <a href="#">Voir les bars</a>
+            <a href="#"><h2>Lager</h2></a>
+            <p>Voir les bars</p>
           </div>
       </div>
     </div>
-
 
   </div>
 
@@ -96,8 +95,9 @@
   <div class="container">
   <h4 class="mb-5">Vous avez un bar ?</h4>
   <p>Rejoignez Beerly pour augmenter votre visibilité et attirer de nouveaux clients</p>
-
-  <%= link_to 'Publiez votre carte', new_manager_registration_path, class: "btn btn-primary text-light" %>
+  <button class="btn bg-dark">
+  <%= link_to 'Publiez votre carte', new_manager_registration_path, class: "text-white" %>
+  </button>
   </div>
   
 </div>
