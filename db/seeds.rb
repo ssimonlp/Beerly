@@ -1,4 +1,5 @@
 require 'json'
+require 'csv'
 
   cat = JSON.parse(File.read('db/categories.json'))
   cat["data"].each do |x|
@@ -22,3 +23,21 @@ require 'json'
      b.save
     end
   end
+
+
+csv_text = File.read('db/beer.csv')
+csv = CSV.parse(csv_text, :headers => true, :encoding => 'ISO-8859-1',:quote_char => "|")
+ csv.each do |row|
+  t = Beer.new
+ t.name = row['name']
+ puts row['name']
+ t.image_url = row['image_url']
+ t.description = row['description']
+ t.abv = row['abv']
+ t.ibu = row['ibu']
+ t.category_id = row['category_id']
+ t.style_id = row['style_id']
+ t.save
+ end
+
+

@@ -19,10 +19,10 @@
                 </div>
             </form>
         </div>
-        < %= form_tag map_index_path, method: :get do %>
-        < %= text_field_tag 'term', params[:term], placeholder: "Chercher une bière" %>
-        < %= submit_tag 'Search!' %>
-        < % end %>
+        <%= form_tag map_index_path, method: :get do %>
+        <%= text_field_tag 'term', params[:term], placeholder: "Chercher une bière" %>
+        <%= submit_tag 'Search!' %>
+        <% end %>
         <!--end of col-->
     </div>
   </div>
