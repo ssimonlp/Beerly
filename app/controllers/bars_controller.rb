@@ -21,7 +21,6 @@ class BarsController < ApplicationController
     @bar.update(bar_params)
     redirect_to bar_path(@bar.id)
   end
-
   def edit
     @bar = Bar.find(params[:id])
   end
