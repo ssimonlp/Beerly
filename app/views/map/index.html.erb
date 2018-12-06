@@ -34,31 +34,35 @@
 
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.google_maps %>&callback=initMap" type="text/javascript"></script>
 <script src="/javascript/lib/gmaps.js"></script>
-
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
 <script>
-  var style = [{
-    featureType: "poi",
-    elementType: "labels",
-    stylers: [{
-      visibility: "off"
-    }]
-  }]
-  var map = new GMaps({
+  $.getJSON("/json/style.json", function(json) {
+    newMap(json);
+  });
+  function newMap(data) {
+    var map = new GMaps({
     div: '#map',
     lat: <%= @geographic_center[0] %>,
     lng: <%= @geographic_center[1] %>,
     disableDefaultUI: true,
-    styles: style
+    styles: data
   });
   <% @pubs.each do |pub| %>
   map.addMarker({
     lat: <%= pub.latitude %>,
     lng: <%= pub.longitude %>,
     title: 'Lima',
+    icon: '/img/beer32.png',
     infoWindow: {
       content: "<%= pub.name %>"
     }
   });
   <% end %>
+    
+  };
+  
 
 </script>

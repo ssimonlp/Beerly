@@ -1,6 +1,6 @@
 class MapController < ApplicationController
   def index
-     @pubs = Bar.all
+    @pubs = Bar.all
     @geographic_center = geographic_center(@pubs)
   end
   
