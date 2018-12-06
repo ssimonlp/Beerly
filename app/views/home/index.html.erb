@@ -8,7 +8,7 @@
                 <div class="card-body row no-gutters align-items-center">
                     <!--end of col-->
                     <div class="col">
-                        <input class="form-control form-control-lg form-control-borderless" type="search" placeholder="Chercher une bière">
+                        <input class="form-control form-control-lg form-control-borderless" type="search" placeholder="Quelle bière veux tu déguster aujourd'hui ?">
                     </div>
                     <div class="col-auto">
 
@@ -19,6 +19,10 @@
                 </div>
             </form>
         </div>
+        < %= form_tag map_index_path, method: :get do %>
+        < %= text_field_tag 'term', params[:term], placeholder: "Chercher une bière" %>
+        < %= submit_tag 'Search!' %>
+        < % end %>
         <!--end of col-->
     </div>
   </div>
@@ -30,59 +34,46 @@
 
   <div class="row">
 
-  <div class="col-lg-3 col-md-3 col-sm-6 col-6">
-    
-    <div class="card mb-3">
-      <a href="#">
-      <%= image_tag("lager.jpg", class: "card-img-top", alt: "beer") %>
-      </a>
-      <div class="card-body">
-        <h5>Lager</h5>
+    <div class="col-lg-3 col-md-3 col-sm-6 col-6 mb-3">
+      <div class="hovereffect">
+        <%= image_tag("lager.jpg", class: "img-fluid rounded", alt: "beer") %>
+          <div class="overlay">
+            <h2>Lager</h2>
+            <a href="#">Voir les bars</a>
+          </div>
       </div>
     </div>
-  
-  </div>
-  <div class="col-lg-3 col-md-3 col-sm-6 col-6">
-    
-    <div class="card mb-3">
-      <a href="#">
-      <%= image_tag("lager.jpg", class: "card-img-top", alt: "beer") %>
-      </a>
-      <div class="card-body">
-        <h5>Lager</h5>
+    <div class="col-lg-3 col-md-3 col-sm-6 col-6 mb-3">
+      <div class="hovereffect">
+        <%= image_tag("lager.jpg", class: "img-fluid rounded", alt: "beer") %>
+          <div class="overlay">
+            <h2>Lager</h2>
+            <a href="#">Voir les bars</a>
+          </div>
       </div>
     </div>
-  
-  </div>
-  <div class="col-lg-3 col-md-3 col-sm-6 col-6">
-    
-    <div class="card mb-3">
-      <a href="#">
-      <%= image_tag("lager.jpg", class: "card-img-top", alt: "beer") %>
-      </a>
-      <div class="card-body">
-        <h5>Lager</h5>
+    <div class="col-lg-3 col-md-3 col-sm-6 col-6 mb-3">
+      <div class="hovereffect">
+        <%= image_tag("lager.jpg", class: "img-fluid rounded", alt: "beer") %>
+          <div class="overlay">
+            <h2>Lager</h2>
+            <a href="#">Voir les bars</a>
+          </div>
       </div>
     </div>
-  
-  </div>
-  <div class="col-lg-3 col-md-3 col-sm-6 col-6">
-    
-    <div class="card mb-3">
-      <a href="#">
-      <%= image_tag("lager.jpg", class: "card-img-top", alt: "beer") %>
-      </a>
-      <div class="card-body">
-        <h5>Lager</h5>
+    <div class="col-lg-3 col-md-3 col-sm-6 col-6 mb-3">
+      <div class="hovereffect">
+        <%= image_tag("lager.jpg", class: "img-fluid rounded", alt: "beer") %>
+          <div class="overlay">
+            <h2>Lager</h2>
+            <a href="#">Voir les bars</a>
+          </div>
       </div>
     </div>
-  
-  </div>
-  
 
-  
- 
-</div>
+
+  </div>
+
 
 </div>
 
@@ -106,7 +97,7 @@
   <h4 class="mb-5">Vous avez un bar ?</h4>
   <p>Rejoignez Beerly pour augmenter votre visibilité et attirer de nouveaux clients</p>
 
-  <%= link_to 'Publiez votre carte', new_manager_registration_path, class: "btn btn-primary" %>
+  <%= link_to 'Publiez votre carte', new_manager_registration_path, class: "btn btn-primary text-light" %>
   </div>
   
 </div>
