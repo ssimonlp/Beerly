@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   
+
   resources :bars, only: [:show]
+  resources :beerlists, only: [:index]
+  resources :beers 
 
   devise_for :managers, path: 'managers', controllers: {
     sessions: 'managers/sessions', registrations: 'managers/registrations'
@@ -8,7 +11,9 @@ Rails.application.routes.draw do
 
   resource :managers do 
     resources :bars, only: [:edit, :destroy, :create, :update, :new] 
+    resources :beer_lists, only: [:edit, :create, :update, :new]  
   end 
+
 
   devise_for :users, path:  'users', controllers: {
     sessions: 'users/sessions'
