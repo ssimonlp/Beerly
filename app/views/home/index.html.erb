@@ -1,7 +1,113 @@
-
-<div class="jumbotron jumbotron-fluid">
+<div class="jumbotron jumbotron-fluid" id="home">
   <div class="container">
-    <h1 class="display-4">Fluid jumbotron</h1>
-    <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+    <h1 class="mt-5 mb-3 text-dark">La bière que tu veux, à côté de chez toi.</h1>
+    
+    <div class="row justify-content-center mt-5">
+        <div class="col-12 col-md-10 col-lg-8">
+            <form class="card search card-sm" style="border: none;">
+                <div class="card-body row no-gutters align-items-center">
+                    <!--end of col-->
+                    <div class="col">
+                        <input class="form-control form-control-lg form-control-borderless" type="search" placeholder="Quelle bière veux tu déguster aujourd'hui ?">
+                    </div>
+                    <div class="col-auto">
+
+                        
+                        <button id="search" class="fas fa-search" type="submit"></button>
+                    </div>
+                    <!--end of col-->
+                </div>
+            </form>
+        </div>
+        <%= form_tag map_index_path, method: :get do %>
+        <%= text_field_tag 'term', params[:term], placeholder: "Chercher une bière" %>
+        <%= submit_tag 'Search!' %>
+        <% end %>
+        <!--end of col-->
+    </div>
   </div>
 </div>
+
+<div class="container mt-5 mb-5">
+
+  <h4 class="mb-5">Explorer les différents type de bières</h4>
+
+  <div class="row">
+
+    <div class="col-lg-3 col-md-3 col-sm-6 col-6 mb-3">
+      <div class="hovereffect">
+        <%= image_tag("lager.jpg", class: "img-fluid rounded", alt: "beer") %>
+          <div class="overlay">
+            <a href="#"><h2>Lager</h2>
+            <p>Voir les bars</p></a>
+          </div>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-6 col-6 mb-3">
+      <div class="hovereffect">
+        <%= image_tag("lager.jpg", class: "img-fluid rounded", alt: "beer") %>
+          <div class="overlay">
+            <a href="#"><h2>Lager</h2>
+            <p>Voir les bars</p></a>
+          </div>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-6 col-6 mb-3">
+      <div class="hovereffect">
+        <%= image_tag("lager.jpg", class: "img-fluid rounded", alt: "beer") %>
+          <div class="overlay">
+            <a href="#"><h2>Lager</h2>
+            <p>Voir les bars</p></a>
+          </div>
+      </div>
+    </div>
+    <div class="col-lg-3 col-md-3 col-sm-6 col-6 mb-3">
+      <div class="hovereffect">
+        <%= image_tag("lager.jpg", class: "img-fluid rounded", alt: "beer") %>
+          <div class="overlay">
+            <a href="#"><h2>Lager</h2>
+            <p>Voir les bars</p></a>
+          </div>
+      </div>
+    </div>
+
+  </div>
+
+
+</div>
+
+<div class="container mb-5">
+  <h4 class="mb-5">Le bar de la semaine</h4>
+
+  <div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <div class="hovereffect" id="weekbar">
+      <%= image_tag("bar.jpg", class: "img-fluid rounded mb-2", alt: "bar") %>
+        <div class="overlay">
+          <a href="#"><h2>Le bar</h2>
+          <p>Afficher plus d'informations</p></a>
+        </div>
+    </div>
+    
+  </div>
+ 
+  
+  </div>
+  
+</div>
+
+<div class="container-fluid mb-5">
+  <div class="container">
+  <h4 class="mb-5">Vous avez un bar ?</h4>
+  <p>Rejoignez Beerly pour augmenter votre visibilité et attirer de nouveaux clients</p>
+  <button class="btn bg-dark">
+  <%= link_to 'Publiez votre carte', new_manager_registration_path, class: "text-white" %>
+  </button>
+  </div>
+  
+</div>
+
+
+
+
+

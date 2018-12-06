@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_05_102630) do
+ActiveRecord::Schema.define(version: 2018_12_06_123352) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,8 +23,8 @@ ActiveRecord::Schema.define(version: 2018_12_05_102630) do
     t.text "opening_time"
     t.text "happy_hours"
     t.text "description"
-    t.decimal "latitude"
-    t.decimal "longitude"
+    t.float "latitude"
+    t.float "longitude"
     t.boolean "state", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(version: 2018_12_05_102630) do
     t.bigint "bar_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "is_archived", default: false
     t.index ["bar_id"], name: "index_beer_lists_on_bar_id"
     t.index ["beer_id"], name: "index_beer_lists_on_beer_id"
   end

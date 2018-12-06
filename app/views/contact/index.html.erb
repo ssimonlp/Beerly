@@ -1,0 +1,49 @@
+
+<div class="container">
+	<h1 class="centertitle">Vous souhaitez nous contacter</h1>
+
+	<div class="row mt-5">
+		
+		<div class="col-sm-6 col-md-6 col-lg-6"">
+			<h2 class="centertitle">Informations Pratiques</h2>
+			<div class="text-left">
+				<p><strong>Adresse :</strong> 5 Parvis Alan Turing, 75013 Paris</p>
+				<p><strong>Téléphone :</strong> 0671826346</p>
+			</div>
+		</div>
+
+		<div class="col-sm-6 col-md-6 col-lg-6 bg-light container">
+			<h2 class="centertitle">formulaire de contact</h2>
+
+				<%= form_with  do |f| %>
+
+				<div class="form-group">
+				   	<%= f.label :Nom %> 
+				    <%= f.text_field :Nom,:class => "form-control" %><br/>
+				</div>
+
+				<div class="form-group">
+				   	<%= f.label :Téléphone %> 
+				    <%= f.text_field :téléphone, :class => "form-control" %><br/>
+				</div>
+
+				<div class="form-group">
+				   	<%= f.label :Téléphone %> 
+				    <%= f.text_field :téléphone, :class => "form-control" %><br/>
+				</div>
+
+				<div class="form-group">
+				   	<%= f.label :message %> 
+				    <%= f.text_field :message, :class => "form-control" %><br/>
+				</div>
+				<div class="col-sm-10">
+				<%= f.submit :class => "btn btn-primary" %>
+				</div>
+			<% end %> 
+		
+		</div>
+
+		
+	</div>
+
+</div>

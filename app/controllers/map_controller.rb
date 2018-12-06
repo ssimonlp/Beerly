@@ -1,7 +1,13 @@
 class MapController < ApplicationController
   def index
-     @pubs = Bar.all
+     if params[:term]
+      @pubs = Bar.search_by_beer(params[:term])
+    else
+      @pubs = Bar.all
+    end
     @geographic_center = geographic_center(@pubs)
+   
+
   end
   
   def show
