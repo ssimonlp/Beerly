@@ -1,5 +1,8 @@
 class BarsController < ApplicationController
 
+  before_action :manager_has_one_bar, only: [:new]
+  before_action :manager_can_only_edit_their_bar, only: [:edit]
+
   def index
     @bars = Bar.all 
   end
@@ -9,11 +12,7 @@ class BarsController < ApplicationController
   end
 
   def new
-    if current_manager.bar.id != nil
-      redirect_to root_path
-    else 
     @bar = Bar.new 
-    end 
   end
 
   def create
@@ -28,14 +27,9 @@ class BarsController < ApplicationController
   end
 
   def edit
-    if current_manager.bar.id != params[:id].to_i
-      redirect_to root_path
-    else 
-      @bar = Bar.find(current_manager.bar.id)
-      @draft_beers = @bar.beer_lists.where(bottle_price: nil)
-      @bottle_beers = @bar.beer_lists.where(pint_price: nil)
-      @beers = Beer.where(verified: true) 
-    end  
+    @bar = Bar.find(current_manager.bar.id)
+    @draft_beers = @bar.beer_lists.draft
+    @bottle_beers = @bar.beer_lists.bottle
   end
 
   def destroy
@@ -47,6 +41,18 @@ class BarsController < ApplicationController
   private 
     def bar_params
       params.require(:bar).permit(:name, :address, :photo, :opening_time, :happy_hours, :description)
+    end 
+
+    def manager_has_one_bar 
+      if current_manager.bar
+        redirect_to root_path
+      end 
+    end 
+
+    def manager_can_only_edit_their_bar 
+      if current_manager.bar.id != params[:id].to_i
+        redirect_to root_path
+      end 
     end 
 
 end

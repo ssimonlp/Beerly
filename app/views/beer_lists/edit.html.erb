@@ -1,2 +1,16 @@
-<h1>BeerLists#edit</h1>
-<p>Find me in app/views/beer_lists/edit.html.erb</p>
+<h1>Modifier le prix de ma bière</h1>
+
+<%= form_for @beerlist, url = {action: "update"} do |f| %>
+  <% if @beerlist.pint_price != nil %>
+  <%= f.label :pint_price %>
+  <%= f.number_field :pint_price %> 
+  <%= f.label :half_pint_price %>
+  <%= f.number_field :half_pint_price %>
+  <%= f.label :bottle_price %>
+  <% else %>
+  <%= f.number_field :bottle_price %>
+  <% end %>
+  <%= f.submit "update" %>
+<% end %>
+
+
