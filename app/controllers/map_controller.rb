@@ -10,10 +10,6 @@ class MapController < ApplicationController
 
   end
   
-  def show
-   
-  end
-  
   private
   
   def geographic_center(pubs)
