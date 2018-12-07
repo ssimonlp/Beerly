@@ -24,18 +24,7 @@
 <% end %>
 
 
-<h2> Ajouter une bière à ma carte </h2>
-
-<%= form_for @beerlist, url: url_for(controller: 'beer_lists', action: 'create') do |f| %>
-  <%= f.label :beer_id %>
-  <%= f.number_field :beer_id %> </br>
-  <%= f.label :pint_price %>
-  <%= f.number_field :pint_price %> </br>
-  <%= f.label :half_pint_price %>
-  <%= f.number_field :half_pint_price %>
-  <%= f.submit "create" %>
-<% end %>
-
+<%= link_to "Ajouter une bière à ma carte", beers_path %>
 
 <h2> Mon bar </h2>
 
