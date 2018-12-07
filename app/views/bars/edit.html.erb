@@ -2,6 +2,28 @@
 <p>Find me in app/views/bars/edit.html.erb</p>
 
 
+
+<h2> Ma carte </h2>
+
+<p> Pression </p>
+<%= @draft_beers.each do |item| %>
+  <%= Beer.find(item.beer_id).name %>
+  <%= item.pint_price %>
+  <%= item.half_pint_price %>
+<% end %>
+
+<p> Bouteille </p>
+<%= @bottle_beers.each do |item| %>
+  <%= Beer.find(item.beer_id).name %>
+  <%= item.bottle_price %>
+<% end %>
+
+<h2> Ajouter des bières à ma carte </h2>
+
+
+
+<h2> Mon bar </h2>
+
 <%= form_for @bar, url = {action: "update"} do |f| %>
   <%= f.label :nom %>
   <%= f.text_field :name %>
@@ -17,6 +39,3 @@
   <%= f.text_area :description %>
   <%= f.submit "update" %> 
 <% end %>
-
-<%= @beerlist.each do |item| %>
-  <%= Beer.find(item.beer_id) %>
