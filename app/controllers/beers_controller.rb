@@ -5,11 +5,7 @@ class BeersController < ApplicationController
   end
 
   def index
-    if params[:term]
-      @beers = Beer.search(params[:term])
-    else 
-      @beers = nil
-    end 
+    @beers = Beer.search(params[:term])
     @beerlist = BeerList.new 
   end
 

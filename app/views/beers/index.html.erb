@@ -4,13 +4,14 @@
   <%= text_field_tag :term, params[:term] %>
   <%= submit_tag 'Search', name: nil %>
 <% end %>
+</br>
+</br>
 
-<% unless @beers == nil %>
 <% for beer in @beers %>
 <div class='beer'>
     <strong> <%= beer.name %> </strong>
 
-<h2> Ajouter cette bière à ma carte </h2>
+<p> Ajouter cette bière à ma carte </p>
 
 <%= form_for @beerlist, url: url_for(controller: 'beer_lists', action: 'create') do |f| %>
   <%= f.hidden_field :beer_id, :value => beer.id %>
@@ -18,11 +19,11 @@
   <%= f.number_field :pint_price %> </br>
   <%= f.label :half_pint_price %>
   <%= f.number_field :half_pint_price %>
-  <%= f.submit "create" %>
+  <%= f.submit "Ajouter" %>
 <% end %>
+</br>
 </div>
 
-<% end %> 
 
 <% end %>
 

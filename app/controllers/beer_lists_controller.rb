@@ -29,8 +29,6 @@ class BeerListsController < ApplicationController
     redirect_to edit_managers_bar_path(current_manager.bar.id)
   end
 
-  def archive
-  end 
 
   private 
     def beerlist_params
