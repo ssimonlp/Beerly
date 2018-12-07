@@ -1,6 +1,9 @@
 require 'json'
 require 'csv'
 
+
+=begin 
+
 Category.destroy_all
 Style.destroy_all
 Brewery.destroy_all
@@ -42,3 +45,12 @@ parsed_beers.each do |beer|
   Beer.create(beer)
 end
 puts "Seeded beers"
+
+=end 
+
+10.times do 
+  beerlist = BeerList.create!(beer_id:1, bar_id:6, pint_price:5, half_pint_price:2.5)
+  beerlist = BeerList.create!(beer_id:1, bar_id:6, bottle_price:7)
+end 
+
+
