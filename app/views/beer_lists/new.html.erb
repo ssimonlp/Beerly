@@ -1,2 +1,3 @@
-<h1>BeerLists#new</h1>
-<p>Find me in app/views/beer_lists/new.html.erb</p>
+<h1>Ajouter une bière à ma carte</h1>
+<%= render 'beer_lists/form' %>
+<p> <%= link_to "Retour à ma carte", edit_managers_bar_path(current_manager.bar.id) %> </p> 

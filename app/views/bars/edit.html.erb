@@ -5,20 +5,36 @@
 
 <h2> Ma carte </h2>
 
-<p> Pression </p>
-<%= @draft_beers.each do |item| %>
-  <%= Beer.find(item.beer_id).name %>
-  <%= item.pint_price %>
-  <%= item.half_pint_price %>
+<h3> Pression </h3>
+
+<% @draft_beers.each do |item| %>
+  <p> <%= Beer.find(item.beer_id).name %> -
+  Prix pinte:  <%= item.pint_price %>,
+  Prix demi: <%= item.half_pint_price %> </p>
 <% end %>
 
-<p> Bouteille </p>
-<%= @bottle_beers.each do |item| %>
-  <%= Beer.find(item.beer_id).name %>
-  <%= item.bottle_price %>
+<h3> Bouteille </h3>
+<% @bottle_beers.each do |item| %>
+  <p> <%= Beer.find(item.beer_id).name %> - 
+  Prix bouteille: <%= item.bottle_price %> </p>
 <% end %>
 
-<h2> Ajouter des bières à ma carte </h2>
+
+<h2> Ajouter une bière à ma carte </h2>
+
+<%= link_to "Ajouter une bière à ma carte", new_beer_list_path, id: "new_link", remote: true %>
+
+<h2> Mes bières </h2>
+  <div class="beers" id="beers_on_beerlist"
+    <%= render @beers_on_beerlist %>
+  </div>
+<h2> Mes bières archivées </h2>
+  <div class="beers" id="beers_archived"
+    <%= render @beers_archived %>
+  </div>
+
+
+
 
 
 

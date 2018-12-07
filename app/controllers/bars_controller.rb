@@ -28,14 +28,12 @@ class BarsController < ApplicationController
   end
 
   def edit
-    if current_manager.bar.id != params[:id].to_i
-      redirect_to root_path
-    else 
-      @bar = Bar.find(current_manager.bar.id)
-      @draft_beers = @bar.beer_lists.where(bottle_price: nil)
-      @bottle_beers = @bar.beer_lists.where(pint_price: nil)
-      @beers = Beer.where(verified: true) 
-    end  
+    @bar = Bar.find(current_manager.bar.id)
+    @draft_beers = @bar.beer_lists.draft
+    @bottle_beers = @bar.beer_lists.bottle
+    @beers_on_beerlist
+    @beers_archived = BeerList.where(is_archived: true)
+    @beers_on_beerlist = BeerList.where(is_archived: false) 
   end
 
   def destroy
