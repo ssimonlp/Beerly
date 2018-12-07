@@ -69,5 +69,5 @@ gem 'devise'
 # Geocoding util
 gem 'geocoder'
 
-# Generate DB diagram
-
+# Mailer
+gem 'mailjet'
