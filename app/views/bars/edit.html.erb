@@ -10,32 +10,31 @@
 <% @draft_beers.each do |item| %>
   <p> <%= Beer.find(item.beer_id).name %> -
   Prix pinte:  <%= item.pint_price %>,
-  Prix demi: <%= item.half_pint_price %> </p>
+  Prix demi: <%= item.half_pint_price %> -
+  <%= link_to "modifier les prix", edit_beer_list_path(item.id) %> -
+  <%= link_to "supprimer", beer_list_path(item.id), method: :delete, data: {confirm: "Vous êtes sûr?"} %> </p>
 <% end %>
 
 <h3> Bouteille </h3>
 <% @bottle_beers.each do |item| %>
   <p> <%= Beer.find(item.beer_id).name %> - 
-  Prix bouteille: <%= item.bottle_price %> </p>
+  Prix bouteille: <%= item.bottle_price %>  -
+  <%= link_to "modifier le prix", edit_beer_list_path(item.id) %> -
+  <%= link_to "supprimer", beer_list_path(item.id), method: :delete, data: {confirm: "Vous êtes sûr?"} %> </p>
 <% end %>
 
 
 <h2> Ajouter une bière à ma carte </h2>
 
-<%= link_to "Ajouter une bière à ma carte", new_beer_list_path, id: "new_link", remote: true %>
-
-<h2> Mes bières </h2>
-  <div class="beers" id="beers_on_beerlist"
-    <%= render @beers_on_beerlist %>
-  </div>
-<h2> Mes bières archivées </h2>
-  <div class="beers" id="beers_archived"
-    <%= render @beers_archived %>
-  </div>
-
-
-
-
+<%= form_for @beerlist, url: url_for(controller: 'beer_lists', action: 'create') do |f| %>
+  <%= f.label :beer_id %>
+  <%= f.number_field :beer_id %> </br>
+  <%= f.label :pint_price %>
+  <%= f.number_field :pint_price %> </br>
+  <%= f.label :half_pint_price %>
+  <%= f.number_field :half_pint_price %>
+  <%= f.submit "create" %>
+<% end %>
 
 
 <h2> Mon bar </h2>

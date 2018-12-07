@@ -9,31 +9,24 @@ class BeerListsController < ApplicationController
   end
 
   def create
-    @beerlist = BeerList.create!(allowed_params)
-    respond_to do |f|
-      f.html {redirect_to beer_lists_url}
-      f.js
-    end 
+    @beerlist = current_manager.bar.beer_lists.create(beerlist_params)    
+    redirect_to edit_managers_bar_path(current_manager.bar.id)
+  end
+
+  def edit
+    @beerlist = BeerList.find(params[:id]) 
   end
 
   def update
-    @beerlist = BeerList.find(params[:id])
-    @beerlist.update_attributes?(allowed_params)
-
-    respond_to do |f|
-      f.html {redirect to beer_lists_url }
-      f.js
-    end 
+    @beerlist = BeerList.find(params[:id]) 
+    @beerlist.update(beerlist_params)
+    redirect_to edit_managers_bar_path(current_manager.bar.id)
   end
 
   def destroy
     @beerlist = BeerList.find(params[:id])
-    @beerlist.destroy 
-    respond_to do |format|
-      format.html {redirect_to beer_lists_url}
-      format.json {head :no_content}
-      format.js {render :layout => false}
-    end 
+    @beerlist.destroy
+    redirect_to edit_managers_bar_path(current_manager.bar.id)
   end
 
   def archive
@@ -41,6 +34,6 @@ class BeerListsController < ApplicationController
 
   private 
     def beerlist_params
-      params.require(:beerlist).permit(:beer_id, :manager_id, :pint_price, :half_pint_price, :bottle_price)
+      params.require(:beer_list).permit(:beer_id, :pint_price, :half_pint_price, :bottle_price)
     end 
 end

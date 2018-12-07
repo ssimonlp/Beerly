@@ -30,9 +30,7 @@ class BarsController < ApplicationController
     @bar = Bar.find(current_manager.bar.id)
     @draft_beers = @bar.beer_lists.draft
     @bottle_beers = @bar.beer_lists.bottle
-    @beers_on_beerlist
-    @beers_archived = BeerList.where(is_archived: true)
-    @beers_on_beerlist = BeerList.where(is_archived: false) 
+    @beerlist = BeerList.new 
   end
 
   def destroy
