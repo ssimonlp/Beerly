@@ -5,5 +5,5 @@ class Manager < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_one :bar
-  has_one :beer_list, through: :bar 
+  has_many :beer_lists, through: :bar 
 end
