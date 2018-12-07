@@ -1,29 +1,45 @@
-<div class="container">
+<div class="container-fluid" style="height: 100vh; overflow-y: hidden;">
 
-<h1>Log in</h1>
+<div class="row">
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <div class="col-md-5">
+    <div class="container mt-6">
+    <div class="navbar-brand d-flex justify-content-center"><%= link_to image_tag("logo.svg", class: "logo-footer", alt: "logo"), '/' %></div>
+
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+      <div class="field mt-5">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+      </div>
+
+      <div class="field mt-2">
+        <%= f.label :password %><br />
+        <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
+      </div>
+
+      <% if devise_mapping.rememberable? -%>
+        <div class="field mt-3 mb-3">
+          <%= f.check_box :remember_me %>
+          <%= f.label :remember_me %>
+        </div>
+      <% end -%>
+
+      <div class="actions mb-3">
+        <%= f.submit "Se connecter", class: "btn btn-primary mb-2" %>
+      </div>
+    <% end %>
+
+    <%= render "users/shared/links" %>
   </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
-  </div>
+</div>
 
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+  <div class="col-md-7">
+    <div class="container mt-6">
+      
     </div>
-  <% end -%>
-
-  <div class="actions">
-    <%= f.submit "Log in", class:"btn btn-primary mb-2" %>
   </div>
-<% end %>
 
-<%= render "users/shared/links" %>
+</div>
+
 </div>
