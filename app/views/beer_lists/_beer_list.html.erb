@@ -1,0 +1,5 @@
+<%= form_for beer_list, remote: true do |f| %>
+  <%= f.check_box :is_archived %>
+  <%= f.label :is_archived, beer_list.id %>
+  <%= link_to "supprimer", beer_list, method: :delete, data: {confirm: "Vous êtes sûr?"}, remote: true %>
+<% end %>

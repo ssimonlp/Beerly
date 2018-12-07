@@ -1,0 +1,4 @@
+$('#new_beer_list').remove();
+$('#new_link').show();
+$('#beers_on_beerlist').append('<%=j render(@beer_list')%>);
+$('#edit_beer_list_<%= @beer_list.id %>').submitOnCheck();
