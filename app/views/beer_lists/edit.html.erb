@@ -3,9 +3,9 @@
 <%= form_for @beerlist, url = {action: "update"} do |f| %>
   <% if @beerlist.pint_price != nil %>
   <%= f.label :pint_price %>
-  <%= f.number_field :pint_price %> 
+  <%= f.text_field :pint_price %> 
   <%= f.label :half_pint_price %>
-  <%= f.number_field :half_pint_price %>
+  <%= f.text_field :half_pint_price %>
   <%= f.label :bottle_price %>
   <% else %>
   <%= f.number_field :bottle_price %>

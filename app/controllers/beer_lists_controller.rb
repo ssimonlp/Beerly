@@ -15,7 +15,7 @@ class BeerListsController < ApplicationController
   def create
     #EMPëcher de créer l'objet s'ils ont pas mis les prix
     @beerlist = current_manager.bar.beer_lists.create(beerlist_params)    
-    redirect_to edit_managers_bar_path(current_manager.bar.id)
+    redirect_to managers_beer_lists_path
   end
 
   def edit
@@ -25,13 +25,18 @@ class BeerListsController < ApplicationController
   def update
     @beerlist = BeerList.find(params[:id]) 
     @beerlist.update(beerlist_params)
-    redirect_to edit_managers_bar_path(current_manager.bar.id)
+    redirect_to managers_beer_lists_path
   end
 
   def destroy
     @beerlist = BeerList.find(params[:id])
     @beerlist.destroy
-    redirect_to edit_managers_bar_path(current_manager.bar.id)
+
+      respond_to do |format|
+        format.html { redirect_to managers_beer_lists_url }
+        format.json { head :no_content }
+        format.js
+      end
   end
 
 
