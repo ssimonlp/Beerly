@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   
 
-  resources :beer_lists
-  resources :beers, only: [:create, :new, :index]
+  resources :beer_lists, except: [:index]
+  resources :beers, only: [:create, :new]
 
 
   resources :bars, only: [:show]
@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
   resource :managers do 
     resources :bars, only: [:edit, :new] 
+    resources :beer_lists, only: [:index, :edit, :destroy]
+    resources :beers, only: [:index]
   end 
 
   resources :bars, only: [:destroy, :create, :update]

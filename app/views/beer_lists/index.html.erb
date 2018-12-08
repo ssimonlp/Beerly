@@ -1,2 +1,25 @@
-<h1>BeerLists#index</h1>
-<p>Find me in app/views/beer_lists/index.html.erb</p>
+<h2> Ma carte </h2>
+
+<h3> Pression </h3>
+
+<% @draft_beers.each do |item| %>
+  <p> <%= Beer.find(item.beer_id).name %> -
+  Prix pinte:  <%= item.pint_price %>,
+  Prix demi: <%= item.half_pint_price %> -
+  <%= link_to "modifier les prix", edit_managers_beer_list_path(item.id) %> -
+  <%= link_to "supprimer", managers_beer_list_path(item.id), method: :delete, data: {confirm: "Vous êtes sûr?"}, :remote => true, :class => 'delete_beerlist' %></p>
+<% end %>
+
+<h3> Bouteille </h3>
+<% @bottle_beers.each do |item| %>
+  <p> <%= Beer.find(item.beer_id).name %> -
+  Prix bouteille: <%= item.bottle_price %>  -
+  <td> <%= link_to "modifier le prix", edit_managers_beer_list_path(item.id) %> </td> -
+  <td> <%= link_to "supprimer", managers_beer_list_path(item.id), method: :delete, data: {confirm: "Vous êtes sûr?"}, :remote => true, :class => 'delete_beerlist'  %> </td> </p>
+<% end %>
+
+
+<%= link_to "Ajouter une bière à ma carte", managers_beers_path %>
+
+
+<%= render "beers/index", locals: {beers: @beers, beerlist: @beerlist} %>

@@ -5,10 +5,15 @@ class BeerListsController < ApplicationController
   end 
 
   def index
-    @beerlist = BeerList.where(bar_id: current_manager.bar.id)
+    @bar = Bar.find(current_manager.bar.id)
+    @draft_beers = @bar.beer_lists.draft
+    @bottle_beers = @bar.beer_lists.bottle
+    @beers = Beer.search(params[:term])
+    @beerlist = BeerList.new
   end
 
   def create
+    #EMPëcher de créer l'objet s'ils ont pas mis les prix
     @beerlist = current_manager.bar.beer_lists.create(beerlist_params)    
     redirect_to edit_managers_bar_path(current_manager.bar.id)
   end

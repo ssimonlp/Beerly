@@ -1,0 +1,29 @@
+<h1>Cherche ta bière </h1>
+
+<%= form_tag(managers_beer_lists_path, method: :get) do %>
+  <%= text_field_tag :term, params[:term] %>
+  <%= submit_tag 'Search', name: nil %>
+<% end %>
+</br>
+</br>
+
+<% unless @beers == nil %>
+<% for beer in @beers %>
+<div class='beer'>
+    <strong> <%= beer.name %> </strong>
+
+<p> Ajouter cette bière à ma carte </p>
+
+<%= form_for @beerlist, url: url_for(controller: 'beer_lists', action: 'create') do |f| %>
+  <%= f.hidden_field :beer_id, :value => beer.id %>
+  <%= f.label :pint_price %>
+  <%= f.number_field :pint_price %> </br>
+  <%= f.label :half_pint_price %>
+  <%= f.number_field :half_pint_price %>
+  <%= f.submit "Ajouter" %>
+<% end %>
+</br>
+</div>
+<% end %>
+
+<% end %>
