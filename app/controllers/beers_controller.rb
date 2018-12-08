@@ -1,5 +1,7 @@
 class BeersController < ApplicationController
   
+  before_action 
+
   def new
     @beer = Beer.new
   end
