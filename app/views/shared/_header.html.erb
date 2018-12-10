@@ -10,14 +10,11 @@
       <li class="nav-item">
           <%= link_to 'Accueil', '/',  class:"nav-link" %>        
       </li>
-      <li class="nav-item">
-         <%= link_to 'Contact', 'contact', class:"nav-link" %> 
-      </li>
-      <li class="nav-item">
-         <%= link_to 'À propos', 'apropos', class:"nav-link" %> 
-      </li>
 
       <% if user_signed_in? %>
+      <li class="nav-item">
+      <%= link_to 'Ma Wishlist', '#', class:"nav-link" %> 
+      </li> 
       <li class="nav-item">
       <%= link_to 'Se déconnecter', destroy_user_session_path, method: :delete, class:"nav-link" %> 
       </li> 
@@ -31,12 +28,41 @@
       <% end %>
 
       <% if manager_signed_in? && current_manager.bar.id != nil %>
-      <li class="nav-item">
-      <%= link_to 'Mon bar', edit_managers_bar_path(current_manager.bar.id), class:"nav-link" %> 
-      </li>       
-      <li class="nav-item">
-      <%= link_to 'Se déconnecter', destroy_manager_session_path, method: :delete, class:"nav-link" %> 
-      </li> 
+      
+      
+
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Mon bar
+        </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <li class="nav-item">
+              <%= link_to 'Ma fiche bar', bar_path(current_manager.bar.id), class:"nav-link" %> 
+            </li>  
+              <%= link_to 'Modifier les infos', edit_managers_bar_path(current_manager.bar.id), class:"nav-link" %> 
+            </li>    
+            <li class="nav-item">
+              <%= link_to 'Modifier ma carte', managers_beer_lists_path, class:"nav-link" %> 
+            </li>   
+          </div>
+      </div>
+
+
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Mon compte
+        </button>
+          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <li class="nav-item">
+              <%= link_to 'Paramètres', edit_manager_registration_path, class:"nav-link" %> 
+           </li> 
+            <li class="nav-item">
+              <%= link_to 'Se déconnecter', destroy_manager_session_path, method: :delete, class:"nav-link" %> 
+            </li> 
+          </div>
+      </div>
+
+     
       <% end %>
 
       <% if manager_signed_in? && current_manager.bar.id = nil %>
