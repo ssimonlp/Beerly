@@ -28,9 +28,9 @@ Rails.application.routes.draw do
 
   get 'resultpage/index' , to: "resultpage#index"
   get 'contact', to: "contact#index"
-  get 'apropos', to: "apropos#index"
-  get 'mentions-legales', to: "mentionlegale#index"
   root 'home#index'
+
+  get "/static_pages/:page", to: "static_pages#show"
 
   resources :map, only: [:index]
 
