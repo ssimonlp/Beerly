@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :bars, only: [:show]
 
   devise_for :managers, path: 'managers', controllers: {
-    sessions: 'managers/sessions', registrations: 'managers/registrations'
+    sessions: 'managers/sessions', registrations: 'managers/registrations', confirmations: 'managers/confirmations' 
   }
 
   resource :managers do 
