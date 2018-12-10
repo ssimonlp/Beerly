@@ -1,17 +1,66 @@
 name;image_url;description;abv;ibu;category_id;style_id;brewery_id
-La Chouffe;https://brewerydb-images.s3.amazonaws.com/beer/LTLdF5/upload_kreIEw-large.png;La Chouffe is an unfiltered blonde beer, which is re-fermented in the bottle as well as in the keg.;8;35;5;63;1734
-Carlsberg;https://brewerydb-images.s3.amazonaws.com/beer/z7LxGT/upload_lG4XWj-large.png;Carlsberg is a very successful beer brand, originating from Denmark, and is very popular in many different countries across the globe, espcially the U.K. There are also many stores called Carlsberg which sell Carlsberg, other beer brands, newspapers, magazines and confectionary. Carlsberg beers comes in cans and bottles.;5;35;7;75;2613
-Stella;https://brewerydb-images.s3.amazonaws.com/brewery/MbF7xe/upload_COI0wP-squareLarge.png;Stella is the most famous brand of beer in Egypt. It has been manufactured in Egypt since the 19th century and so many Egyptian, and actually many experienced travelers, prefer it to any other kind of beer. One will not find a single bar in Egypt that doesn't sell Stella or even have the Stella logo on the bar or shop. Stella can even be found in many bars in Europe;4.5;14;8;93;325
-Hoegaarden;https://brewerydb-images.s3.amazonaws.com/beer/wfsyxi/upload_knliYV-large.png;Hoegaarden is the authentic Belgian wheat or white beer. It has a unique and extremely complex brewing process whereby the brand is first top fermented and then is refermented within the bottle - ending up in a unique cloudy-white appearance. The brand's unique appearance is mirrored by its one-of-a-kind taste - sweet and sour beer with a little bitterness, slightly spicy, with a strong touch of coriander and a hint of orange, perfect for warm summer days, instead of other refreshing beverages. Refreshing, a little quirky, and decidedly different - naturally.;4.9;13;5;65;2293
-Grimbergen Tripel;https://brewerydb-images.s3.amazonaws.com/beer/NZ4OXv/upload_HE2Y1k-large.png;Ochre coloured top fermented Abbey Beer with an abv of 6.7%. The use of Gatinais barley combined with carefully selected hops creates a perfectly balanced, relatively light tasting beer with a fruity malty taste.;6.7;25;5;62;2253
-Bavaria;https://brewerydb-images.s3.amazonaws.com/beer/YWidsQ/upload_owuTkr-large.png;In this wheat beer we use our unique wheat beer yeast. This yeast is good for a fresh and easy drinking beer with moderate flavors from spice and citrus, a tasty thirst quencher;4.5;13;4;48;2556
-Asahi Super Dry;https://brewerydb-images.s3.amazonaws.com/beer/sP5x0O/upload_eEGf4S-large.png;Fresh, crisp and clear - with a sharp delivery that slakes thirst before slipping gently on.;5;19;10;107;602
-Brahma light;https://brewerydb-images.s3.amazonaws.com/beer/LhLP7o/upload_xaacCR-large.png;American amber\/red ales range from light copper to light brown in color. They are characterized by American-variety hops used to produce the perception of medium hop bitterness, flavor, and medium aroma. Amber ales have medium-high to high maltiness with medium to low caramel character. They should have medium to medium-high body. The style may have low levels of fruityester flavor and aroma. Diacetyl can be either absent or barely perceived at very low levels. Chill haze is allowable at cold temperatures. Slight yeast haze is acceptable for bottle-conditioned products.;5;35;3;32;3066
-Coors Lite;https://brewerydb-images.s3.amazonaws.com/beer/XcvLTe/upload_Kk2S5t-large.png;"Coors Light, the World's Most Refreshing Beer, is the second best-selling beer in the U.S. Coors Light's unique frost-brewing process locks in a taste as cold as the Rockies. It has been a  favorite in delivering the ultimate in cold refreshment ever since it launched in 1978. The simple, silver can caught people's attention and the brew was nicknamed the \""Silver Bullet\"" as sales climbed. Coors Light is constantly bringing innovation to its bottles and cans, with recent features including the Cold Activated Bottle, Super Cold Draft, the Vented Wide Mouth Can with Frost Brew Liner, the Cold Activated Can and Two-Stage Cold Activation bottles and cans.";4.2;7;8;94;3104
-Corona extra;https://brewerydb-images.s3.amazonaws.com/beer/ujPz4L/upload_caVtLx-large.png;Corona Extra is the number-one selling beer in Mexico and the leading export brand from Mexico. This pilsener type beer was first brewed in 1925 by Cervecer\u00eda Modelo, located in Mexico City.;4.6;19;8;97;4827
-Budweiser;https://brewerydb-images.s3.amazonaws.com/beer/1P45iR/upload_Y13vwL-large.png;Known as \u201cThe King of Beers\u201d, Budweiser was first introduced by Adolphus Busch in 1876 and is brewed with the same high quality standards today. Budweiser is a medium-bodied, flavorful, crisp American-style lager, craft brewed with a blend of premium hop varieties, and associated with the core American values of celebration and optimism.;5;9;8;93;806
-Bud Light;https://brewerydb-images.s3.amazonaws.com/beer/dimtrs/upload_794WgV-large.png;Introduced nationally in 1982, Bud Light is brewed using a blend of domestic and imported hops as well as a combination of barley malts and rice.  It contains more malt and hops by ratio of ingredients than Budweiser, which gives the brew a distinctively clean and crisp taste;4.2;10;8;94;4827
-Stella Artois;https://brewerydb-images.s3.amazonaws.com/beer/Jc7iGI/upload_NmrNPh-large.png;Stella Artois was first brewed as a Christmas beer in leuven. It was named Stella from the star of Christmas, and Artois after Sebastian Artois, founder of the brewery. It's brewed to perfection using the original Stella Artois yeast and the celebrated Saaz hops. It's the optimum premium lager, with it's full flavour and clean crisp taste.;5.2;25;10;106;2255
-Guinness;https://brewerydb-images.s3.amazonaws.com/beer/qbeSzR/upload_D3X7dJ-large.png;Guinness Blonde is the first fusion beer beer in the new Guinness Discovery Series combining the best European brewing techniques with the finest American hops in a collaboration between the Guinness Master Brewers in Dublin and their US Master Brewer counterparts at the famous Latrobe Brewery in Pennsylvania.\r\n\r\nThe result is a crisp, light, but flavorful beer characteristic of the 1930's American Pale Lager style with just a little 'more' hoppy and citrus characteristics and a unique biscuit malt taste that begs to be experienced.;5;21;8;93;4841
-Westmalle Trappist Tripel;https://brewerydb-images.s3.amazonaws.com/beer/yuxw75/upload_C6JM2G-large.png;Was first brewed in 1934 and the recipe has not changed since 1956. It is made with pale candy sugar and has a very pale color produced from a mash of light pilsener malts. Styrian Goldings hops are used along with some German varieties and the classic Saaz pilsener hop. After a long secondary fermentation, the Tripel Westmalle is bottled with a dose of sugar and yeast. This beer holds up well in the bottle over time and seems to soften with age;10 %;;5;59;2252
-Duvel;https://brewerydb-images.s3.amazonaws.com/beer/c8VKLu/upload_mPvjPh-large.png;Duvel is a natural beer with a subtle bitterness, a refined flavour and a distinctive hop character. The unique brewing process, which takes about 90 days, guarantees a pure character, delicate effervescence and a pleasant sweet taste of alcohol.;9 %;33;5;59;7266
+La Chouffe;https://brewerydb-images.s3.amazonaws.com/beer/LTLdF5/upload_kreIEw-medium.png;La Chouffe is an unfiltered blonde beer, which is re-fermented in the bottle as well as in the keg.;8;35;5;63;1734
+Carlsberg;https://brewerydb-images.s3.amazonaws.com/beer/z7LxGT/upload_lG4XWj-medium.png;Carlsberg is a very successful beer brand, originating from Denmark, and is very popular in many different countries across the globe, espcially the U.K. There are also many stores called Carlsberg which sell Carlsberg, other beer brands, newspapers, magazines and confectionary. Carlsberg beers comes in cans and bottles.;5;35;7;75;2613
+Stella Artois;https://brewerydb-images.s3.amazonaws.com/beer/Jc7iGI/upload_NmrNPh-medium.png;Stella Artois was first brewed as a Christmas beer in leuven. It was named Stella from the star of Christmas, and Artois after Sebastian Artois, founder of the brewery. It's brewed to perfection using the original Stella Artois yeast and the celebrated Saaz hops. It's the optimum premium lager, with it's full flavour and clean crisp taste.;5.2;25;10;106;2255
+Hoegaarden;https://brewerydb-images.s3.amazonaws.com/beer/wfsyxi/upload_knliYV-medium.png;Hoegaarden is the authentic Belgian wheat or white beer. It has a unique and extremely complex brewing process whereby the brand is first top fermented and then is refermented within the bottle - ending up in a unique cloudy-white appearance. The brand's unique appearance is mirrored by its one-of-a-kind taste - sweet and sour beer with a little bitterness, slightly spicy, with a strong touch of coriander and a hint of orange, perfect for warm summer days, instead of other refreshing beverages. Refreshing, a little quirky, and decidedly different - naturally.;4.9;13;5;65;2293
+Grimbergen Tripel;https://brewerydb-images.s3.amazonaws.com/beer/NZ4OXv/upload_HE2Y1k-medium.png;Ochre coloured top fermented Abbey Beer with an abv of 6.7%. The use of Gatinais barley combined with carefully selected hops creates a perfectly balanced, relatively light tasting beer with a fruity malty taste.;9;25;5;59;2253
+Bavaria;https://brewerydb-images.s3.amazonaws.com/beer/YWidsQ/upload_owuTkr-medium.png;In this wheat beer we use our unique wheat beer yeast. This yeast is good for a fresh and easy drinking beer with moderate flavors from spice and citrus, a tasty thirst quencher;4.5;13;4;48;4869
+Asahi Super Dry;https://brewerydb-images.s3.amazonaws.com/beer/sP5x0O/upload_eEGf4S-medium.png;Fresh, crisp and clear - with a sharp delivery that slakes thirst before slipping gently on.;5;19;10;107;602
+Brahma light;https://brewerydb-images.s3.amazonaws.com/beer/LhLP7o/upload_xaacCR-medium.png;American amber\/red ales range from light copper to light brown in color. They are characterized by American-variety hops used to produce the perception of medium hop bitterness, flavor, and medium aroma. Amber ales have medium-high to high maltiness with medium to low caramel character. They should have medium to medium-high body. The style may have low levels of fruityester flavor and aroma. Diacetyl can be either absent or barely perceived at very low levels. Chill haze is allowable at cold temperatures. Slight yeast haze is acceptable for bottle-conditioned products.;4;35;3;32;3066
+Coors Lite;https://brewerydb-images.s3.amazonaws.com/beer/XcvLTe/upload_Kk2S5t-medium.png;"Coors Light, the World's Most Refreshing Beer, is the second best-selling beer in the U.S. Coors Light's unique frost-brewing process locks in a taste as cold as the Rockies. It has been a  favorite in delivering the ultimate in cold refreshment ever since it launched in 1978. The simple, silver can caught people's attention and the brew was nicknamed the \""Silver Bullet\"" as sales climbed. Coors Light is constantly bringing innovation to its bottles and cans, with recent features including the Cold Activated Bottle, Super Cold Draft, the Vented Wide Mouth Can with Frost Brew Liner, the Cold Activated Can and Two-Stage Cold Activation bottles and cans.";4.2;7;8;94;3104
+Corona extra;https://brewerydb-images.s3.amazonaws.com/beer/ujPz4L/upload_caVtLx-medium.png;Corona Extra is the number-one selling beer in Mexico and the leading export brand from Mexico. This pilsener type beer was first brewed in 1925 by Cervecer\u00eda Modelo, located in Mexico City.;4.6;19;8;97;4827
+Budweiser;https://brewerydb-images.s3.amazonaws.com/beer/1P45iR/upload_Y13vwL-medium.png;Known as “The King of Beers”, Budweiser was first introduced by Adolphus Busch in 1876 and is brewed with the same high quality standards today. Budweiser is a medium-bodied, flavorful, crisp American-style lager, craft brewed with a blend of premium hop varieties, and associated with the core American values of celebration and optimism.;5;9;8;93;502
+Bud Light;https://brewerydb-images.s3.amazonaws.com/beer/dimtrs/upload_794WgV-medium.png;Introduced nationally in 1982, Bud Light is brewed using a blend of domestic and imported hops as well as a combination of barley malts and rice.  It contains more malt and hops by ratio of ingredients than Budweiser, which gives the brew a distinctively clean and crisp taste;4.2;10;8;94;502
+Guinness Draught;https://brewerydb-images.s3.amazonaws.com/beer/qbeSzR/upload_D3X7dJ-medium.png;Swirling clouds tumble as the storm begins to calm, settle, breathe in the moment, then break through the smooth, light head to the bittersweet reward. Unmistakably GUINNESS® beer, stout, or draught , from the first velvet sip to the last, lingering drop. And every deep-dark satisfying mouthful in between. Pure beauty. Pure GUINNESS®.;4.3;50;2;23;4841
+Westmalle Trappist Tripel;https://brewerydb-images.s3.amazonaws.com/beer/yuxw75/upload_C6JM2G-medium.png;Was first brewed in 1934 and the recipe has not changed since 1956. It is made with pale candy sugar and has a very pale color produced from a mash of light pilsener malts. Styrian Goldings hops are used along with some German varieties and the classic Saaz pilsener hop. After a long secondary fermentation, the Tripel Westmalle is bottled with a dose of sugar and yeast. This beer holds up well in the bottle over time and seems to soften with age;9.5;32;5;59;2252
+Duvel;https://brewerydb-images.s3.amazonaws.com/beer/c8VKLu/upload_mPvjPh-medium.png;Duvel is a natural beer with a subtle bitterness, a refined flavour and a distinctive hop character. The unique brewing process, which takes about 90 days, guarantees a pure character, delicate effervescence and a pleasant sweet taste of alcohol.;8.5;32;5;59;3274
+Heineken;;;;;;;
+Kronembourg;;;;;;;
+Leffe;;;;;;;
+1664;;;;;;;
+Desperados;;;;;;;
+Pelforth;;;;;;;
+Grimbergen;;;;;;;
+33 Export;;;;;;;
+Bavaria 8.6;;;;;;;
+Brahma;;;;;;;
+Miller Lite;;;;;;;
+Coors Lite;;;;;;;
+Skol;;;;;;;
+Corona extra;;;;;;;
+Bud Light;;;;;;;
+Snow Beer;;;;;;;
+Belhaven;;;;;;;
+Chimay blanche;;;;;;;
+Chimay bleue;;;;;;;
+Westmalle tripel;;;;;;;
+Duvel;;;;;;;
+Hapkin;;;;;;;
+Corsendonk;;;;;;;
+Triple Karmeliet ;;;;;;;
+Brunehaute;;;;;;;
+Gueuze Boon;;;;;;;
+Orval;;;;;;;
+Faro;;;;;;;
+Kwak;;;;;;;
+Rochefort trappiste 8;;;;;;;
+Kasteel brune;;;;;;;
+Delirium tremens;;;;;;;
+Bush ambrée;;;;;;;
+Gouden Carolus;;;;;;;
+Rodenbach Grand Cru;;;;;;;
+Gulden Draak;;;;;;;
+Troubadour Westkust;;;;;;;
+St Feuillien Triple;;;;;;;
+Apocalypse Now;;;;;;;
+Agent provocateur;;;;;;;
+Cognac Barrel;;;;;;;
+Mongy Triple;;;;;;;
+3Ter;;;;;;;
+Cuvée des Jonquilles;;;;;;;
+Rhub’IPA;;;;;;;
+Anosteké Blonde;;;;;;;
+Red Fox;;;;;;;
+Hopscure;;;;;;;
+La Rousse;;;;;;;
+Amiral Benson – Nelson Sauvin;;;;;;;
