@@ -3,15 +3,17 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-.home {
-	height: 70vh;
-}
 
 #home{
-	color: #fff;
+	color: #000;
 	height: 70vh;
 	background-color: transparent !important;
-	
+
+}
+
+.text-light{
+	color: #fff !important;
+	opacity: 1;
 }
 
 .card {
@@ -76,8 +78,19 @@ button:focus {
 	
 }
 
-
-
 #weekbar > .overlay {
 	padding: 40px 20px;
 }
+
+.btn-primary:not(:disabled):not(.disabled).active:focus, .btn-primary:not(:disabled):not(.disabled):active:focus, .show>.btn-primary.dropdown-toggle:focus{
+	box-shadow: none;
+}
+
+.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle{
+	background-color: #E53828;
+	border: none;
+}
+
+
+
+
