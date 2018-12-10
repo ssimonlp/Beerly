@@ -109,4 +109,7 @@ p {
 	line-height: 1.7;
 }
 
-
+.fade:not(.show)
+{
+    opacity: 1;
+}
