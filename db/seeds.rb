@@ -20,7 +20,7 @@ puts "Parsed styles"
 breweries = JSON.parse(File.read('db/breweries.json'))
 puts "Parsed breweries"
 
-beers = File.read('db/beer.csv')
+beers = File.read('db/beers.csv')
 parsed_beers = CSV.parse(beers, quote_char: "|", col_sep: ';', headers: true).map(&:to_h)
 puts "Parsed beers"
 
