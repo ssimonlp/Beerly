@@ -1,6 +1,9 @@
-<h2> Ma carte </h2>
+<div class="container mt-3">
 
-<h3> Pression </h3>
+<h2> Ma carte </h2>
+<div class="row">
+<div class="col-lg-6">
+<h4 class="mt-3"> Pression</h4>
 
 <% @draft_beers.sort { |a,b| Beer.find(a.beer_id).name <=> Beer.find(b.beer_id).name }.each do |item| %>
   <tr> 
@@ -12,8 +15,9 @@
     <td><%= link_to "archiver", archive_managers_beer_list_path(item.id), method: :archive, data: {confirm: "Vous êtes sûr?"} %></td>
   </tr></br>
 <% end %>
-
-<h3> Bouteille </h3>
+</div>
+<div class="col-lg-6">
+<h4 class="mt-3">Bouteille</h4>
 <% @bottle_beers.sort { |a,b| Beer.find(a.beer_id).name <=> Beer.find(b.beer_id).name }.each do |item| %>
   <tr> 
     <td><%= Beer.find(item.beer_id).name %> -</td>
@@ -23,12 +27,13 @@
     <td><%= link_to "archiver", archive_managers_beer_list_path(item.id), method: :archive, data: {confirm: "Vous êtes sûr?"} %></td>
   </tr></br>
 <% end %>
-</br>
-</br>
+</div>
+</div>
+
 
 <%= render "beers/index", locals: {beers: @beers, beerlist: @beerlist} %>
 
-<h3>Mes bières archivées</h3>
+<h3 class="mt-3 mb-3">Mes bières archivées</h3>
 
 <% @archived_beers.sort { |a,b| Beer.find(a.beer_id).name <=> Beer.find(b.beer_id).name }.each do |item| %>
   <tr> 
@@ -40,3 +45,5 @@
   </tr></br>
 <% end %>
 </br>
+
+</div>

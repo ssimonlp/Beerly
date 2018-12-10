@@ -1,50 +1,21 @@
 <div class="container mt-5">
-<h2>Mon bar</h2>
+<h2 class="mb-3"><%= @bar.name %></h2>
   <div class="row">
     <div class="col-lg-8 col-sm-12">
       <h4 class="mt-3">Adresse</h4>
-      <p> 150 Rue de la rue, 75020 Paris</p>
+      <p> <%= @bar.address %></p>
       <h4 class="mt-3">Descritpion</h4>
-      <p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500.</p> 
+      <p><%= @bar.description %></p> 
     </div>
     <div class="col-lg-4 col-sm-12">
         <h4>Horaires</h4>
-          <li>Lundi :</li>
-          <li>Mardi :</li>
-          <li>Mercredi :</li>
-          <li>Jeudi :</li>
-          <li>Vendredi :</li>
-          <li>Samedi :</li>
-          <li>Dimanche :</li>
+          <p><%= @bar.opening_time %></p>
         <h4 class="mt-2">Happy hours</h4>
-          <li>8h - 20h</li>
+          <p><%= @bar.happy_hours %></p>
     </div>
   </div>
 </div>
-
 <div class="container mt-4">
-  <h2 class="mb-3">La carte du bar</h2>
-  <div class="row">
-    <div class="col-lg-6 col-sm-12 mt-4">
-        <h4>Bières pression</h4>
-          <li>biere</li>
-          <li>biere</li>
-          <li>biere</li>
-          <li>biere</li>
-    </div>
-    <div class="col-lg-6 col-sm-12 mt-4">
-        <h4>Bières bouteille</h4>
-          <li>biere</li>
-          <li>biere</li>
-          <li>biere</li>
-          <li>biere</li>  
-    </div>
-  </div>
-
-</div>
-<div class="container mt-4">
-
-<h2> Mon bar </h2>
 
 <%= form_for @bar, url = {action: "update"} do |f| %>
   <%= f.label :nom %>
@@ -63,3 +34,10 @@
 <% end %>
 
 </div>
+
+<div class="container mt-4">
+  <%= link_to "Editer ma carte", managers_beer_lists_path, class:"btn btn-primary text-light" %>
+
+
+</div>
+

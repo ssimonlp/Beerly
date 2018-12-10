@@ -11,17 +11,17 @@
 
   <div class="row">
     <div class="col-sm-3 col-md-3 col-lg-3">
-      <% @pubs.each do |pub| %>
+      <% @bars.each do |bar| %>
       <div class="card mb-2">
         <%= image_tag("lager.jpg", class: "card-img-top", alt: "beer") %>
         <div class="card-body">
           <h5>
-            <%= pub.name %>
+            <%= bar.name %>
           </h5>
           <p>
-            <%= pub.address %>
+            <%= bar.address %>
           </p>
-          <button class="btn btn-sm btn-primary">Voir le bar</button>
+          
         </div>
       </div>
       <% end %>
@@ -47,18 +47,18 @@
       styles: data
     });
     var latLong = [];
-    <% @pubs.each do |pub| %>
+    <% @bars.each do |bar| %>
     map.addMarker({
-      lat: <%= pub.latitude %>,
-      lng: <%= pub.longitude %>,
+      lat: <%= bar.latitude %>,
+      lng: <%= bar.longitude %>,
       title: 'Lima',
       icon: '/img/beer32.png',
       infoWindow: {
-        content: "<%= pub.name %>"
+        content: "<%= bar.name %>"
       }
     });
-    latLong.push({lat: <%= pub.latitude %>,
-      lng: <%= pub.longitude %>});
+    latLong.push({lat: <%= bar.latitude %>,
+      lng: <%= bar.longitude %>});
     <% end %>
     map.fitLatLngBounds(latLong);
   };
