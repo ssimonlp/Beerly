@@ -1,7 +1,7 @@
 <div class="jumbotron jumbotron-fluid" id="showbar">
 	<div class="container">
-	    <h1 class="pb-3">Nom du bar</h1>
-	    <h4 class="pb-3">Adresse</h4>
+	    <h1 class="pb-3"><%= @bar.name %></h1>
+	    <h4 class="pb-3"><%= @bar.address %></h4>
 		<button class="btn btn-primary mt-2" href="#menu">Voir le menu</button>
 	</div>
 </div>
@@ -9,22 +9,13 @@
 <div class="container">
 	<div class="row">
 		<div class="col-lg-8 col-sm-12">
-			<h4>Adresse</h4>
-			<p> 150 Rue de la rue, 75020 Paris</p>
-			<h4>Descritpion</h4>
-			<p>Le Lorem Ipsum est simplement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500.</p>	
+			<p><%= @bar.description %></p>	
 		</div>
 		<div class="col-lg-4 col-sm-12">
 				<h4>Horaires</h4>
-					<li>Lundi :</li>
-					<li>Mardi :</li>
-					<li>Mercredi :</li>
-					<li>Jeudi :</li>
-					<li>Vendredi :</li>
-					<li>Samedi :</li>
-					<li>Dimanche :</li>
+					<p><%= @bar.opening_time %></p>
 				<h4 class="mt-2">Happy hours</h4>
-					<li>8h - 20h</li>
+					<p><%= @bar.happy_hours %></p>
 		</div>
 	</div>
 </div>
@@ -32,20 +23,31 @@
 <div class="container mt-4">
 	<h2 class="mb-3" id="menu">Le menu du bar</h2>
 	<div class="row">
+
 		<div class="col-lg-6 col-sm-12 mt-4">
-				<h4>Bières pression</h4>
-					<li>biere</li>
-					<li>biere</li>
-					<li>biere</li>
-					<li>biere</li>
+				<h4 class="mb-3">Bières pression</h4>
+					<% @draft_beers.sort { |a,b| Beer.find(a.beer_id).name <=> Beer.find(b.beer_id).name }.each do |item| %>
+					  <tr>
+					    <td><strong><%= Beer.find(item.beer_id).name %> -</strong></td>
+					    <td><strong><%= Beer.find(item.beer_id).style.name %> </strong></td><br/>
+					    <td>Prix pinte:  <%= item.pint_price %>€,</td>
+					    <td>Prix demi: <%= item.half_pint_price %>€ / </td>
+					    <td><%= Beer.find(item.beer_id).abv %> °</td>
+					  </tr></br></br>
+					<% end %>
+					
 		</div>
 		<div class="col-lg-6 col-sm-12 mt-4">
-				<h4>Bières bouteille</h4>
-					<li>biere</li>
-					<li>biere</li>
-					<li>biere</li>
-					<li>biere</li>	
+				<h4 class="mb-3">Bières bouteille</h4>
+					<% @bottle_beers.sort { |a,b| Beer.find(a.beer_id).name <=> Beer.find(b.beer_id).name }.each do |item| %>
+					  <tr> 
+					    <td><%= Beer.find(item.beer_id).name %> -</td>
+					    <td>Prix bouteille: <%= item.bottle_price %>€ </td>
+					  </tr></br></br>
+					<% end %>
+						
 		</div>
+		
 	</div>
 </div>
 

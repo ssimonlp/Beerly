@@ -9,6 +9,8 @@ class BarsController < ApplicationController
 
   def show
     @bar = Bar.find(params[:id])
+    @draft_beers = @bar.beer_lists.draft.up
+    @bottle_beers = @bar.beer_lists.bottle.up
   end
 
   def new
