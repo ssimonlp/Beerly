@@ -27,9 +27,7 @@
       </li>
       <% end %>
 
-      <% if manager_signed_in? && current_manager.bar.id != nil %>
-      
-      
+      <% if manager_signed_in? %>
 
       <div class="dropdown">
         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -65,14 +63,6 @@
      
       <% end %>
 
-      <% if manager_signed_in? && current_manager.bar.id = nil %>
-      <li class="nav-item">
-      <%= link_to 'Mon bar', new_managers_bar_path(current_manager.bar.id), class:"nav-link" %> 
-      </li>       
-      <li class="nav-item">
-      <%= link_to 'Se déconnecter', destroy_manager_session_path, method: :delete, class:"nav-link" %> 
-      </li> 
-      <% end %>
       
     </ul>
   </div>
