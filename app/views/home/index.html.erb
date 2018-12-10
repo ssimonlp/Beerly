@@ -1,28 +1,15 @@
 <div class="jumbotron jumbotron-fluid" id="home">
   <div class="container">
-    <h1 class="mt-5 mb-3 text-dark">La bière que tu veux, à côté de chez toi.</h1>
+    <h1 class="mt-5 mb-3 text-dark text-center">La bière que tu veux, à côté de chez toi.</h1>
     
     <div class="row justify-content-center mt-5">
-        <div class="col-12 col-md-10 col-lg-8">
-            <form class="card search card-sm" style="border: none;">
-                <div class="card-body row no-gutters align-items-center">
-                    <!--end of col-->
-                    <div class="col">
-                        <input class="form-control form-control-lg form-control-borderless" type="search" placeholder="Quelle bière veux tu déguster aujourd'hui ?">
-                    </div>
-                    <div class="col-auto">
-
-                        
-                        <button id="search" class="fas fa-search" type="submit"></button>
-                    </div>
-                    <!--end of col-->
-                </div>
-            </form>
+        <div class="col-12 col-md-6 col-lg-6">
+                <%= form_tag map_index_path, method: :get do %>
+                <%= text_field_tag 'term', params[:term], placeholder: "Quelle bière veux tu déguster aujourd'hui?", class:"form-control form-control-lg form-control-borderless" %>
+                <%= submit_tag 'Rechercher', class:"btn btn-primary" %>
+                <% end %>
         </div>
-        <%= form_tag map_index_path, method: :get do %>
-        <%= text_field_tag 'term', params[:term], placeholder: "Chercher une bière" %>
-        <%= submit_tag 'Search!' %>
-        <% end %>
+
         <!--end of col-->
     </div>
   </div>
@@ -99,10 +86,10 @@
 <div class="container-fluid mb-5">
   <div class="container">
   <h4 class="mb-5">Vous avez un bar ?</h4>
-  <p>Rejoignez Beerly pour augmenter votre visibilité et attirer de nouveaux clients</p>
-  <button class="btn bg-dark">
-  <%= link_to 'Publiez votre carte', new_manager_registration_path, class: "text-white" %>
-  </button>
+  <h6>Rejoignez Beerly pour augmenter votre visibilité et attirer de nouveaux clients</h6>
+  
+  <%= link_to 'Publier votre carte', new_manager_registration_path, class:"btn btn-primary text-light mt-4" %>
+
   </div>
   
 </div>

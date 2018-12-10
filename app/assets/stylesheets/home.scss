@@ -3,15 +3,17 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-.home {
-	height: 70vh;
-}
 
 #home{
-	color: #fff;
+	color: #000;
 	height: 70vh;
 	background-color: transparent !important;
-	
+
+}
+
+.text-light{
+	color: #fff !important;
+	opacity: 1;
 }
 
 .card {
@@ -55,6 +57,7 @@ button:focus {
 }
 
 #search{
+	color: #000;
     background-color: transparent;
 	border: none;
 	font-size: 1.5em;
@@ -72,14 +75,22 @@ button:focus {
 #search:hover {
 	color: #02CCB8;
 	cursor: pointer;
-	font-size: 1.6em;
 	
 }
 
-#weekbar {
-	height: 30vh;
+#weekbar > .overlay {
+	padding: 40px 20px;
 }
 
-#weekbar > .overlay {
-	padding: 60px 20px;
+.btn-primary:not(:disabled):not(.disabled).active:focus, .btn-primary:not(:disabled):not(.disabled):active:focus, .show>.btn-primary.dropdown-toggle:focus{
+	box-shadow: none;
 }
+
+.btn-primary:not(:disabled):not(.disabled).active, .btn-primary:not(:disabled):not(.disabled):active, .show>.btn-primary.dropdown-toggle{
+	background-color: #E53828;
+	border: none;
+}
+
+
+
+

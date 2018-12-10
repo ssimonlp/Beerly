@@ -16,6 +16,7 @@
  *= require_tree .
  *= require_self
  */
+ 
  @import url('https://fonts.googleapis.com/css?family=Montserrat:400,500');
  @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
@@ -29,10 +30,11 @@ body{
 	background-color: #ffffff;
 	margin: 0;
 	padding: 0;
-	background-image : url("background.png"); 
-	background-position: fixed;
-    background-repeat: no-repeat;
-    background-size: cover;
+	background: #ECE9E6;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
 }
 
 h1 {
@@ -72,9 +74,9 @@ a:hover {
 
 
 header {
-	-webkit-box-shadow: 0px 7px 19px 0px rgba(0,0,0,0.20);
-	-moz-box-shadow: 0px 7px 19px 0px rgba(0,0,0,0.20);
-	box-shadow: 0px 7px 19px 0px rgba(0,0,0,0.20);
+	-webkit-box-shadow: 0px 7px 19px 0px rgba(0,0,0,0.04);
+	-moz-box-shadow: 0px 7px 19px 0px rgba(0,0,0,0.04);
+	box-shadow: 0px 7px 19px 0px rgba(0,0,0,0.04);
 	
 }
 
@@ -89,7 +91,7 @@ header {
 }
 
 .logo {
-	height: 3em;
+	height: 3.5em;
 	transition: 0.3s;
 	opacity: 0.9;
 }
