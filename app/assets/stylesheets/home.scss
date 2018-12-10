@@ -3,15 +3,17 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-.home {
-	height: 70vh;
-}
 
 #home{
-	color: #fff;
+	color: #000;
 	height: 70vh;
 	background-color: transparent !important;
-	
+
+}
+
+.text-light{
+	color: #fff !important;
+	opacity: 1;
 }
 
 .card {
