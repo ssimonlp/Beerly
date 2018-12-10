@@ -1,2 +1,42 @@
-<h1>BeerLists#index</h1>
-<p>Find me in app/views/beer_lists/index.html.erb</p>
+<h2> Ma carte </h2>
+
+<h3> Pression </h3>
+
+<% @draft_beers.sort { |a,b| Beer.find(a.beer_id).name <=> Beer.find(b.beer_id).name }.each do |item| %>
+  <tr> 
+    <td><%= Beer.find(item.beer_id).name %> -</td>
+    <td>Prix pinte:  <%= item.pint_price %>,</td>
+    <td>Prix demi: <%= item.half_pint_price %> -</td>
+    <td><%= link_to "modifier les prix", edit_managers_beer_list_path(item.id) %> -</td>
+    <td><%= link_to "supprimer", managers_beer_list_path(item.id), method: :delete, data: {confirm: "Vous êtes sûr?"} %></td>
+    <td><%= link_to "archiver", archive_managers_beer_list_path(item.id), method: :archive, data: {confirm: "Vous êtes sûr?"} %></td>
+  </tr></br>
+<% end %>
+
+<h3> Bouteille </h3>
+<% @bottle_beers.sort { |a,b| Beer.find(a.beer_id).name <=> Beer.find(b.beer_id).name }.each do |item| %>
+  <tr> 
+    <td><%= Beer.find(item.beer_id).name %> -</td>
+    <td>Prix bouteille: <%= item.bottle_price %>  -</td>
+    <td> <%= link_to "modifier le prix", edit_managers_beer_list_path(item.id) %> </td> -
+    <td> <%= link_to "supprimer", managers_beer_list_path(item.id), method: :delete, data: {confirm: "Vous êtes sûr?"}  %> </td> 
+    <td><%= link_to "archiver", archive_managers_beer_list_path(item.id), method: :archive, data: {confirm: "Vous êtes sûr?"} %></td>
+  </tr></br>
+<% end %>
+</br>
+</br>
+
+<%= render "beers/index", locals: {beers: @beers, beerlist: @beerlist} %>
+
+<h3>Mes bières archivées</h3>
+
+<% @archived_beers.sort { |a,b| Beer.find(a.beer_id).name <=> Beer.find(b.beer_id).name }.each do |item| %>
+  <tr> 
+    <td><%= Beer.find(item.beer_id).name %> -</td>
+    <td>Prix bouteille: <%= item.bottle_price %>  -</td>
+    <td> <%= link_to "modifier le prix", edit_managers_beer_list_path(item.id) %> </td> -
+    <td> <%= link_to "supprimer", managers_beer_list_path(item.id), method: :delete, data: {confirm: "Vous êtes sûr?"}  %> </td> 
+    <td><%= link_to "Rajouter à ma carte", archive_managers_beer_list_path(item.id), method: :archive, data: {confirm: "Vous êtes sûr?"} %></td>
+  </tr></br>
+<% end %>
+</br>

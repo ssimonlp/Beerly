@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
   
+  resources :beers, only: [:create, :new]
 
-  resources :beer_lists
-  resources :beers, only: [:create, :new, :index]
+  resources :beer_lists, only: [:update]
 
+  patch '/managers/beer_lists/:id/archive', to: "beer_lists#archive", as: 'archive_managers_beer_list'
+  post '/managers/beer_lists/:id/archive', to: "beer_lists#archive"
 
   resources :bars, only: [:show]
 
@@ -13,6 +15,8 @@ Rails.application.routes.draw do
 
   resource :managers do 
     resources :bars, only: [:edit, :new] 
+    resources :beer_lists, only: [:index, :destroy, :create, :edit]
+    resources :beers, only: [:index]
   end 
 
   resources :bars, only: [:destroy, :create, :update]

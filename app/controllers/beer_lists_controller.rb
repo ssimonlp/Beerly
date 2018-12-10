@@ -5,12 +5,21 @@ class BeerListsController < ApplicationController
   end 
 
   def index
-    @beerlist = BeerList.where(bar_id: current_manager.bar.id)
+    @bar = Bar.find(current_manager.bar.id)
+    @draft_beers = @bar.beer_lists.draft.up
+    @bottle_beers = @bar.beer_lists.bottle.up
+    @beers = Beer.search(params[:term])
+    @beerlist = BeerList.new
+    @archived_beers = @bar.beer_lists.archived
   end
 
   def create
-    @beerlist = current_manager.bar.beer_lists.create(beerlist_params)    
-    redirect_to edit_managers_bar_path(current_manager.bar.id)
+    if (params[:beer_list][:pint_price] != nil) && (params[:beer_list][:half_pint_price] != nil) || (params[:beer_list][:bottle_price] != nil)
+      @beerlist = current_manager.bar.beer_lists.create(beerlist_params)    
+      redirect_to managers_beer_lists_path
+    else 
+      flash.alert = "Remplissez correctement les prix!"
+    end 
   end
 
   def edit
@@ -20,15 +29,25 @@ class BeerListsController < ApplicationController
   def update
     @beerlist = BeerList.find(params[:id]) 
     @beerlist.update(beerlist_params)
-    redirect_to edit_managers_bar_path(current_manager.bar.id)
+    redirect_to managers_beer_lists_path
   end
 
   def destroy
     @beerlist = BeerList.find(params[:id])
     @beerlist.destroy
-    redirect_to edit_managers_bar_path(current_manager.bar.id)
+    redirect_to managers_beer_lists_path
   end
 
+  def archive
+    @beerlist = BeerList.find(params[:id]) 
+    if @beerlist.is_archived?
+      @beerlist.update_attributes(is_archived: false)
+      redirect_to managers_beer_lists_path
+    else
+      @beerlist.update_attributes(is_archived: true)
+      redirect_to managers_beer_lists_path
+    end 
+  end 
 
   private 
     def beerlist_params

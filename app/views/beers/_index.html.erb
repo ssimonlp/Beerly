@@ -1,0 +1,50 @@
+<h1>Ajouter une bière à la carte </h1>
+
+<h4>Nom de la bière</h4>
+<%= form_tag(managers_beer_lists_path, method: :get) do %>
+  <%= text_field_tag :term, params[:term] %>
+  <%= submit_tag 'Search', name: nil %>
+<% end %>
+</br>
+</br>
+
+<% unless @beers == nil %>
+
+<% for beer in @beers %>
+<div class='beer'>
+    <strong> <%= beer.name %> </strong>
+
+<p> Ajouter cette bière à ma carte </p>
+
+<!-- List group -->
+<div class="list-group" id="myList" role="tablist">
+  <a class="list-group-item list-group-item-action active" data-toggle="list" href="#draft" role="tab">Pression</a>
+  <a class="list-group-item list-group-item-action" data-toggle="list" href="#bottle" role="tab">Bouteille</a>
+</div>
+
+<!-- Tab panes -->
+<div class="tab-content">
+  <div class="tab-pane active" id="draft" role="tabpanel">
+  <%= form_for @beerlist, url: url_for(controller: 'beer_lists', action: 'create') do |f| %>
+    <%= f.hidden_field :beer_id, :value => beer.id %>
+    <%= f.label :Prix_pinte %>
+    <%= f.number_field :pint_price %> </br>
+    <%= f.label :Prix_demi %>
+    <%= f.number_field :half_pint_price %>
+    <%= f.submit "Ajouter" %>
+  <% end %>
+  </div>
+  <div class="tab-pane" id="bottle" role="tabpanel">
+  <%= form_for @beerlist, url: url_for(controller: 'beer_lists', action: 'create') do |f| %>
+    <%= f.hidden_field :beer_id, :value => beer.id %>
+    <%= f.label :Prix_bouteille %>
+    <%= f.number_field :bottle_price %> </br>
+    <%= f.submit "Ajouter" %>
+  <% end %>
+  </div>
+</div>
+</br>
+</div>
+<% end %>
+
+<% end %>
