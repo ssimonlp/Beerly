@@ -14,9 +14,12 @@ class BeerListsController < ApplicationController
   end
 
   def create
-    #EMPëcher de créer l'objet s'ils ont pas mis les prix
-    @beerlist = current_manager.bar.beer_lists.create(beerlist_params)    
-    redirect_to managers_beer_lists_path
+    if (params[:beer_list][:pint_price] != nil) && (params[:beer_list][:half_pint_price] != nil) || (params[:beer_list][:bottle_price] != nil)
+      @beerlist = current_manager.bar.beer_lists.create(beerlist_params)    
+      redirect_to managers_beer_lists_path
+    else 
+      flash.alert = "Remplissez correctement les prix!"
+    end 
   end
 
   def edit
