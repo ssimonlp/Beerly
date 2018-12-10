@@ -14,11 +14,11 @@ class BeerListsController < ApplicationController
   end
 
   def create
-    if (params[:beer_list][:pint_price] != nil) && (params[:beer_list][:half_pint_price] != nil) || (params[:beer_list][:bottle_price] != nil)
+    if (!(params[:beer_list][:pint_price].blank?) && !(params[:beer_list][:half_pint_price].blank?)) || !(params[:beer_list][:bottle_price].blank?)
       @beerlist = current_manager.bar.beer_lists.create(beerlist_params)    
       redirect_to managers_beer_lists_path
     else 
-      flash.alert = "Remplissez correctement les prix!"
+      redirect_to managers_beer_lists_path, alert: "Les prix ne peuvent pas être nuls"
     end 
   end
 

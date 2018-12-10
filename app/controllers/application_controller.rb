@@ -1,5 +1,7 @@
 class ApplicationController < ActionController::Base
-	layout :layout_by_resource
+  add_flash_types :success, :warning, :danger, :info
+
+  layout :layout_by_resource
 
 	  private
 
