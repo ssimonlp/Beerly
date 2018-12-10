@@ -83,15 +83,18 @@
   
 </div>
 
-<div class="container-fluid mb-5">
-  <div class="container">
-  <h4 class="mb-5">Vous avez un bar ?</h4>
-  <h6>Rejoignez Beerly pour augmenter votre visibilité et attirer de nouveaux clients</h6>
+<% unless user_signed_in? %>
+
+  <div class="container-fluid mb-5">
+    <div class="container">
+    <h4 class="mb-5">Vous avez un bar ?</h4>
+    <h6>Rejoignez Beerly pour augmenter votre visibilité et attirer de nouveaux clients</h6>
   
-  <%= link_to 'Publier votre carte', new_manager_registration_path, class:"btn btn-primary text-light mt-4" %>
+    <%= link_to 'Publier votre carte', new_manager_registration_path, class:"btn btn-primary text-light mt-4" %>
 
   </div>
-  
+<% end %>  
+
 </div>
 
 
