@@ -31,12 +31,7 @@ class BeerListsController < ApplicationController
   def destroy
     @beerlist = BeerList.find(params[:id])
     @beerlist.destroy
-
-      respond_to do |format|
-        format.html { redirect_to managers_beer_lists_url }
-        format.json { head :no_content }
-        format.js
-      end
+    redirect_to managers_beer_lists_path
   end
 
 
