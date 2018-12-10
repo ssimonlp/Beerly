@@ -1,4 +1,4 @@
-<h2>Modier les informations de mon compte</h2>
+<h2>Edit <%= resource_name.to_s.humanize %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
@@ -13,8 +13,8 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :mot_de_passe %> <i>(Ne pas remplir si vous ne voulez pas changer de mot de passe)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%= f.label :password %> <i>(laissez blanc si vous ne voulez pas changer de mot de passe)</i><br />
+    <%= f.password_field :mot_de_passe, autocomplete: "new-password" %>
     <% if @minimum_password_length %>
       <br />
       <em><%= @minimum_password_length %> caractères minimum</em>
@@ -27,7 +27,7 @@
   </div>
 
   <div class="field">
-    <%= f.label :mot_de_passe_actuel %> <i>(il nous faut votre mot de passe actuel pour confirmer les changements)</i><br />
+    <%= f.label :mot_de_passe_actuel %> <i>(il nous faut votre mot de passe)</i><br />
     <%= f.password_field :current_password, autocomplete: "current-password" %>
   </div>
 
@@ -40,4 +40,4 @@
 
 <p>Pas satisfait? <%= button_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Êtes-vous sûr?" }, method: :delete %></p>
 
-<%= link_to "Retour en arrière", :back %>
+<%= link_to "Back", :back %>
