@@ -25,7 +25,7 @@ breweries = JSON.parse(File.read('db/breweries.json'))
 puts "Parsed breweries"
 
 beers = File.read('db/beers.csv')
-parsed_beers = CSV.parse(beers, quote_char: "|", col_sep: ';', headers: true).map(&:to_h)
+parsed_beers = CSV.parse(beers, quote_char: '"', col_sep: ',', encoding: 'iso-8859-1', headers: true).map(&:to_h)
 puts "Parsed beers"
 
 categories["data"].each do |category|
