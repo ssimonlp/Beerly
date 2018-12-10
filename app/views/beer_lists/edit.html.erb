@@ -1,4 +1,4 @@
-<h1>Modifier le prix de ma bière</h1>
+<h1>Modifier le prix de <%=Beer.find(@beerlist.beer_id).name%></h1>
 
 <%= form_for @beerlist, url = {action: "update"} do |f| %>
   <% if @beerlist.pint_price != nil %>
@@ -13,4 +13,4 @@
   <%= f.submit "update" %>
 <% end %>
 
-
+<%= link_to "Retour à ma carte", managers_beer_lists_path %>

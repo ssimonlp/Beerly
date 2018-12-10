@@ -6,10 +6,11 @@ class BeerListsController < ApplicationController
 
   def index
     @bar = Bar.find(current_manager.bar.id)
-    @draft_beers = @bar.beer_lists.draft
-    @bottle_beers = @bar.beer_lists.bottle
+    @draft_beers = @bar.beer_lists.draft.up
+    @bottle_beers = @bar.beer_lists.bottle.up
     @beers = Beer.search(params[:term])
     @beerlist = BeerList.new
+    @archived_beers = @bar.beer_lists.archived
   end
 
   def create
@@ -34,6 +35,16 @@ class BeerListsController < ApplicationController
     redirect_to managers_beer_lists_path
   end
 
+  def archive
+    @beerlist = BeerList.find(params[:id]) 
+    if @beerlist.is_archived?
+      @beerlist.update_attributes(is_archived: false)
+      redirect_to managers_beer_lists_path
+    else
+      @beerlist.update_attributes(is_archived: true)
+      redirect_to managers_beer_lists_path
+    end 
+  end 
 
   private 
     def beerlist_params

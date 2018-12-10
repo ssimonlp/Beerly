@@ -4,6 +4,9 @@ Rails.application.routes.draw do
 
   resources :beer_lists, only: [:update]
 
+  patch '/managers/beer_lists/:id/archive', to: "beer_lists#archive", as: 'archive_managers_beer_list'
+  post '/managers/beer_lists/:id/archive', to: "beer_lists#archive"
+
   resources :bars, only: [:show]
 
   devise_for :managers, path: 'managers', controllers: {
