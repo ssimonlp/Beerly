@@ -27,14 +27,10 @@
 }
 
 body{
-	background-color: #ffffff;
+	background-image: linear-gradient(to right, #00110F 0%, #000 100%);
 	margin: 0;
 	padding: 0;
-	background: #ECE9E6;  /* fallback for old browsers */
-	background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
-	background: linear-gradient(to right, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-
+	color: #fff;
 }
 
 h1 {
@@ -43,6 +39,10 @@ h1 {
 
 h1, h2, h3, h4, h5, h6 {
 	font-family: 'Montserrat', sans-serif;
+}
+
+h6 {
+	line-height: 2em;
 }
 
 a{
@@ -59,7 +59,7 @@ a{
 
 	font-family: 'Montserrat', sans-serif;
 	font-weight: 500;
-	color: #000 !important;
+	color: #fff !important;
 	opacity: 0.8;
 }
 
