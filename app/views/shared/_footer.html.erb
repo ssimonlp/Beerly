@@ -21,54 +21,45 @@
 
         <hr class="clearfix w-100 d-md-none pb-3">
 
-        <!-- Grid column -->
-        <div class="col-md-3 mb-md-0 mb-3">
-
-            <!-- Links -->
-            <h5 class="text-uppercase text-dark">Links</h5>
-
-            <ul class="list-unstyled text-dark">
-              <li>
-                <a href="#!" class="nav-item">Link 1</a>
-              </li>
-              <li>
-                <a href="#!" class="nav-item">Link 2</a>
-              </li>
-              <li>
-                <a href="#!" class="nav-item">Link 3</a>
-              </li>
-              <li>
-                <a href="#!" class="nav-item">Link 4</a>
-              </li>
-            </ul>
-
-          </div>
-          <!-- Grid column -->
-
           <!-- Grid column -->
           <div class="col-md-3 mb-md-0 mb-3 text-dark">
 
             <!-- Links -->
-            <h5 class="text-uppercase">Links</h5>
+            <h5 class="text-light pb-3">Découvrez-nous</h5>
 
             <ul class="list-unstyled">
               <li>
-                  <%= link_to 'Accueil', '/',  class:"nav-item"%>  
-              </li>
+                <%= link_to 'À propos', '/static_pages/about', class:"nav-item" %> 
+             </li>
               <li>
                 <%= link_to 'Contact', 'contact', class:"nav-item" %> 
               </li>
               <li>
-                  <%= link_to 'À propos', 'apropos', class:"nav-item" %> 
-              </li>
-              <li>
-                <%= link_to 'Mentions Légales', 'mentions-legales', class:"nav-item" %> 
+                <%= link_to 'Mentions Légales', '/static_pages/legal_notice', class:"nav-item" %> 
               </li>
             </ul>
 
           </div>
-          <!-- Grid column -->
 
+        <% unless user_signed_in? || manager_signed_in? %>
+        <!-- Grid column -->
+        <div class="col-md-3 mb-md-0 mb-3">
+
+            <!-- Links -->
+            <h5 class="text-light pb-3">Espace pro</h5>
+
+            <ul class="list-unstyled text-light">
+              <li>
+                <%= link_to 'Connectez-vous', new_manager_session_path , class:"nav-item" %> 
+              </li>
+              <li>
+                <%= link_to 'Nous rejoindre', new_manager_registration_path, class:"nav-item" %> 
+              </li>
+            </ul>
+
+          </div>
+          <% end %>
+          
       </div>
       <!-- Grid row -->
 

@@ -3,25 +3,18 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 #connect-user{
-	background-color: #ccc;
-	height: 100vh;
+	margin-top: 20vh;
 }
 
 #connect-manager{
-	background-color: #000;
-	height: 100vh;
-}
-
-.form-control{
-	border: none;
-	border-bottom: 2px solid #666;
+	margin-top: 20vh;
 }
 
 input[type="button" i], input[type="submit" i], input[type="reset" i], input[type="file" i]::-webkit-file-upload-button, button {
 	padding: .8rem 2rem;
 	border-radius: .1rem;
-	background-color: #000;
+	background-color: #F6972E;
 	border: none;
-	color: #fff;
+	color: #000;
 }
 
