@@ -11,14 +11,21 @@
                 <%= submit_tag 'Rechercher', class:"btn btn-primary text-light" %>
                 <% end %>
         </div>
-
         <!--end of col-->
     </div>
 
   </div>
 </div>
 
+<%= form_tag autocomplete_index_path, method: :get do %>
+ <%= text_field_tag 'term', nil, class:"my_form"%>
+  <%= submit_tag "bouton", class: "my_button" %>
+<% end %>
+<ul id="searchResult"></ul>
+<div class="container mt-5 mb-5">
+  
 <div class="container mt-5 mb-7">
+
 
   <h4 class="mb-6">Explorer les différents type de bières</h4>
 
