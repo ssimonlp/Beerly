@@ -58,7 +58,7 @@ class BeerListsController < ApplicationController
     end 
 
     def manager_can_only_edit_their_beerlists 
-      if current_manager.bar.id !=  BeerList.find(params[:id]).manager.id
+      unless current_manager.bar.id =  BeerList.find(params[:id].to_i).manager.id
         redirect_to managers_beer_lists_path, alert: "Vous ne pouvez pas modifier cette bière"
       end 
     end 
