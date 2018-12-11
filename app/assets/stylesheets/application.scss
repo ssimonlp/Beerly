@@ -27,7 +27,7 @@
 }
 
 body{
-	background-image: linear-gradient(to right, #00110F 0%, #000 100%);
+	background-color: #021110;
 	margin: 0;
 	padding: 0;
 	color: #fff;
@@ -39,6 +39,7 @@ h1 {
 
 h1, h2, h3, h4, h5, h6 {
 	font-family: 'Montserrat', sans-serif;
+	letter-spacing: 1px;
 }
 
 h6 {
@@ -72,6 +73,14 @@ a:hover {
 	margin-top: 100px !important;
 }
 
+.mb-6 {
+	margin-bottom: 70px !important;
+}
+
+.mb-7 {
+	margin-bottom: 120px !important;
+}
+
 
 header {
 	-webkit-box-shadow: 0px 7px 19px 0px rgba(0,0,0,0.04);
@@ -85,13 +94,18 @@ header {
     border: none;
 }
 
+.dropdown-menu {
+	background-color: #021110;
+}
+
 .navbar-expand-lg .navbar-nav .nav-link{
 	padding-right: .7rem;
     padding-left: .7rem;
+    color: #fff !important;
 }
 
 .logo {
-	height: 3.5em;
+	height: 4em;
 	transition: 0.3s;
 	opacity: 0.9;
 }
