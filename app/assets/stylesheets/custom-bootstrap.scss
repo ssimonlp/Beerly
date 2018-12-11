@@ -60,3 +60,17 @@ button:focus {
 .nav-link {
 	color: #000 !important;
 }
+
+.close {
+    float: right;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1;
+    color: #F6972E;
+    text-shadow: none !important;
+    opacity: 0.7 !important;
+}
+
+.close:hover {
+	opacity: 1 !important;
+}
