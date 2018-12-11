@@ -5,7 +5,7 @@
 <div class="row">
   <div class="col-lg-6 col-sm-12">
 
-<h2 class="mb-5 mt-5">Se connecter</h2>
+<h2 class="mb-5 mt-5">Connexion utilisateur</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field mt-3">
@@ -14,7 +14,7 @@
   </div>
 
   <div class="field mt-3">
-    <%= f.label :password %><br />
+    <%= f.label :mot_de_passe %><br />
     <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
   </div>
 
