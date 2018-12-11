@@ -12,19 +12,19 @@
             <th scope="col">Bière</th>
             <th scope="col">Prix pinte</th>
             <th scope="col">Prix demi</th>
-            <th scope="col"></th>
+            <th scope="col">Gestion</th>
           </tr>
         </thead>
         <tbody>
           <% @draft_beers.sort { |a,b| Beer.find(a.beer_id).name <=> Beer.find(b.beer_id).name }.each do |item| %>
             <tr> 
               <td><%= Beer.find(item.beer_id).name %></td>
-              <td><%= item.pint_price %></td>
-              <td><%= item.half_pint_price %></td>
+              <td><%= item.pint_price %> €</td>
+              <td><%= item.half_pint_price %> €</td>
               <td>
-                <%= link_to "modifier les prix", edit_managers_beer_list_path(item.id), type:"button", class:"btn btn-secondary" %>
-                <%= link_to "supprimer", managers_beer_list_path(item.id), method: :delete, data: {confirm: "Vous êtes sûr?"}, type:"button", class:"btn btn-danger" %>
-                <%= link_to "archiver", archive_managers_beer_list_path(item.id), method: :archive, data: {confirm: "Vous êtes sûr?"}, type:"button", class:"btn btn-warning" %>
+                <%= link_to "modifier les prix", edit_managers_beer_list_path(item.id)%></br>
+                <%= link_to "archiver", archive_managers_beer_list_path(item.id), method: :archive, data: {confirm: "Vous êtes sûr?"}%></br>
+                <%= link_to "supprimer", managers_beer_list_path(item.id), method: :delete, data: {confirm: "Vous êtes sûr?"}%></br>
               </td>
             </tr>
             <% end %>
@@ -39,18 +39,18 @@
           <tr>
             <th scope="col">Bière</th>
             <th scope="col">Prix bouteille</th>
-            <th scope="col"></th>
+            <th scope="col">Gestion</th>
           </tr>
         </thead>
         <tbody>
           <% @bottle_beers.sort { |a,b| Beer.find(a.beer_id).name <=> Beer.find(b.beer_id).name }.each do |item| %>
             <tr> 
               <td><%= Beer.find(item.beer_id).name %></td>
-              <td><%= item.bottle_price %></td>
+              <td><%= item.bottle_price %> €</td>
               <td>
-                <%= button_to "modifier le prix", edit_managers_beer_list_path(item.id), type:"button", class:"btn btn-secondary" %>
-                <%= button_to "supprimer", managers_beer_list_path(item.id), method: :delete, data: {confirm: "Vous êtes sûr?"}, type:"button", class:"btn btn-danger" %>
-                <%= button_to "archiver", archive_managers_beer_list_path(item.id), method: :archive, data: {confirm: "Vous êtes sûr?"}, type:"button", class:"btn btn-warning" %>
+                <%= link_to "modifier le prix", edit_managers_beer_list_path(item.id) %></br>
+                <%= link_to "archiver", archive_managers_beer_list_path(item.id), method: :archive, data: {confirm: "Vous êtes sûr?"} %></br>
+                <%= link_to "supprimer", managers_beer_list_path(item.id), method: :delete, data: {confirm: "Vous êtes sûr?"} %></br>
               </td>
             </tr>
           <% end %>
@@ -75,19 +75,19 @@
                 <th scope="col">Bière</th>
                 <th scope="col">Prix pinte</th>
                 <th scope="col">Prix demi</th>
-                <th scope="col"></th>
+                <th scope="col">Gestion</th>
               </tr>
             </thead>
             <tbody>
               <% @draft_archived_beers.sort { |a,b| Beer.find(a.beer_id).name <=> Beer.find(b.beer_id).name }.each do |item| %>
                 <tr> 
                   <td><%= Beer.find(item.beer_id).name %></td>
-                  <td><%= item.pint_price %></td>
-                  <td><%= item.half_pint_price %></td>
+                  <td><%= item.pint_price %> €</td>
+                  <td><%= item.half_pint_price %> €</td>
                   <td>
-                    <%= button_to "modifier les prix", edit_managers_beer_list_path(item.id), type:"button", class:"btn btn-secondary" %>
-                    <%= button_to "supprimer", managers_beer_list_path(item.id), method: :delete, data: {confirm: "Vous êtes sûr?"}, type:"button", class:"btn btn-danger" %>
-                    <%= button_to "rajouter à la carte", archive_managers_beer_list_path(item.id), method: :archive, data: {confirm: "Vous êtes sûr?"}, type:"button", class:"btn btn-warning" %>
+                    <%= link_to "modifier les prix", edit_managers_beer_list_path(item.id) %></br>
+                    <%= link_to "rajouter à la carte", archive_managers_beer_list_path(item.id), method: :archive, data: {confirm: "Vous êtes sûr?"} %></br>
+                    <%= link_to "supprimer", managers_beer_list_path(item.id), method: :delete, data: {confirm: "Vous êtes sûr?"} %></br>
                   </td>
                 </tr>
               <% end %>
@@ -102,18 +102,18 @@
           <tr>
             <th scope="col">Bière</th>
             <th scope="col">Prix bouteille</th>
-            <th scope="col"></th>
+            <th scope="col">Gestion</th>
           </tr>
         </thead>
         <tbody>
           <% @bottle_archived_beers.sort { |a,b| Beer.find(a.beer_id).name <=> Beer.find(b.beer_id).name }.each do |item| %>
             <tr> 
               <td><%= Beer.find(item.beer_id).name %></td>
-              <td><%= item.bottle_price %></td>
+              <td><%= item.bottle_price %> €</td>
               <td>
-                <%= button_to "modifier le prix", edit_managers_beer_list_path(item.id), type:"button", class:"btn btn-secondary" %>
-                <%= button_to "supprimer", managers_beer_list_path(item.id), method: :delete, data: {confirm: "Vous êtes sûr?"}, type:"button", class:"btn btn-danger" %>
-                <%= button_to "rajouter à la carte", archive_managers_beer_list_path(item.id), method: :archive, data: {confirm: "Vous êtes sûr?"}, type:"button", class:"btn btn-warning" %>
+                <%= link_to "modifier le prix", edit_managers_beer_list_path(item.id) %></br>
+                <%= link_to "rajouter à la carte", archive_managers_beer_list_path(item.id), method: :archive, data: {confirm: "Vous êtes sûr?"}%></br>
+                <%= link_to "supprimer", managers_beer_list_path(item.id), method: :delete, data: {confirm: "Vous êtes sûr?"} %></br>
               </td>
             </tr>
           <% end %>
