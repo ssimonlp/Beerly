@@ -2,10 +2,19 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+#result-beers {
+	overflow: hidden;
+}
+
 #map {
     width: 100%;
-    height: 82vh;
+    height: 80vh;
     border-radius: 3px;
+}
+
+#result-card{
+	overflow-y: scroll;
 }
 
 #map-flow {

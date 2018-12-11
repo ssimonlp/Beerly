@@ -1,11 +1,14 @@
 .btn {
-	padding: .8rem 2rem;
+	padding: .7rem 2rem;
 	border-radius: .1rem;
+}
+
+.btn-primary {
 	background-color: #F6972E;
 	border: none;
 }
 
-.btn:hover {
+.btn-primary:hover {
 	background-color: #FCBE22;
 }
 
@@ -73,4 +76,10 @@ button:focus {
 
 .close:hover {
 	opacity: 1 !important;
+	color: #FCBE22 !important;
+}
+
+.table-dark {
+    color: #fff;
+    background-color: #021110 !important;
 }
