@@ -1,17 +1,13 @@
 require 'json'
 require 'csv'
 
-
-begin 
-
+Bar.destroy_all
+Manager.destroy_all
 Category.destroy_all
 Style.destroy_all
 Brewery.destroy_all
 BeerList.destroy_all
 Beer.destroy_all
-Manager.destroy_all
-Bar.destroy_all
-
 
 puts "Loading files..."
 
@@ -24,9 +20,12 @@ puts "Parsed styles"
 breweries = JSON.parse(File.read('db/breweries.json'))
 puts "Parsed breweries"
 
-beers = File.read('db/beers.csv')
-parsed_beers = CSV.parse(beers, quote_char: '"', col_sep: ',', encoding: 'iso-8859-1', headers: true).map(&:to_h)
+parsed_beers = CSV.foreach('db/beers.csv', headers: true).map(&:to_h)
 puts "Parsed beers"
+
+parsed_bars = CSV.foreach('db/bars.csv', headers: true).map(&:to_h)
+p parsed_bars
+puts "Parsed bars"
 
 categories["data"].each do |category|
   Category.create(name: category["name"])
@@ -46,22 +45,26 @@ end
 puts "Seeded breweries"
 
 parsed_beers.each do |beer|
-  Beer.create(beer)
+  a = Beer.new(beer)
+  a.save(validate: false)
 end
-puts "Seeded beers"
+puts "Seeded beers" 
 
-end 
+parsed_bars.count.times do |i|
+  Manager.create!(email: "manager#{i}@gmail.com", password: "123456", password_confirmation: "123456")
+end
+puts "Seeded managers"
 
+parsed_bars.each_with_index do |bar, i|
+  Bar.create!(manager_id: i + 1, name: bar['name'], address: bar['address'], description: bar['description'], photo: bar['photo'])
+end
+puts "Seeded bars"
 
-Manager.create!(email: "juliette@gmail.com", password: "123456", password_confirmation: "123456")
-puts "Created one manager"
-
-Bar.create!(manager_id:1, name:"Le Grand BégueT", address:"3 villa condorcet",description:"Yola notre bar il est trop cool",photo:"La plus belle des photos")
-puts "Created their bar"
-
-10.times do 
-  beerlist = BeerList.create!(beer_id:1, bar_id:1, pint_price:5, half_pint_price:2.5)
-  beerlist = BeerList.create!(beer_id:1, bar_id:1, bottle_price:7)
+parsed_bars.count.times do |i|
+  (rand(10) + 1).times do
+    BeerList.create!(beer_id: rand(Beer.count) + 1, bar_id: i + 1, pint_price: rand(7) + 1, half_pint_price: rand(2) + 1)
+    BeerList.create!(beer_id: rand(Beer.count) + 1, bar_id: i + 1, bottle_price: rand(10) + 1)
+  end
 end 
 
 puts "Populated their beerlists"
