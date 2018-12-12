@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   
-  resources :beers, only: [:create, :new]
+  resources :beers, only: [:create, :new, :index]
 
   resources :beer_lists, only: [:update]
 
@@ -16,7 +16,6 @@ Rails.application.routes.draw do
   resource :managers do 
     resources :bars, only: [:edit, :new] 
     resources :beer_lists, only: [:index, :destroy, :create, :edit]
-    resources :beers, only: [:index]
   end 
 
   resources :bars, only: [:destroy, :create, :update]
@@ -26,6 +25,7 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
 
+  resources :autocomplete, only: [:index], format: "json"
   get 'resultpage/index' , to: "resultpage#index"
   get 'contact', to: "contact#index"
   root 'home#index'

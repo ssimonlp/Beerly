@@ -1,24 +1,15 @@
 .btn {
-	padding: .7rem 1.8rem;
+	padding: .7rem 2rem;
 	border-radius: .1rem;
 }
 
 .btn-primary {
-	background-color: #05c46b;
+	background-color: #F6972E;
 	border: none;
 }
 
 .btn-primary:hover {
-	background-color: #0be881;
-}
-
-.btn-secondary {
-	background-color: #ff5e57;
-	border: none;
-}
-
-.btn-secondary:hover {
-	background-color: #ff3f34;
+	background-color: #FCBE22;
 }
 
 .navbar-light .navbar-toggler-icon{
@@ -31,7 +22,7 @@
 }
 
 .form-control{
-	font-size: 1.1em;
+	border: none;
 	background-color: transparent;
 	border-bottom: 2px solid #d2dae2;
 	color: #fff !important;
@@ -54,7 +45,7 @@
 }
 
 .form-control:focus {
-	color: #fff;
+	color: #495057;
     background-color: transparent;
     border-bottom: 2px solid #05c46b;
     outline: 0;
@@ -92,35 +83,5 @@ button:focus {
 
 .table-dark {
     color: #fff;
-    background-color: #1e272e !important;
-}
-
-.btn-outline-light {
-    color: #f8f9fa;
-    background-color: transparent;
-    background-image: none;
-    border-color: #05c46b;
-}
-
-.btn-outline-light:hover {
-    color: #f8f9fa;
-    background-color: transparent;
-    background-image: none;
-    border-color: #0be881;
-}
-
-.btn-outline-light:not(:disabled):not(.disabled).active:focus, .btn-outline-light:not(:disabled):not(.disabled):active:focus, .show>.btn-outline-light.dropdown-toggle:focus {
-	box-shadow: none;
-}
-
-.btn-outline-light:not(:disabled):not(.disabled).active, .btn-outline-light:not(:disabled):not(.disabled):active, .show>.btn-outline-light.dropdown-toggle {
-    color: #0be881;
-    background-color: #1e272e;
-    border-color: #0be881;
-}
-
-.btn-primary:hover {
-    color: #fff;
-    background-color: #0be881;
-    border-color: #0be881;
+    background-color: #021110 !important;
 }
