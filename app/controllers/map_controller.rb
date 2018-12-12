@@ -1,4 +1,7 @@
 class MapController < ApplicationController
+
+  layout "devise"
+
   def index
      if params[:term]
       @bars = Bar.search_by_beer(params[:term])

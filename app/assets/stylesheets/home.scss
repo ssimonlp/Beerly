@@ -2,62 +2,19 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-
-
 #home{
-	color: #000;
+	color: #fff;
 	height: 70vh;
 	background-color: transparent !important;
 
-}
-
-.text-light{
-	color: #fff !important;
-	opacity: 1;
 }
 
 .card {
 	background-color: transparent;
 }
 
-.form-control {
-	border: none;
-	background-color: transparent;
-}
-
-.form-control-lg {
-	border-bottom: 2px solid #000;
-	-webkit-transition: all 500ms cubic-bezier(0.230, 1.000, 0.320, 1.000); 
-	   -moz-transition: all 500ms cubic-bezier(0.230, 1.000, 0.320, 1.000); 
-	     -o-transition: all 500ms cubic-bezier(0.230, 1.000, 0.320, 1.000); 
-	        transition: all 500ms cubic-bezier(0.230, 1.000, 0.320, 1.000); /* easeOutQuint */
-
-	-webkit-transition-timing-function: cubic-bezier(0.230, 1.000, 0.320, 1.000); 
-	   -moz-transition-timing-function: cubic-bezier(0.230, 1.000, 0.320, 1.000); 
-	     -o-transition-timing-function: cubic-bezier(0.230, 1.000, 0.320, 1.000); 
-	        transition-timing-function: cubic-bezier(0.230, 1.000, 0.320, 1.000); /* easeOutQuint */
-}
-
-.form-control:focus {
-	color: #495057;
-    background-color: transparent;
-    border-bottom: 2px solid #02CCB8;
-    outline: 0;
-   	box-shadow: none;
-}
-
-button:focus {
-	outline: 0;
-   	box-shadow: none;	
-}
-
-.btn:focus {
-	outline: 0;
-   	box-shadow: none;
-}
-
 #search{
-	color: #000;
+	color: #fff;
     background-color: transparent;
 	border: none;
 	font-size: 1.5em;

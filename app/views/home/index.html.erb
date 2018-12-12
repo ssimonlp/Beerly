@@ -1,23 +1,26 @@
 <div class="jumbotron jumbotron-fluid" id="home">
-  <div class="container">
-    <h1 class="mt-5 mb-3 text-dark text-center">La bière que tu veux, à côté de chez toi.</h1>
+  <div class="container justify-content-center">
+    <h1 class="mt-5 mb-3 text-light">La bière que tu veux, à côté de chez toi.</h1>
     
-    <div class="row justify-content-center mt-5">
-        <div class="col-12 col-md-6 col-lg-6">
+    <div class="row no-gutters pt-5">
+        <div class="col-5 col-md-5 col-lg-5">
                 <%= form_tag map_index_path, method: :get do %>
                 <%= text_field_tag 'term', params[:term], placeholder: "Quelle bière veux tu déguster aujourd'hui?", class:"form-control form-control-lg form-control-borderless" %>
-                <%= submit_tag 'Rechercher', class:"btn btn-primary" %>
+        </div>
+        <div class="col-7 col-md-7 col-lg-7">
+                <%= submit_tag 'Rechercher', class:"btn btn-primary text-light" %>
                 <% end %>
         </div>
 
         <!--end of col-->
     </div>
+
   </div>
 </div>
 
-<div class="container mt-5 mb-5">
+<div class="container mt-5 mb-7">
 
-  <h4 class="mb-5">Explorer les différents type de bières</h4>
+  <h4 class="mb-6">Explorer les différents type de bières</h4>
 
   <div class="row">
 
@@ -63,8 +66,8 @@
 
 </div>
 
-<div class="container mb-5">
-  <h4 class="mb-5">Le bar de la semaine</h4>
+<div class="container mb-7">
+  <h4 class="mb-6">Le bar de la semaine</h4>
 
   <div class="row">
   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
@@ -83,15 +86,18 @@
   
 </div>
 
-<div class="container-fluid mb-5">
-  <div class="container">
-  <h4 class="mb-5">Vous avez un bar ?</h4>
-  <h6>Rejoignez Beerly pour augmenter votre visibilité et attirer de nouveaux clients</h6>
+<% unless user_signed_in? %>
+
+  <div class="container-fluid mb-7">
+    <div class="container">
+    <h4 class="mb-6">Vous avez un bar ?</h4>
+    <h6>Rejoignez Beerly pour augmenter votre visibilité et attirer de nouveaux clients</h6>
   
-  <%= link_to 'Publier votre carte', new_manager_registration_path, class:"btn btn-primary text-light mt-4" %>
+    <%= link_to 'Publier votre carte', new_manager_registration_path, class:"btn btn-primary text-light mt-4" %>
 
   </div>
-  
+<% end %>  
+
 </div>
 
 
