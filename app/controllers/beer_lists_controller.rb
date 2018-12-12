@@ -17,11 +17,11 @@ class BeerListsController < ApplicationController
   end
 
   def create
-    if (!(params[:beer_list][:pint_price].blank?) && !(params[:beer_list][:half_pint_price].blank?)) || !(params[:beer_list][:bottle_price].blank?)
+    if no_blank_price
       @beerlist = current_manager.bar.beer_lists.create(beerlist_params)    
       redirect_to managers_beer_lists_path
-    else 
-      redirect_to managers_beer_lists_path, alert: "Les prix ne peuvent pas être nuls"
+    else
+      redirect_to managers_beer_lists_path, alert: "Attention: vous avez oublié un prix!"
     end 
   end
 
@@ -31,8 +31,12 @@ class BeerListsController < ApplicationController
 
   def update
     @beerlist = BeerList.find(params[:id]) 
-    @beerlist.update(beerlist_params)
-    redirect_to managers_beer_lists_path
+    if no_blank_price
+      @beerlist.update(beerlist_params)
+      redirect_to managers_beer_lists_path
+    else 
+      redirect_to edit_managers_beer_list_path(@beerlist.id), alert: "Attention: vous avez oublié un prix!"
+    end 
   end
 
   def destroy
@@ -62,4 +66,9 @@ class BeerListsController < ApplicationController
         redirect_to managers_beer_lists_path, alert: "Vous ne pouvez pas modifier cette bière"
       end 
     end 
+
+    def no_blank_price
+     (!(params[:beer_list][:pint_price].blank?) && !(params[:beer_list][:half_pint_price].blank?)) || !(params[:beer_list][:bottle_price].blank?)
+    end 
+    
 end
