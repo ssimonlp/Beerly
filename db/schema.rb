@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_12_112158) do
+ActiveRecord::Schema.define(version: 2018_12_12_211720) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,6 +54,13 @@ ActiveRecord::Schema.define(version: 2018_12_12_112158) do
     t.index ["beer_id"], name: "index_beer_lists_on_beer_id"
   end
 
+  create_table "beer_wishlists", force: :cascade do |t|
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_beer_wishlists_on_user_id"
+  end
+
   create_table "beers", force: :cascade do |t|
     t.string "name"
     t.string "image_url"
@@ -83,6 +90,15 @@ ActiveRecord::Schema.define(version: 2018_12_12_112158) do
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "fav_beers", force: :cascade do |t|
+    t.bigint "beer_wishlist_id"
+    t.bigint "beer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["beer_id"], name: "index_fav_beers_on_beer_id"
+    t.index ["beer_wishlist_id"], name: "index_fav_beers_on_beer_wishlist_id"
   end
 
   create_table "managers", force: :cascade do |t|
