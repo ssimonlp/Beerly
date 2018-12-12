@@ -16,20 +16,6 @@
 
   <div class="row">
     <div class="col-sm-2 col-md-2 col-lg-2" id="result-card">
-      <% @bars.each do |bar| %>
-      <div class="card mb-2">
-        <%= image_tag("lager.jpg", class: "card-img-top", alt: "beer") %>
-        <div class="card-body">
-          <h5>
-            <%= bar.name %>
-          </h5>
-          <p>
-            <%= bar.address %>
-          </p>
-          <%= link_to "Voir", bar_path(bar.id), class:"text-h" %>
-        </div>
-      </div>
-      <% end %>
     </div>
     <div class="col-sm-10 col-md-10 col-lg-10" id="map-flow">
       <div id="map"></div>
