@@ -8,7 +8,7 @@
                 <%= text_field_tag 'term', params[:term], placeholder: "Quelle bière veux tu déguster aujourd'hui?", class:"form-control form-control-lg form-control-borderless" %>
         </div>
         <div class="col-7 col-md-7 col-lg-7">
-                <%= submit_tag 'Rechercher', class:"btn btn-primary text-light" %>
+                <%= submit_tag 'Rechercher', class:"btn btn-sm btn-primary text-light" %>
                 <% end %>
         </div>
 
@@ -91,9 +91,9 @@
   <div class="container-fluid mb-7">
     <div class="container">
     <h4 class="mb-6">Vous avez un bar ?</h4>
-    <h6>Rejoignez Beerly pour augmenter votre visibilité et attirer de nouveaux clients</h6>
+    <p>Rejoignez Beerly pour augmenter votre visibilité et attirer de nouveaux clients</p>
   
-    <%= link_to 'Publier votre carte', new_manager_registration_path, class:"btn btn-primary text-light mt-4" %>
+    <%= link_to 'Publier votre carte', new_manager_registration_path, class:"btn btn-sm btn-primary text-light mt-4" %>
 
   </div>
 <% end %>  

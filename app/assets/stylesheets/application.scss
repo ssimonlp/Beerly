@@ -17,7 +17,7 @@
  *= require_self
  */
  
- @import url('https://fonts.googleapis.com/css?family=Montserrat:400,500');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono:400,500');
  @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
 *{
@@ -34,12 +34,16 @@ body{
 }
 
 h1 {
-	font-size: 2em;
+	font-size: 1.8em;
 }
 
 h1, h2, h3, h4, h5, h6 {
-	font-family: 'Montserrat', sans-serif;
-	letter-spacing: 1px;
+	font-family: 'Roboto Mono', monospace;
+}
+
+p {
+	font-size: 1rem;
+	line-height: 1.7;
 }
 
 h6 {
@@ -119,9 +123,6 @@ header {
 	opacity:1;
 }
 
-p {
-	line-height: 1.7;
-}
 
 .fade:not(.show)
 {

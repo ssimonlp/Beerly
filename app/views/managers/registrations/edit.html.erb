@@ -1,14 +1,15 @@
-<div class="container mt-6 mb-5">
+<div class="container mt-5 mb-5">
+  <%= link_to "Retour en arrière", :back %>
 <div class="row">
   <div class="col-lg-6 col-sm-12">
 
-    <h2 class="mb-5 mt-5">Modifier les informations de mon compte</h2>
+    <h4 class="mb-6 mt-5">Modifier les informations de mon compte</h4>
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= devise_error_messages! %>
 
-      <div class="field mt-3">
-        <%= f.label :email %><br />
+      <div class="field mt-3 mb-3">
+        <%= f.label :email %>
         <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
       </div>
 
@@ -16,21 +17,21 @@
         <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
       <% end %>
 
-      <div class="field mt-3">
-        <%= f.label :mot_de_passe %> <i>(Ne pas remplir si vous ne voulez pas changer de mot de passe)</i><br />
+      <div class="field mt-3 mb-3">
+        <%= f.label :mot_de_passe %> <i>(Ne pas remplir si vous ne voulez pas changer de mot de passe)</i>
         <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
         <% if @minimum_password_length %>
-          <br />
+          
           <em><%= @minimum_password_length %> caractères minimum</em>
         <% end %>
       </div>
 
-      <div class="field mt-3">
-        <%= f.label :confirmation_mot_de_passe %><br />
+      <div class="field mt-3 mb-3">
+        <%= f.label :confirmation_mot_de_passe %>
         <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
       </div>
 
-      <div class="field mt-3">
+      <div class="field mt-3 mb-3">
         <%= f.label :mot_de_passe_actuel %> <i>(il nous faut votre mot de passe actuel pour confirmer les changements)</i><br />
         <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control" %>
       </div>
@@ -43,7 +44,7 @@
 
   <div class="col-lg-6 col-sm-12">
 
-    <h2 class="mb-5 mt-5">Supprimer mon compte</h2>
+    <h4 class="mb-6 mt-5">Supprimer mon compte</h4>
 
     <div class="field mt-3">
       Pas satisfait? 
@@ -54,7 +55,8 @@
 
   </div>
 
-  <%= link_to "Retour en arrière", :back %>
+  
 
 </div>
+<%= link_to "Retour en arrière", :back %>
 </div>
