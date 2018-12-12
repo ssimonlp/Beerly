@@ -1,37 +1,21 @@
-
 <% provide(:title, 'Beerly | Résultats') %>
 
 <div class="container-fluid mt-3" id="result-beers">
   <%= link_to "Retour à l'accueil", root_path, class:"mt-4 mb-2" %>
   <div class="row no-gutters justify-content-center mt-4 mb-3">
-      <div class="col-8 col-md-8 col-lg-8">
-              <%= form_tag map_index_path, method: :get do %>
-              <%= text_field_tag 'term',nil , placeholder: "Quelle bière veux tu déguster aujourd'hui?", autocomplete: :off, class:"form-control form-control-lg form-control-borderless" %>
-      </div>
-      <div class="col-4 col-md-4 col-lg-4">
-              <%= submit_tag 'Rechercher', class:"btn btn-sm btn-primary text-light" %>
-              <% end %>
-      </div>
-
-      <!--end of col-->
+    <div class="col-8 col-md-8 col-lg-8">
+      <%= form_tag map_index_path, method: :get do %>
+      <%= text_field_tag 'term', params[:term], placeholder: "Quelle bière veux tu déguster aujourd'hui?", class:"form-control form-control-lg form-control-borderless" %>
+    </div>
+    <div class="col-4 col-md-4 col-lg-4">
+      <%= submit_tag 'Rechercher', class:"btn btn-sm btn-primary text-light" %>
+      <% end %>
+    </div>
+    <!--end of col-->
   </div>
 
   <div class="row">
     <div class="col-sm-2 col-md-2 col-lg-2" id="result-card">
-      <% @bars.each do |bar| %>
-      <div class="card mb-2">
-        <%= image_tag("lager.jpg", class: "card-img-top", alt: "beer") %>
-        <div class="card-body">
-          <h5>
-            <%= bar.name %>
-          </h5>
-          <p>
-            <%= bar.address %>
-          </p>
-          <%= link_to "Voir", bar_path(bar.id), class:"text-warning" %>
-        </div>
-      </div>
-      <% end %>
     </div>
     <div class="col-sm-10 col-md-10 col-lg-10" id="map-flow">
       <div id="map"></div>
@@ -39,35 +23,66 @@
   </div>
 </div>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.google_maps %>&callback=initMap" type="text/javascript"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.google_maps %>" type="text/javascript"></script>
 <script src="/javascript/lib/gmaps.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <script>
+  var mapStyle, markers;
   $.getJSON("/json/style.json", function(json) {
-    newMap(json);
+    mapStyle = json;
   });
 
-  function newMap(data) {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(function(position) {
+      $.ajax({
+        type: 'GET',
+        url: '/location',
+        data: {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude,
+          beer: "<%= params[:term] %>"
+        },
+        contentType: 'application/json',
+        dataType: 'json'
+      }).done(function(data) {
+        markers = JSON.parse(data.data);
+        newMap(mapStyle, markers);
+      });
+    });
+  };
+
+  function newMap(style, bars) {
     var map = new GMaps({
       div: '#map',
       disableDefaultUI: true,
-      styles: data
+      styles: style
     });
+
     var latLong = [];
-    <% @bars.each do |bar| %>
-    map.addMarker({
-      lat: <%= bar.latitude %>,
-      lng: <%= bar.longitude %>,
-      title: 'Lima',
-      icon: '/img/beer32.png',
-      infoWindow: {
-        content: "<%= bar.name %>"
-      }
+
+    bars.forEach(function(bar) {
+      console.log(bar);
+      map.addMarker({
+        lat: bar.latitude,
+        lng: bar.longitude,
+        title: 'Lima',
+        icon: '/img/beer32.png',
+        infoWindow: {
+          content: bar.name
+        }
+      });
+      latLong.push({
+        lat: bar.latitude,
+        lng: bar.longitude
+      });
+      barCard(bar);
     });
-    latLong.push({lat: <%= bar.latitude %>,
-      lng: <%= bar.longitude %>});
-    <% end %>
     map.fitLatLngBounds(latLong);
   };
 
+  function barCard(bar) {
+    var card = '<div class="card mb-2"><%= image_tag("lager.jpg", class: "card-img-top", alt: "beer") %><div class="card-body"><h5>' + bar.name + '</h5><p>' + bar.address + '</p><a href="bars/' + bar.id + '" class="text-warning">Voir</a></div></div>';
+    $("#result-card").append(card);
+
+  };
 </script>
