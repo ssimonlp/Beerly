@@ -4,7 +4,6 @@ class ApplicationController < ActionController::Base
   layout :layout_by_resource
   
   def location
-    puts "------===========------ #{params}"
     respond_to do |format|
       format.json {
         search = Bar.search(params["beer"], [params["lat"], params["lng"]]);
