@@ -9,6 +9,7 @@ $(document).ready(function(){
         dataType: 'json',
         data: {'term': search},
         success:function(data){
+        $("#searchResult").empty();
           var len = data["data"].length;
           console.log('Success!', data);
           for( var i = 0; i<len; i++){
