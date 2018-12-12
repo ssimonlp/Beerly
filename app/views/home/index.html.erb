@@ -4,7 +4,7 @@
     
     <div class="row justify-content-center mt-5">
         <div class="col-12 col-md-6 col-lg-6">
-                <%= form_tag autocomplete_index_path, method: :get do %>
+                <%= form_tag map_index_path, method: :get do %>
                 <%= text_field_tag 'term',nil , placeholder: "Quelle bière veux tu déguster aujourd'hui?", autocomplete: :off, class:"form-control form-control-lg form-control-borderlessi my_form" %>
                 <%= submit_tag 'Rechercher', class:"btn btn-primary my_button" %>
                 <% end %>
