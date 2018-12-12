@@ -25,4 +25,8 @@ class Bar < ApplicationRecord
       prefix: true
     }
   }
+  
+  def self.search(beer, location)
+    Bar.search_by_beer(beer).near(location).to_json
+  end
 end
