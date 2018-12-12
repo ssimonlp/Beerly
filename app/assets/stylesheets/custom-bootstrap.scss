@@ -4,12 +4,21 @@
 }
 
 .btn-primary {
-	background-color: #F6972E;
+	background-color: #05c46b;
 	border: none;
 }
 
 .btn-primary:hover {
-	background-color: #FCBE22;
+	background-color: #0be881;
+}
+
+.btn-secondary {
+	background-color: #ff5e57;
+	border: none;
+}
+
+.btn-secondary:hover {
+	background-color: #ff3f34;
 }
 
 .navbar-light .navbar-toggler-icon{
@@ -23,15 +32,15 @@
 
 .form-control{
 	font-size: 1.1em;
-	border: none;
 	background-color: transparent;
-	border-bottom: 2px solid #F6972E;
+	border: 1px solid #d2dae2;
 	color: #fff !important;
+	border-radius: 0.2rem;
 }
 
 
 .form-control-lg {
-	border-bottom: 2px solid #F6972E;
+	border: 1px solid #d2dae2;
 	-webkit-transition: all 500ms cubic-bezier(0.230, 1.000, 0.320, 1.000); 
 	   -moz-transition: all 500ms cubic-bezier(0.230, 1.000, 0.320, 1.000); 
 	     -o-transition: all 500ms cubic-bezier(0.230, 1.000, 0.320, 1.000); 
@@ -44,9 +53,9 @@
 }
 
 .form-control:focus {
-	color: #495057;
+	color: #fff;
     background-color: transparent;
-    border-bottom: 2px solid #F6972E;
+    border: 1px solid #05c46b;
     outline: 0;
    	box-shadow: none;
 }
@@ -82,5 +91,35 @@ button:focus {
 
 .table-dark {
     color: #fff;
-    background-color: #021110 !important;
+    background-color: #1e272e !important;
+}
+
+.btn-outline-light {
+    color: #f8f9fa;
+    background-color: transparent;
+    background-image: none;
+    border-color: #05c46b;
+}
+
+.btn-outline-light:hover {
+    color: #f8f9fa;
+    background-color: transparent;
+    background-image: none;
+    border-color: #0be881;
+}
+
+.btn-outline-light:not(:disabled):not(.disabled).active:focus, .btn-outline-light:not(:disabled):not(.disabled):active:focus, .show>.btn-outline-light.dropdown-toggle:focus {
+	box-shadow: none;
+}
+
+.btn-outline-light:not(:disabled):not(.disabled).active, .btn-outline-light:not(:disabled):not(.disabled):active, .show>.btn-outline-light.dropdown-toggle {
+    color: #0be881;
+    background-color: #1e272e;
+    border-color: #0be881;
+}
+
+.btn-primary:hover {
+    color: #fff;
+    background-color: #0be881;
+    border-color: #0be881;
 }
