@@ -17,13 +17,13 @@
 </div>
 
 <div class="container mt-4">
-<div class="col-12 col-lg-8">
-<h4 class="mb-5 mt-6">Mettre à jour les informations sur mon bar</h4>
+
+<h2 class="mb-5 mt-5">Mettre à jour les informations sur mon bar</h2>
 
   <%= form_for @bar, url = {action: "update"} do |f| %>
 
     <div class="field mt-3">
-      <%= f.label :nom %>
+      <%= f.label :nom %><br />
       <%= f.text_field :name, class: "form-control" %>
     </div>
 
@@ -48,14 +48,13 @@
     </div>
 
     <div class="field mt-3">
-      <%= f.label :photo %><i>(mettre un lien url)</i>
+      <%= f.label :photo %><i>(mettre un lien url)</i><br />
       <%= f.text_field :photo, class: "form-control" %>
     </div>
 
-    <div class="actions mt-5 mb-3">
-      <%= f.submit "Mettre à jour", class:"btn btn-primary" %>
+    <div class="actions mt-4 mb-3">
+      <%= f.submit "Mettre à jour", class:"btn btn-primary mb-2" %>
     </div>
   <% end %>
-</div>
 
 </div>

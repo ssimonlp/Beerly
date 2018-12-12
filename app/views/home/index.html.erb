@@ -5,10 +5,8 @@
     <div class="row justify-content-center mt-5">
         <div class="col-12 col-md-6 col-lg-6">
                 <%= form_tag map_index_path, method: :get do %>
-
                 <%= text_field_tag 'term',nil , placeholder: "Quelle bière veux tu déguster aujourd'hui?", autocomplete: :off, class:"form-control form-control-lg form-control-borderlessi my_form" %>
                 <%= submit_tag 'Rechercher', class:"btn btn-primary my_button" %>
-
                 <% end %>
 
         </div>
@@ -85,15 +83,12 @@
   
 </div>
 
-
-<% unless user_signed_in? || manager_signed_in? %>
-
-  <div class="container-fluid mb-7">
-    <div class="container">
-    <h4 class="mb-6">Vous avez un bar ?</h4>
-    <p>Rejoignez Beerly pour augmenter votre visibilité et attirer de nouveaux clients</p>
+<div class="container-fluid mb-5">
+  <div class="container">
+  <h4 class="mb-5">Vous avez un bar ?</h4>
+  <h6>Rejoignez Beerly pour augmenter votre visibilité et attirer de nouveaux clients</h6>
   
-    <%= link_to 'Publier votre carte', new_manager_registration_path, class:"btn btn-sm btn-primary text-light mt-4" %>
+  <%= link_to 'Publier votre carte', new_manager_registration_path, class:"btn btn-primary text-light mt-4" %>
 
   </div>
   
