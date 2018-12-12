@@ -17,13 +17,13 @@
 
 <!-- List group -->
 <div class="list-group" id="myList" role="tablist">
-  <a class="list-group-item list-group-item-action active" data-toggle="list" href="#draft_<%=beer.id%>" role="tab">Pression</a>
-  <a class="list-group-item list-group-item-action" data-toggle="list" href="#bottle_<%=beer.id%>" role="tab">Bouteille</a>
+  <a class="list-group-item list-group-item-action active" data-toggle="list" href="#draft" role="tab">Pression</a>
+  <a class="list-group-item list-group-item-action" data-toggle="list" href="#bottle" role="tab">Bouteille</a>
 </div>
 
 <!-- Tab panes -->
 <div class="tab-content">
-  <div class="tab-pane active" id="draft_<%=beer.id%>" role="tabpanel">
+  <div class="tab-pane active" id="draft" role="tabpanel">
   <%= form_for @beerlist, url: url_for(controller: 'beer_lists', action: 'create') do |f| %>
     <%= f.hidden_field :beer_id, :value => beer.id %>
     <%= f.label :Prix_pinte %>
@@ -33,7 +33,7 @@
     <%= f.submit "Ajouter" %>
   <% end %>
   </div>
-  <div class="tab-pane" id="bottle_<%=beer.id%>" role="tabpanel">
+  <div class="tab-pane" id="bottle" role="tabpanel">
   <%= form_for @beerlist, url: url_for(controller: 'beer_lists', action: 'create') do |f| %>
     <%= f.hidden_field :beer_id, :value => beer.id %>
     <%= f.label :Prix_bouteille %>

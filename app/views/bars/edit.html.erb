@@ -4,7 +4,7 @@
     <div class="col-lg-8 col-sm-12">
       <h4 class="mt-3">Adresse</h4>
       <p> <%= @bar.address %></p>
-      <h4 class="mt-3">Description</h4>
+      <h4 class="mt-3">Descritpion</h4>
       <p><%= @bar.description %></p> 
     </div>
     <div class="col-lg-4 col-sm-12">
@@ -15,46 +15,29 @@
     </div>
   </div>
 </div>
-
 <div class="container mt-4">
 
-<h2 class="mb-5 mt-5">Mettre à jour les informations sur mon bar</h2>
-
-  <%= form_for @bar, url = {action: "update"} do |f| %>
-
-    <div class="field mt-3">
-      <%= f.label :nom %><br />
-      <%= f.text_field :name, class: "form-control" %>
-    </div>
-
-    <div class="field mt-3">
-      <%= f.label :adresse %>
-      <%= f.text_field :address, class: "form-control" %>
-    </div>
-
-    <div class="field mt-3">
-      <%= f.label :description %>
-      <%= f.text_area :description, class: "form-control" %>
-    </div>
-
-    <div class="field mt-3">
-      <%= f.label :horaires %>
-      <%= f.text_area :opening_time, class: "form-control" %>
-    </div>
-
-    <div class="field mt-3">
-      <%= f.label :happy_hours %>
-      <%= f.text_area :happy_hours, class: "form-control" %>
-    </div>
-
-    <div class="field mt-3">
-      <%= f.label :photo %><i>(mettre un lien url)</i><br />
-      <%= f.text_field :photo, class: "form-control" %>
-    </div>
-
-    <div class="actions mt-4 mb-3">
-      <%= f.submit "Mettre à jour", class:"btn btn-primary mb-2" %>
-    </div>
-  <% end %>
+<%= form_for @bar, url = {action: "update"} do |f| %>
+  <%= f.label :nom %>
+  <%= f.text_field :name %>
+  <%= f.label :adresse %>
+  <%= f.text_field :address %>
+  <%= f.label :photo %>
+  <%= f.text_field :photo %>
+  <%= f.label :opening_times %>
+  <%= f.text_area :opening_time %>
+  <%= f.label :happy_hours %>
+  <%= f.text_area :happy_hours %>
+  <%= f.label :description %>
+  <%= f.text_area :description %>
+  <%= f.submit "update" %> 
+<% end %>
 
 </div>
+
+<div class="container mt-4">
+  <%= link_to "Editer ma carte", managers_beer_lists_path, class:"btn btn-primary text-light" %>
+
+
+</div>
+

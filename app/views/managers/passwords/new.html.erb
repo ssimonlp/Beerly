@@ -1,25 +1,16 @@
-<div class="container mt-6 mb-5">
-<div class="row">
-  <div class="col-lg-6 col-sm-12">
+<h2>Forgot your password?</h2>
 
-    <h2 class="mb-5 mt-5">Vous avez oublié votre mot de passe?</h2>
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+  <%= devise_error_messages! %>
 
-    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-      <%= devise_error_messages! %>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
 
-      <div class="field mt-3">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
-      </div>
+  <div class="actions">
+    <%= f.submit "Send me reset password instructions" %>
+  </div>
+<% end %>
 
-      <div class="actions mt-4 mb-3">
-        <%= f.submit "Envoyez-moi un lien pour changer mon mot de passe", class:"btn btn-primary mb-2" %>
-      </div>
-    <% end %>
-
-    <%= render "managers/shared/links" %>
-
-    </div>
-
-</div>
-</div>
+<%= render "managers/shared/links" %>

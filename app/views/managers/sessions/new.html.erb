@@ -1,11 +1,11 @@
-<div class="container-fluid" style="height: 100vh; overflow-y: hidden;">
+<div class="container" style="height: 100vh; overflow-y: hidden;">
 
 
 <div class="container">
 <div class="row">
   <div class="col-lg-6 col-sm-12">
 
-<h2 class="mb-5 mt-5">Connexion Barman</h2>
+<h2 class="mb-5 mt-6">Connexion Barman</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field mt-3">
@@ -14,7 +14,7 @@
   </div>
 
   <div class="field mt-3">
-    <%= f.label :mot_de_passe %><br />
+    <%= f.label :password %><br />
     <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
   </div>
 
@@ -26,16 +26,16 @@
   <% end -%>
 
   <div class="actions mt-4 mb-3">
-    <%= f.submit "Se connecter", class:"btn btn-primary mb-2" %>
+    <%= f.submit "Connexion Barman", class:"btn btn-primary mb-2" %>
   </div>
 <% end %>
 
 <%= render "managers/shared/links" %>
+<%= link_to "Retour à l'accueil", root_path %>
 
 </div>
 
   <div class="col-lg-6 col-sm-12" id="connect-manager">
-    <div style="width:100%;height:0;padding-bottom:100%;position:relative;"><iframe src="https://giphy.com/embed/l0EozZSdKRMYAAkzm" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/accorhotels-feel-welcome-the-feelings-l0EozZSdKRMYAAkzm"></a></p>
     
   </div>
 

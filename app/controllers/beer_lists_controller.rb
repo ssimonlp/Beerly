@@ -1,7 +1,5 @@
 class BeerListsController < ApplicationController
 
-  before_action :manager_can_only_edit_their_beerlists, only: [:edit]
-
   def new 
     @beerlist = BeerList.new 
   end 
@@ -12,8 +10,7 @@ class BeerListsController < ApplicationController
     @bottle_beers = @bar.beer_lists.bottle.up
     @beers = Beer.search(params[:term])
     @beerlist = BeerList.new
-    @draft_archived_beers = @bar.beer_lists.draft.archived
-    @bottle_archived_beers = @bar.beer_lists.bottle.archived
+    @archived_beers = @bar.beer_lists.archived
   end
 
   def create
@@ -55,11 +52,5 @@ class BeerListsController < ApplicationController
   private 
     def beerlist_params
       params.require(:beer_list).permit(:beer_id, :pint_price, :half_pint_price, :bottle_price)
-    end 
-
-    def manager_can_only_edit_their_beerlists 
-      if current_manager.bar.id !=  BeerList.find(params[:id]).manager.id
-        redirect_to managers_beer_lists_path, alert: "Vous ne pouvez pas modifier cette bière"
-      end 
     end 
 end

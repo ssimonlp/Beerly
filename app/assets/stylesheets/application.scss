@@ -27,10 +27,14 @@
 }
 
 body{
-	background-color: #021110;
+	background-color: #ffffff;
 	margin: 0;
 	padding: 0;
-	color: #fff;
+	background: #ECE9E6;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+
 }
 
 h1 {
@@ -39,11 +43,6 @@ h1 {
 
 h1, h2, h3, h4, h5, h6 {
 	font-family: 'Montserrat', sans-serif;
-	letter-spacing: 1px;
-}
-
-h6 {
-	line-height: 2em;
 }
 
 a{
@@ -60,7 +59,7 @@ a{
 
 	font-family: 'Montserrat', sans-serif;
 	font-weight: 500;
-	color: #fff !important;
+	color: #000 !important;
 	opacity: 0.8;
 }
 
@@ -71,14 +70,6 @@ a:hover {
 
 .mt-6 {
 	margin-top: 100px !important;
-}
-
-.mb-6 {
-	margin-bottom: 70px !important;
-}
-
-.mb-7 {
-	margin-bottom: 120px !important;
 }
 
 
@@ -94,18 +85,13 @@ header {
     border: none;
 }
 
-.dropdown-menu {
-	background-color: #021110;
-}
-
 .navbar-expand-lg .navbar-nav .nav-link{
 	padding-right: .7rem;
     padding-left: .7rem;
-    color: #fff !important;
 }
 
 .logo {
-	height: 4em;
+	height: 3.5em;
 	transition: 0.3s;
 	opacity: 0.9;
 }
