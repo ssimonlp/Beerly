@@ -28,6 +28,7 @@
   opacity: 1;
 }
 
+
 /* The icon inside the overlay is positioned in the middle vertically and horizontally */
 #check-grey {
   color:#666;
@@ -41,7 +42,7 @@
 }
 
 #check-green {
-  color:#666;
+  color: green;
   font-size: 2.5em;
   font-weight: 400;
   position: absolute;
@@ -49,4 +50,12 @@
   left: 15%;
   transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
+}
+
+.card-body h5 {
+  text-align: center;
+}
+
+.card-body p {
+  text-align: center;
 }

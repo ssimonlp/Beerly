@@ -11,6 +11,7 @@ class BarWishlistsController < ApplicationController
 
   def index
     @bars_on_wishlist = current_user.bar_wishlists
+    @bars_visited = current_user.bar_wishlists.visited
   end
 
   def destroy
