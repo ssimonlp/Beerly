@@ -17,8 +17,8 @@
  *= require_self
  */
  
- @import url('https://fonts.googleapis.com/css?family=Montserrat:400,500');
- @import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Mono:400,500');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
 *{
 	margin: 0;
@@ -27,19 +27,23 @@
 }
 
 body{
-	background-color: #021110;
+	background-color: #1e272e;
 	margin: 0;
 	padding: 0;
 	color: #fff;
 }
 
 h1 {
-	font-size: 2em;
+	font-size: 1.8em;
 }
 
 h1, h2, h3, h4, h5, h6 {
-	font-family: 'Montserrat', sans-serif;
-	letter-spacing: 1px;
+	font-family: 'Roboto Mono', monospace;
+}
+
+p {
+	font-size: 1rem;
+	line-height: 1.7;
 }
 
 h6 {
@@ -95,7 +99,8 @@ header {
 }
 
 .dropdown-menu {
-	background-color: #021110;
+	background-color: #1e272e;
+	
 }
 
 .navbar-expand-lg .navbar-nav .nav-link{
@@ -119,9 +124,6 @@ header {
 	opacity:1;
 }
 
-p {
-	line-height: 1.7;
-}
 
 .fade:not(.show)
 {
