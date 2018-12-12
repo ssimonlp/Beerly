@@ -1,7 +1,7 @@
 
 <% provide(:title, 'Beerly | Résultats') %>
 
-<div class="container-fluid mt-3">
+<div class="container-fluid mt-3" id="result-beers">
   <%= link_to "Retour à l'accueil", root_path, class:"mt-4 mb-2" %>
   <div class="row no-gutters justify-content-center mt-4 mb-3">
       <div class="col-8 col-md-8 col-lg-8">
@@ -17,7 +17,7 @@
   </div>
 
   <div class="row">
-    <div class="col-sm-2 col-md-2 col-lg-2">
+    <div class="col-sm-2 col-md-2 col-lg-2" id="result-card">
       <% @bars.each do |bar| %>
       <div class="card mb-2">
         <%= image_tag("lager.jpg", class: "card-img-top", alt: "beer") %>

@@ -25,6 +25,7 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
 
+  resources :autocomplete, only: [:index], format: "json"
   get 'resultpage/index' , to: "resultpage#index"
   get 'contact', to: "contact#index"
   root 'home#index'
