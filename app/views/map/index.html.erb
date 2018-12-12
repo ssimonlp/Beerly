@@ -45,8 +45,8 @@
         contentType: 'application/json',
         dataType: 'json'
       }).done(function(data) {
-        markers = JSON.parse(data.data);
-        newMap(mapStyle, markers);
+        bars = data.data;
+        newMap(mapStyle, bars);
       });
     });
   };
@@ -65,7 +65,7 @@
       map.addMarker({
         lat: bar.latitude,
         lng: bar.longitude,
-        title: 'Lima',
+        title: bar.name,
         icon: '/img/beer32.png',
         infoWindow: {
           content: bar.name

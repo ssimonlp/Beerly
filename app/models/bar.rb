@@ -27,6 +27,11 @@ class Bar < ApplicationRecord
   }
   
   def self.search(beer, location)
-    Bar.search_by_beer(beer).near(location).to_json
+    json = []
+    bars = Bar.search_by_beer(beer).near(location)
+    bars.each do |bar|
+      json << {id: bar['id'], name: bar["name"], address: bar["address"], photo: bar["photo"], latitude: bar["latitude"], longitude: bar["longitude"]}
+    end
+    json
   end
 end
