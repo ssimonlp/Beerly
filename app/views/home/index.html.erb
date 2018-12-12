@@ -1,20 +1,22 @@
 <div class="jumbotron jumbotron-fluid" id="home">
-  <div class="container justify-content-center">
+  <div class="container">
     <h1 class="mt-5 mb-3 text-light">La bière que tu veux, à côté de chez toi.</h1>
-    
+    <div class="container">
     <div class="row no-gutters pt-5">
-        <div class="col-5 col-md-5 col-lg-5">
+        <div class="col-9 col-md-9 col-lg-9">
                 <%= form_tag map_index_path, method: :get do %>
-                <%= text_field_tag 'term', params[:term], placeholder: "Quelle bière veux tu déguster aujourd'hui?", class:"form-control form-control-lg form-control-borderless" %>
+                <%= text_field_tag 'term', params[:term], placeholder: "Quelle bière veux tu déguster?", class:"form-control form-control-lg form-control-borderless" %>
         </div>
-        <div class="col-7 col-md-7 col-lg-7">
-                <%= submit_tag 'Rechercher', class:"btn btn-sm btn-primary text-light" %>
+        <div class="col-3 col-md-3 col-lg-3">
+                <%= button_tag :submit do %>
+                    <i class='fas fa-search'></i>
+                <% end %>
                 <% end %>
         </div>
 
         <!--end of col-->
     </div>
-
+  </div>
   </div>
 </div>
 
