@@ -3,8 +3,9 @@ class Bar < ApplicationRecord
   belongs_to :manager
   has_many :beer_lists
   has_many :beers, through: :beer_lists
+  has_many :bar_wishlists
   
-  
+ 
   # Geocoding
   geocoded_by :address
   after_validation :geocode

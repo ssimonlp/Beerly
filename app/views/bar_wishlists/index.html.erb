@@ -1,0 +1,33 @@
+<div class="container mt-3">
+
+  <h2>Mes bars favoris</h2>
+
+  <div class="row">
+    <% @bars_on_wishlist.each do |element| %>
+      <div class="col-12 col-md-4 col-lg-4" id="result-card">
+        <div class="card mb-2">
+          <div class="container" id="visit">
+            <%= image_tag("lager.jpg", class: "card-img-top", alt: "beer", id:"visit") %>
+            <div class="overlay" id: "visit">
+                <%= link_to visit_users_bar_wishlist_path(element.bar.id), method: :visit do %>
+                  <i class='far fa-check-circle' id="check-green"></i>
+                <% end %>
+            </div>
+          </div>
+          <div class="card-body">
+            <h5>
+              <%= element.bar.name %>
+            </h5>
+            <p>
+              <%= element.bar.address %>
+            </p>
+            <%= link_to "Voir", bar_path(element.bar.id), class:"text-warning" %>
+            
+            
+
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
