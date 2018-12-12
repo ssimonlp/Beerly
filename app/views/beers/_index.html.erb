@@ -7,43 +7,54 @@
 <% end %>
 </div>
 
+
 <% unless @beers == nil %>
 
-<% for beer in @beers %>
-<div class="beer">
-    <strong> <%= beer.name %> </strong>
+  <% for beer in @beers %>
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title"><strong> <%= beer.name %> </strong></h5>
+                
+          <!-- List group -->
+            <div class="list-group" id="myList" role="tablist">
+              <a class="list-group-item list-group-item-action active" data-toggle="list" href="#draft_<%=beer.id%>" role="tab">Pression</a>
+              <a class="list-group-item list-group-item-action" data-toggle="list" href="#bottle_<%=beer.id%>" role="tab">Bouteille</a>
+            </div>
 
-<p> Ajouter cette bière à ma carte </p>
-
-<!-- List group -->
-<div class="list-group" id="myList" role="tablist">
-  <a class="list-group-item list-group-item-action active" data-toggle="list" href="#draft_<%=beer.id%>" role="tab">Pression</a>
-  <a class="list-group-item list-group-item-action" data-toggle="list" href="#bottle_<%=beer.id%>" role="tab">Bouteille</a>
-</div>
-
-<!-- Tab panes -->
-<div class="tab-content">
-  <div class="tab-pane active" id="draft_<%=beer.id%>" role="tabpanel">
-  <%= form_for @beerlist, url: url_for(controller: 'beer_lists', action: 'create') do |f| %>
-    <%= f.hidden_field :beer_id, :value => beer.id %>
-    <%= f.label :Prix_pinte %>
-    <%= f.number_field :pint_price %> </br>
-    <%= f.label :Prix_demi %>
-    <%= f.number_field :half_pint_price %>
-    <%= f.submit "Ajouter" %>
+          <!-- Tab panes -->
+            <div class="tab-content">
+              <div class="tab-pane active" id="draft_<%=beer.id%>" role="tabpanel">
+                <%= form_for @beerlist, url: url_for(controller: 'beer_lists', action: 'create') do |f| %>
+                  <%= f.hidden_field :beer_id, :value => beer.id %>
+                  <div class="field mt-3">
+                    <%= f.label :Prix_pinte %>
+                    <%= f.number_field :pint_price, class:"form-tag" %>
+                  </div>
+                  <div class="field mt-3">
+                    <%= f.label :Prix_demi %>
+                    <%= f.number_field :half_pint_price, class:"form-tag" %> 
+                  </div>
+                  <div class="actions mt-4 mb-3">
+                    <%= f.submit "Ajouter", class:"btn btn-primary mb-2" %>
+                  </div>
+                <% end %>
+              </div>
+              <div class="tab-pane" id="bottle_<%=beer.id%>" role="tabpanel">
+                <%= form_for @beerlist, url: url_for(controller: 'beer_lists', action: 'create') do |f| %>
+                  <%= f.hidden_field :beer_id, :value => beer.id %>
+                  <div class="field mt-3">
+                    <%= f.label :Prix_bouteille %>
+                    <%= f.text_field :bottle_price, class:"form-tag" %> 
+                  </div>
+                  <div class="actions mt-4 mb-3">
+                    <%= f.submit "Ajouter", class:"btn btn-primary mb-2" %>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+        </div>
+      </div>
+  
   <% end %>
-  </div>
-  <div class="tab-pane" id="bottle_<%=beer.id%>" role="tabpanel">
-  <%= form_for @beerlist, url: url_for(controller: 'beer_lists', action: 'create') do |f| %>
-    <%= f.hidden_field :beer_id, :value => beer.id %>
-    <%= f.label :Prix_bouteille %>
-    <%= f.number_field :bottle_price %> </br>
-    <%= f.submit "Ajouter" %>
-  <% end %>
-  </div>
-</div>
-</br>
-</div>
-<% end %>
 
 <% end %>

@@ -10,7 +10,7 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery-slim.min
+//= require jquery
 //= require popper.min
 //= require bootstrap.min
 //= require rails-ujs
