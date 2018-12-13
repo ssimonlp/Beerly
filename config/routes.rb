@@ -33,7 +33,7 @@ Rails.application.routes.draw do
 
   resources :autocomplete, only: [:index], format: "json"
   get 'resultpage/index' , to: "resultpage#index"
-  get 'contact', to: "contact#index"
+  resources :contact, only: [:index, :create]
   root 'home#index'
 
   get "/static_pages/:page", to: "static_pages#show"

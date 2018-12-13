@@ -152,3 +152,21 @@ input[type="button" i]:active, input[type="submit" i]:active, input[type="reset"
     color: #0be881;
 }
 
+.list-group-item {
+    position: relative;
+    display: block;
+    padding: .75rem 1.25rem;
+    margin-bottom: -1px;
+    background-color: #fff;
+    border: none;
+    color: #000 !important;
+    border-radius: 2px !important;
+}
+
+.list-group-item.active {
+    z-index: 2;
+    color: #fff;
+    background-color: #ffa801 !important;
+    border:none;
+}
+
