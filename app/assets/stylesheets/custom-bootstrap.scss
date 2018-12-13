@@ -4,12 +4,13 @@
 }
 
 .btn-primary {
-	background-color: #05c46b;
+	padding: 0.8rem 1.2rem !important;
+	background-color: #05c46b !important;
 	border: none;
 }
 
 .btn-primary:hover {
-	background-color: #0be881;
+	background-color: #0be881 !important;
 }
 
 .btn-secondary {
@@ -123,5 +124,19 @@ button:focus {
     color: #fff;
     background-color: #0be881;
     border-color: #0be881;
+}
+
+.btn-secondary:not(:disabled):not(.disabled).active, .btn-secondary:not(:disabled):not(.disabled):active, .show>.btn-secondary.dropdown-toggle {
+    color: #fff;
+    background-color: #ff5e57;
+    border: none;
+}
+
+.btn-secondary:not(:disabled):not(.disabled).active:focus, .btn-secondary:not(:disabled):not(.disabled):active:focus, .show>.btn-secondary.dropdown-toggle:focus {
+    box-shadow: none;
+}
+
+input[type="button" i]:active, input[type="submit" i]:active, input[type="reset" i]:active, input[type="file" i]:active::-webkit-file-upload-button, button:active {
+    border: none;
 }
 
