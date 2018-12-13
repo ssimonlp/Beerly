@@ -25,13 +25,13 @@ class Bar < ApplicationRecord
   
   def self.search(beer, location)
     json = []
-    bars = Bar.search_by_beer(beers).near(location)
+    bars = Bar.search_by_beer(beer).near(location)
     bars.each do |bar|
       json << {id: bar['id'], name: bar["name"], address: bar["address"], photo: bar["photo"], latitude: bar["latitude"], longitude: bar["longitude"]}
     end
     json
   end
-  
+ 
   def self.search_cat(cat, location)
     json = []
     beers = Beer.search_by_category(cat);
@@ -43,4 +43,5 @@ class Bar < ApplicationRecord
     end
     json.uniq
   end
+
 end

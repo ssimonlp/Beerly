@@ -61,7 +61,8 @@
       data: {
         lat: lat,
         lng: lng,
-        beer: beer
+        term: beer,
+        type: "<%=params[:type]%>"
       },
       contentType: 'application/json',
       dataType: 'json'
@@ -100,7 +101,7 @@
   };
 
   function barCard(bar) {
-    var card = '<div class="card mb-2"><img src="' + bar.photo + '" class="card-img-top" alt="beer")><div class="card-body"><h5>' + bar.name + '</h5><p>' + bar.address + '</p><a href="bars/' + bar.id + '" class="text-h">Voir</a></div></div>';
+    var card = '<div class="card mb-2"><img src="' + bar.photo + '" class="card-img-top" alt="beer")><div class="card-body"><h5>' + bar.name + '</h5><p>' + bar.address + '</p><a href="bars/' + bar.id + '" class="text-warning">Voir</a></div></div>';
     $("#result-card").append(card);
 
   };
