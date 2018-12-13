@@ -1,18 +1,25 @@
 <div class="jumbotron jumbotron-fluid" id="home">
   <div class="container">
-    <h1 class="mt-5 mb-3 text-dark text-center">La bière que tu veux, à côté de chez toi.</h1>
-    
-    <div class="row justify-content-center mt-5">
-        <div class="col-12 col-md-6 col-lg-6">
-                <%= form_tag map_index_path, method: :get do %>
-                <%= text_field_tag 'term',nil , placeholder: "Quelle bière veux tu déguster aujourd'hui?", autocomplete: :off, class:"form-control form-control-lg form-control-borderlessi my_form" %>
-                <%= submit_tag 'Rechercher', class:"btn btn-primary my_button" %>
-                <ul id="searchResult"></ul>
-                <% end %>
+    <h1 class="mt-5 mb-2 text-light">Quelle bière veux tu déguster aujourd'hui?</h1>
 
-        </div>
-        <!--end of col-->
+      <div class="container">
+      <div class="row no-gutters pt-5">
+          <div class="col-9 col-md-9 col-lg-9">
+                  <%= form_tag map_index_path, method: :get do %>
+                  <%= text_field_tag 'term',nil , placeholder: "Fais ton choix", autocomplete: :off, class:"form-control form-control-lg form-control-borderlessi my_form" %>
+                  <ul id="searchResult"></ul>
+          </div>
+          <div class="col-3 col-md-3 col-lg-3">
+                  <%= button_tag :submit do %>
+                      <i class='fas fa-search' id="search-button"></i>
+                  <% end %>
+                  <% end %>
+          </div>
+
+          <!--end of col-->
+      </div>
     </div>
+    
 
   </div>
 

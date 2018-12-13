@@ -11,11 +11,32 @@
 }
 
 input[type="button" i], input[type="submit" i], input[type="reset" i], input[type="file" i]::-webkit-file-upload-button, button {
-	padding: .8rem 2rem;
+	padding: .5rem 1rem;
 	border-radius: .1rem;
-	background-color: #F6972E;
+	background-color: #05c46b;
 	border: none;
 	color: #000;
 }
 
+input[type="button" i], input[type="submit" i], input[type="reset" i], input[type="file" i]::-webkit-file-upload-button, button:hover {
+	cursor: pointer;
+}
+
+#search-button {
+	padding: 0rem 0rem;
+	background-color: transparent !important;
+	border: none;
+	color: #fff;
+	font-size: 2em;
+	transition: 0.2s;
+}
+
+#search-button:hover {
+	padding: 0rem 0rem;
+	background-color: transparent !important;
+	border: none;
+	color: #fff;
+	font-size: 2em;
+	transition: 0.2s;
+}
 
