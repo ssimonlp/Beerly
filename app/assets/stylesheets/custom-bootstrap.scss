@@ -1,15 +1,24 @@
 .btn {
-	padding: .7rem 2rem;
+	padding: .7rem 1.8rem;
 	border-radius: .1rem;
 }
 
 .btn-primary {
-	background-color: #F6972E;
+	background-color: #05c46b;
 	border: none;
 }
 
 .btn-primary:hover {
-	background-color: #FCBE22;
+	background-color: #0be881;
+}
+
+.btn-secondary {
+	background-color: #ff5e57;
+	border: none;
+}
+
+.btn-secondary:hover {
+	background-color: #ff3f34;
 }
 
 .navbar-light .navbar-toggler-icon{
@@ -22,7 +31,7 @@
 }
 
 .form-control{
-	border: none;
+	font-size: 1.1em;
 	background-color: transparent;
 	border-bottom: 2px solid #05c46b !important;
 	color: #fff !important;
@@ -45,7 +54,7 @@
 }
 
 .form-control:focus {
-	color: #495057;
+	color: #fff;
     background-color: transparent;
     border-bottom: 2px solid #0be881;
     outline: 0;
