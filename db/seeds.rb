@@ -58,7 +58,7 @@ end
 puts "Seeded managers"
 
 parsed_bars.each_with_index do |bar, i|
-  Bar.create!(manager_id: i + 1, name: bar['name'], address: bar['address'], description: bar['description'], photo: bar['photo'])
+  Bar.create!(manager_id: rand(Manager.count) + 1, name: bar['name'], address: bar['address'], description: bar['description'], photo: bar['photo'])
 end
 puts "Seeded bars"
 
