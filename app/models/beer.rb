@@ -13,6 +13,14 @@ class Beer < ApplicationRecord
         prefix: true
       }
     }
+  
+  pg_search_scope :search_by_category, 
+    against: :category_id, 
+    using: {
+      tsearch: {
+        prefix: true
+      }
+    }
 
   def self.search(term)
     if term

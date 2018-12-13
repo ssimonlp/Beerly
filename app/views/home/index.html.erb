@@ -6,7 +6,7 @@
       <div class="row no-gutters pt-5">
           <div class="col-9 col-md-9 col-lg-9">
                   <%= form_tag map_index_path, method: :get do %>
-                  <%= text_field_tag 'term',nil , placeholder: "Fais ton choix", autocomplete: :off, class:"form-control form-control-lg form-control-borderlessi my_form" %>
+                  <%= text_field_tag 'term',nil , placeholder: "Fais ton choix", autocomplete: :off, class:"form-control form-control-lg form-control-borderlessi my_form", name: nil %>
                   <ul id="searchResult"></ul>
           </div>
           <div class="col-3 col-md-3 col-lg-3">
