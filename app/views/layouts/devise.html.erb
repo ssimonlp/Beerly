@@ -3,6 +3,7 @@
   <head>
     <title><%= (yield(:title)) %></title>
     <meta name="description" content="Trouver les bars qui servent vos bières préférées à proximité de chez vous grâce à Beerly." />
+    <%= favicon_link_tag 'favicon.png' %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
