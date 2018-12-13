@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable, :confirmable
   has_one :beer_wishlist
   has_many :bar_wishlists
+  has_many :bars, through: :bar_wishlists
 end

@@ -51,12 +51,14 @@ end
 puts "Seeded beers" 
 
 parsed_bars.count.times do |i|
-  Manager.create!(email: "manager#{i}@gmail.com", password: "123456", password_confirmation: "123456")
+  manager_i = Manager.new(email: "manager#{i}@gmail.com", password: "123456", password_confirmation: "123456")
+  manager_i.skip_confirmation!
+  manager_i.save
 end
 puts "Seeded managers"
 
 parsed_bars.each_with_index do |bar, i|
-  Bar.create!(manager_id: i + 1, name: bar['name'], address: bar['address'], description: bar['description'], photo: bar['photo'])
+  Bar.create!(manager_id: rand(Manager.count) + 1, name: bar['name'], address: bar['address'], description: bar['description'], photo: bar['photo'])
 end
 puts "Seeded bars"
 
@@ -68,3 +70,30 @@ parsed_bars.count.times do |i|
 end 
 
 puts "Populated their beerlists"
+
+10.times do |i|
+  user_i = User.new(email: "user#{i}@gmail.com", password: "123456", password_confirmation: "123456")
+  user_i.skip_confirmation!
+  user_i.save
+end
+puts "Seeded users"
+
+10.times do |i|
+  BarWishlist.create!(bar_id: 1, user_id: i + 1)
+  BarWishlist.create!(bar_id: 2, user_id: i + 1)
+end 
+puts "Seeded users Bar wishlists"
+
+10.times do |i|
+  BeerWishlist.create!(user_id: i + 1)
+end 
+puts "Created users Beer wishlist"
+
+
+3.times do |i|
+  FavBeer.create!(beer_wishlist_id: i + 1, beer_id: rand(Beer.count) + 1)
+  FavBeer.create!(beer_wishlist_id: i + 1, beer_id: rand(Beer.count) + 1)
+  FavBeer.create!(beer_wishlist_id: i + 1, beer_id: rand(Beer.count) + 1)
+end 
+puts "Populated users Beer wishlist"
+
