@@ -1,0 +1,2 @@
+module FavBeerHelper
+end
