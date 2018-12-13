@@ -1,8 +1,32 @@
 // Place all the styles related to the autocomplete controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-#searchResult{
-  height: auto;
-  color: #fff;
-  background-color: #666;
+#searchResult {
+    height: auto;
+    z-index: 100;
+    position: absolute;
+    background-color: #1c1e24;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 15px;
+    padding-right: 50px;
+    border-radius: 5px;
 }
+
+#searchResult > li {
+	margin-top: 5px;
+	color: #d2dae2;
+	opacity: 0.9;
+    transition: 0.1s;
+}
+
+#searchResult > li:hover {
+	color: #fff;
+	opacity: 1;
+	cursor: pointer;
+}
+
+
+
+
+
