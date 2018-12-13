@@ -4,13 +4,16 @@
 }
 
 .btn-primary {
-	padding: 0.8rem 1.2rem !important;
+	padding: 0.8rem 1.5rem !important;
 	background-color: #05c46b !important;
 	border: none;
+	color: #1c1e24 !important;
+	font-weight: 400;
 }
 
 .btn-primary:hover {
 	background-color: #0be881 !important;
+
 }
 
 .btn-secondary {
@@ -138,5 +141,14 @@ button:focus {
 
 input[type="button" i]:active, input[type="submit" i]:active, input[type="reset" i]:active, input[type="file" i]:active::-webkit-file-upload-button, button:active {
     border: none;
+}
+
+.text-h {
+    color: #05c46b;
+    transition: 0.1s;
+}
+
+.text-h:hover {
+    color: #0be881;
 }
 
