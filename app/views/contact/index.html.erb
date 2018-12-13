@@ -1,36 +1,28 @@
 <div class="container mt-5">
-	<h4>Vous avez une question</h4>
+  <h4>Vous avez une question</h4>
 
-	<div class="row mt-6">
+  <div class="row mt-6">
 
-		<div class="col-sm-6 col-md-6 col-lg-6">
+    <div class="col-sm-6 col-md-6 col-lg-6">
 
-				<%= form_with  do |f| %>
+      <%= form_tag contact_index_path do %>
 
-				<div class="form-group">
-				   	<%= f.label :Nom %> 
-				    <%= f.text_field :Nom, :class => "form-control" %><br/>
-				</div>
+      <div class="form-group">
+        <%= label_tag :name %>
+        <%= text_field_tag :name, nil, class: "form-control" %><br />
+      </div>
 
-				<div class="form-group">
-				   	<%= f.label :Téléphone %> 
-				    <%= f.text_field :téléphone, :class => "form-control" %><br/>
-				</div>
+      <div class="form-group">
+        <%= label_tag :email %>
+        <%= text_field_tag :email, nil, class: "form-control" %><br />
+      </div>
 
-				<div class="form-group">
-				   	<%= f.label :Message %> 
-				    <%= f.text_field :message, :class => "form-control" %><br/>
-				</div>
-				
-				<%= f.submit :class => "btn btn-primary" %>
-				
-			<% end %> 
-		
-		</div>
-
-
-
-		
-	</div>
-
+      <div class="form-group">
+        <%= label_tag :message %>
+        <%= text_field_tag :message, nil, class: "form-control" %><br />
+      </div>
+      <%= submit_tag "Envoyer", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
 </div>
