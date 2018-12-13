@@ -11,16 +11,10 @@
 }
 
 input[type="button" i], input[type="submit" i], input[type="reset" i], input[type="file" i]::-webkit-file-upload-button, button {
-	padding: 0rem 0rem;
-	background-color: transparent;
+	padding: .8rem 2rem;
+	border-radius: .1rem;
+	background-color: #F6972E;
 	border: none;
-	color: #05c46b;
-	font-size: 2em;
-	transition: 0.2s;
-}
-
-input[type="button" i], input[type="submit" i], input[type="reset" i], input[type="file" i]::-webkit-file-upload-button, button:hover {
-	color: #0be881;
-	cursor: pointer;
+	color: #000;
 }
 

@@ -1,16 +1,34 @@
-<h1>Modifier le prix de <%=Beer.find(@beerlist.beer_id).name%></h1>
+<div class="container mt-6 mb-5">
+  <div class="row">
+    <div class="col-lg-8 col-sm-12">
 
-<%= form_for @beerlist, url = {action: "update"} do |f| %>
-  <% if @beerlist.pint_price != nil %>
-  <%= f.label :pint_price %>
-  <%= f.text_field :pint_price %> 
-  <%= f.label :half_pint_price %>
-  <%= f.text_field :half_pint_price %>
-  <%= f.label :bottle_price %>
-  <% else %>
-  <%= f.number_field :bottle_price %>
-  <% end %>
-  <%= f.submit "update" %>
-<% end %>
+    <h2 class="mb-5 mt-5">Modifier le prix de <%=Beer.find(@beerlist.beer_id).name%></h1>
 
-<%= link_to "Retour à ma carte", managers_beer_lists_path %>
+    <%= form_for @beerlist, url = {action: "update"} do |f| %>
+      <% if @beerlist.pint_price != nil %>
+        <div class="field mt-3">
+          <%= f.label :prix_pinte %>
+          <%= f.text_field :pint_price, class:"form-control" %> 
+        </div>
+        <div class="field mt-3">
+          <%= f.label :prix_demi %>
+          <%= f.text_field :half_pint_price, class:"form-control" %>
+        </div>
+      <% else %>
+        <div class="field mt-3">
+          <%= f.label :prix_bouteille %>
+          <%= f.number_field :bottle_price, class:"form-control" %>
+        </div>
+      <% end %>
+      <div class="actions mt-4 mb-3">
+        <%= f.submit "Modifier le prix", class:"btn btn-primary mb-2" %>
+      </div>
+    <% end %>
+
+    <div class="field mt-3">
+      <%= link_to "Retour à ma carte", managers_beer_lists_path %>
+    </div>
+
+    </div>
+  </div>
+</div>
