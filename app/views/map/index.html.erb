@@ -6,10 +6,11 @@
     <div class="col-8 col-md-8 col-lg-8">
       <%= form_tag map_index_path, method: :get do %>
       <%= text_field_tag 'term',nil , placeholder: "Fais ton choix", autocomplete: :off, class:"form-control form-control-lg form-control-borderlessi my_form" %>
+ <%= hidden_field_tag :type , "a" %>
       <ul id="searchResult"></ul>
     </div>
     <div class="col-4 col-md-4 col-lg-4">
-      <%= button_tag :submit do %>
+      <%= button_tag :submit, name: nil do %>
           <i class='fas fa-search' id="search-button"></i>
       <% end %>
       <% end %>
