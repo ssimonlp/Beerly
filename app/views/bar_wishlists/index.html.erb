@@ -1,6 +1,6 @@
-<div class="container mt-3">
+<div class="container mt-5">
 
-  <h2>Mes bars favoris</h2>
+  <h4>Mes bars favoris</h4>
 
   <div class="row">
     <% @bars_on_wishlist.sort { |a,b| Bar.find(a.bar_id).name <=> Bar.find(b.bar_id).name }.each do |element| %>
