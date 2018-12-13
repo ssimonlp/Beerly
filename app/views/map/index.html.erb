@@ -5,10 +5,13 @@
   <div class="row no-gutters justify-content-center mt-4 mb-3">
     <div class="col-8 col-md-8 col-lg-8">
       <%= form_tag map_index_path, method: :get do %>
-      <%= text_field_tag 'term', params[:term], placeholder: "Quelle bière veux tu déguster aujourd'hui?", class:"form-control form-control-lg form-control-borderless" %>
+      <%= text_field_tag 'term',nil , placeholder: "Fais ton choix", autocomplete: :off, class:"form-control form-control-lg form-control-borderlessi my_form" %>
+      <ul id="searchResult"></ul>
     </div>
     <div class="col-4 col-md-4 col-lg-4">
-      <%= submit_tag 'Rechercher', class:"btn btn-sm btn-primary text-light" %>
+      <%= button_tag :submit do %>
+          <i class='fas fa-search' id="search-button"></i>
+      <% end %>
       <% end %>
     </div>
     <!--end of col-->
@@ -97,7 +100,7 @@
   };
 
   function barCard(bar) {
-    var card = '<div class="card mb-2"><img src="' + bar.photo + '" class="card-img-top" alt="beer")><div class="card-body"><h5>' + bar.name + '</h5><p>' + bar.address + '</p><a href="bars/' + bar.id + '" class="text-warning">Voir</a></div></div>';
+    var card = '<div class="card mb-2"><img src="' + bar.photo + '" class="card-img-top" alt="beer")><div class="card-body"><h5>' + bar.name + '</h5><p>' + bar.address + '</p><a href="bars/' + bar.id + '" class="text-h">Voir</a></div></div>';
     $("#result-card").append(card);
 
   };

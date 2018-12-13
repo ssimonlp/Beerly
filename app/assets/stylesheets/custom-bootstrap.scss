@@ -1,15 +1,28 @@
 .btn {
-	padding: .7rem 2rem;
+	padding: .7rem 1.8rem;
 	border-radius: .1rem;
 }
 
 .btn-primary {
-	background-color: #F6972E;
+	padding: 0.8rem 1.5rem !important;
+	background-color: #05c46b !important;
 	border: none;
+	color: #1c1e24 !important;
+	font-weight: 400;
 }
 
 .btn-primary:hover {
-	background-color: #FCBE22;
+	background-color: #0be881 !important;
+
+}
+
+.btn-secondary {
+	background-color: #ff5e57;
+	border: none;
+}
+
+.btn-secondary:hover {
+	background-color: #ff3f34;
 }
 
 .navbar-light .navbar-toggler-icon{
@@ -22,7 +35,7 @@
 }
 
 .form-control{
-	border: none;
+	font-size: 1.1em;
 	background-color: transparent;
 	border-bottom: 2px solid #05c46b !important;
 	color: #fff !important;
@@ -45,7 +58,7 @@
 }
 
 .form-control:focus {
-	color: #495057;
+	color: #fff;
     background-color: transparent;
     border-bottom: 2px solid #0be881;
     outline: 0;
@@ -114,5 +127,28 @@ button:focus {
     color: #fff;
     background-color: #0be881;
     border-color: #0be881;
+}
+
+.btn-secondary:not(:disabled):not(.disabled).active, .btn-secondary:not(:disabled):not(.disabled):active, .show>.btn-secondary.dropdown-toggle {
+    color: #fff;
+    background-color: #ff5e57;
+    border: none;
+}
+
+.btn-secondary:not(:disabled):not(.disabled).active:focus, .btn-secondary:not(:disabled):not(.disabled):active:focus, .show>.btn-secondary.dropdown-toggle:focus {
+    box-shadow: none;
+}
+
+input[type="button" i]:active, input[type="submit" i]:active, input[type="reset" i]:active, input[type="file" i]:active::-webkit-file-upload-button, button:active {
+    border: none;
+}
+
+.text-h {
+    color: #05c46b;
+    transition: 0.1s;
+}
+
+.text-h:hover {
+    color: #0be881;
 }
 
