@@ -19,7 +19,7 @@
   </div>
 
   <div class="row no-gutters">
-    <div class="col-sm-3 col-md-3 col-lg-3 pr-2" id="result-card" style="overflow: scroll !important; height: 100vh;">
+    <div class="col-sm-3 col-md-3 col-lg-3 pr-2 d-none d-sm-block" id="result-card" style="overflow: scroll !important; height: 100vh;">
     </div>
     <div class="col-sm-9 col-md-9 col-lg-9" id="map-flow" style="overflow: hidden !important;">
       <div id="map"></div>
@@ -107,7 +107,7 @@
   };
 
   function barCard(bar) {
-    var card = '<div class="card mb-2"><img src="' + bar.photo + '" class="card-img-top" alt="beer")><div class="card-body"><h5>' + bar.name + '</h5><p>' + bar.address + '</p><a href="bars/' + bar.id + '" class="text-warning">Voir</a></div></div>';
+    var card = '<div class="card mb-4"><img src="' + bar.photo + '" class="card-img-top" alt="beer")><div class="card-body"><h5>' + bar.name + '</h5><p>' + bar.address + '</p><a href="bars/' + bar.id + '" class="text-h">Voir</a></div></div>';
     $("#result-card").append(card);
 
   };
