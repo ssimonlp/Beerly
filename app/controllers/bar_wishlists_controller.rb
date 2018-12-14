@@ -5,8 +5,14 @@ class BarWishlistsController < ApplicationController
   end 
 
   def create
+    barwishlist = current_user.bars 
+    bar = (params[:bar_wishlist][:bar_id]).to_i
+    if barwishlist.include?(Bar.find(bar))
+      redirect_to bar_path(bar), alert: "Ce bar est déjà dans tes favoris !"
+    else
     @barwishlist = current_user.bar_wishlists.create(barwishlist_params)
-    return 
+      redirect_to bar_path(bar), alert: "Bar ajouté dans tes favoris !"
+    end
   end 
 
   def index

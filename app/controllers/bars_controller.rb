@@ -11,6 +11,7 @@ class BarsController < ApplicationController
     @bar = Bar.find(params[:id])
     @draft_beers = @bar.beer_lists.draft.up
     @bottle_beers = @bar.beer_lists.bottle.up
+    @barwishlist = BarWishlist.new
   end
 
   def new
