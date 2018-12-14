@@ -123,8 +123,11 @@
   };
 
   function barCard(bar) {
-    var card = '<div class="card mb-4"><img src="' + bar.photo + '" class="card-img-top" alt="beer")><div class="card-body"><h5>' + bar.name + '</h5><p>' + bar.address + '</p><a href="bars/' + bar.id + '" class="text-h">Voir</a><button type="button" class="btn btn-secondary" data-html="true" data-container="body" data-toggle="popover" data-placement="bottom" data-content="'+ bar.beers.join("<br>") +'">Bières</button></div></div>';
-    
+    console.log();
+    var card = '<div class="card mb-4"><img src="' + bar.photo + '" class="card-img-top" alt="beer")><div class="card-body"><h5>' + bar.name + '</h5><p>' + bar.address + '</p><a href="bars/' + bar.id + '" class="text-h">Voir</a>'
+    if (bar.hasOwnProperty('beers')) {
+    card += '<button type="button" class="btn btn-secondary" data-html="true" data-container="body" data-toggle="popover" data-placement="bottom" data-content="'+ bar.beers.join("<br>") +'">Bières</button></div></div>';
+    };
     $("#result-card").append(card);
   };
 </script>
