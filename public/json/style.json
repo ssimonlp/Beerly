@@ -114,7 +114,7 @@
     "elementType": "labels.text.fill",
     "stylers": [
       {
-        "color": "#757575"
+        "visibility": "hidden"
       }
     ]
   },
