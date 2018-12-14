@@ -33,10 +33,10 @@
 <script>
   var mapStyle, markers;
   var beer = "<%= params[:term] %>";
-  window.onload = function(){
+  window.onload = function() {
     main();
   };
-  
+
   function main() {
     $.getJSON("/json/style.json", function(json) {
       mapStyle = json;
@@ -74,11 +74,11 @@
       dataType: 'json'
     }).done(function(data) {
       bars = data.data;
-      newMap(mapStyle, bars);
+      newMap(mapStyle, bars, lat, lng);
     });
   };
 
-  function newMap(style, bars) {
+  function newMap(style, bars, lat, lng) {
     var map = new GMaps({
       div: '#map',
       disableDefaultUI: true,
@@ -103,13 +103,28 @@
       });
       barCard(bar);
     });
+    
+    map.addMarker({
+      lat: lat,
+      lng: lng,
+      title: 'User',
+      icon: '/img/dot.svg'
+    });
+    latLong.push({
+        lat: lat,
+        lng: lng
+      });
+    
     map.fitLatLngBounds(latLong);
   };
 
   function barCard(bar) {
     var card = '<div class="card mb-4"><img src="' + bar.photo + '" class="card-img-top" alt="beer")><div class="card-body"><h5>' + bar.name + '</h5><p>' + bar.address + '</p><a href="bars/' + bar.id + '" class="text-h">Voir</a></div></div>';
     $("#result-card").append(card);
+  };
 
+  function userMarker(map, lat, lng) {
+    
   };
 
 </script>
