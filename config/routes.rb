@@ -39,6 +39,7 @@ Rails.application.routes.draw do
   root 'home#index'
 
   get "/static_pages/:page", to: "static_pages#show"
+  get "/static_pages/instructions_barman", to: "static_pages#show", as: "instructions"
 
   resources :map, only: [:index]
 
