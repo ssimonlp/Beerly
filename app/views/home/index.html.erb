@@ -6,11 +6,12 @@
       <div class="row no-gutters pt-5">
           <div class="col-9 col-md-9 col-lg-9">
                   <%= form_tag map_index_path, method: :get do %>
-                  <%= text_field_tag 'term',nil , placeholder: "Fais ton choix", autocomplete: :off, class:"form-control form-control-lg form-control-borderlessi my_form" %>
+                  <%= text_field_tag 'term',nil, placeholder: "Fais ton choix", autocomplete: :off, class:"form-control form-control-lg form-control-borderlessi my_form"%>
+                  <%= hidden_field_tag :type , "a" %>
                   <ul id="searchResult"></ul>
           </div>
           <div class="col-3 col-md-3 col-lg-3">
-                  <%= button_tag :submit do %>
+                  <%= button_tag :submit, name: nil do %>
                       <i class='fas fa-search' id="search-button"></i>
                   <% end %>
                   <% end %>
@@ -35,7 +36,7 @@
       <div class="hovereffect">
         <%= image_tag("lager.jpg", class: "img-fluid rounded", alt: "beer") %>
           <div class="overlay">
-            <a href="#"><h2>Lager</h2>
+           <h2><%= link_to "Les Belges",map_index_path(type: "b", term: 5) %><h2>
             <p>Voir les bars</p></a>
           </div>
       </div>
@@ -44,7 +45,7 @@
       <div class="hovereffect">
         <%= image_tag("lager.jpg", class: "img-fluid rounded", alt: "beer") %>
           <div class="overlay">
-            <a href="#"><h2>Lager</h2>
+             <h2><%= link_to "Les Ales",map_index_path(type: "b", term: 3) %><h2>
             <p>Voir les bars</p></a>
           </div>
       </div>
@@ -53,7 +54,7 @@
       <div class="hovereffect">
         <%= image_tag("lager.jpg", class: "img-fluid rounded", alt: "beer") %>
           <div class="overlay">
-            <a href="#"><h2>Lager</h2>
+             <h2><%= link_to "Les Lagers",map_index_path(type: "b", term: 8) %><h2>
             <p>Voir les bars</p></a>
           </div>
       </div>
@@ -62,8 +63,8 @@
       <div class="hovereffect">
         <%= image_tag("lager.jpg", class: "img-fluid rounded", alt: "beer") %>
           <div class="overlay">
-            <a href="#"><h2>Lager</h2>
-            <p>Voir les bars</p></a>
+           <h2><%= link_to "Les Allemandes",map_index_path(type: "b", term: 7) %><h2>
+          <p>Voir les bars</p></a>
           </div>
       </div>
     </div>
@@ -98,7 +99,7 @@
     <h4 class="mb-6">Vous avez un bar ?</h4>
     <p>Rejoignez Beerly pour augmenter votre visibilité et attirer de nouveaux clients</p>
   
-    <%= link_to 'Publier votre carte', new_manager_registration_path, class:"btn btn-sm btn-primary mt-4" %>
+    <%= link_to 'Publier votre carte', new_manager_registration_path, class:"btn btn-sm btn-primary text-light mt-4" %>
 
   </div>
 <% end %>  

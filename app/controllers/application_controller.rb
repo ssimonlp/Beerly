@@ -5,10 +5,17 @@ class ApplicationController < ActionController::Base
   
   def location
     respond_to do |format|
-      format.json {
-        search = Bar.search(params["beer"], [params["lat"], params["lng"]]);
-        render json: { :data => search }
+      if params[:type] == "a"
+        format.json {
+          search = Bar.search(params["term"], [params["lat"], params["lng"]]);
+          render json: { :data => search }
         }
+      elsif params[:type] == "b"
+        format.json {
+          search = Bar.search_cat(params["term"], [params["lat"], params["lng"]]);
+          render json: { :data => search }
+        }
+        end
     end
   end
   

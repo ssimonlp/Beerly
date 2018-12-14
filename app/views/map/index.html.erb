@@ -6,10 +6,11 @@
     <div class="col-8 col-md-8 col-lg-8">
       <%= form_tag map_index_path, method: :get do %>
       <%= text_field_tag 'term',nil , placeholder: "Fais ton choix", autocomplete: :off, class:"form-control form-control-lg form-control-borderlessi my_form" %>
+ <%= hidden_field_tag :type , "a" %>
       <ul id="searchResult"></ul>
     </div>
     <div class="col-4 col-md-4 col-lg-4">
-      <%= button_tag :submit do %>
+      <%= button_tag :submit, name: nil do %>
           <i class='fas fa-search' id="search-button"></i>
       <% end %>
       <% end %>
@@ -61,7 +62,8 @@
       data: {
         lat: lat,
         lng: lng,
-        beer: beer
+        term: beer,
+        type: "<%=params[:type]%>"
       },
       contentType: 'application/json',
       dataType: 'json'
@@ -100,7 +102,7 @@
   };
 
   function barCard(bar) {
-    var card = '<div class="card mb-2"><img src="' + bar.photo + '" class="card-img-top" alt="beer")><div class="card-body"><h5>' + bar.name + '</h5><p>' + bar.address + '</p><a href="bars/' + bar.id + '" class="text-h">Voir</a></div></div>';
+    var card = '<div class="card mb-2"><img src="' + bar.photo + '" class="card-img-top" alt="beer")><div class="card-body"><h5>' + bar.name + '</h5><p>' + bar.address + '</p><a href="bars/' + bar.id + '" class="text-warning">Voir</a></div></div>';
     $("#result-card").append(card);
 
   };
