@@ -1,10 +1,10 @@
 class FavBeerController < ApplicationController
   def create
     wishlist = current_user.beer_wishlist
-    if wishlist.beers.include?(Beer.find((params[:fav_beer][:beer_id]).to_i))
-      redirect_to users_bar_wishlists_path, alert: "Cette bière est déjà dans tes favoris !"
-    elsif current_user.beer_wishlist.fav_beers.count == 3
+    if current_user.beer_wishlist.fav_beers.count == 3
       redirect_to users_bar_wishlists_path, alert: "Tu ne peux avoir que trois bières en favori !"
+    elsif wishlist.beers.include?(Beer.find((params[:fav_beer][:beer_id]).to_i))
+      redirect_to users_bar_wishlists_path, alert: "Cette bière est déjà dans tes favoris !"
     else 
       @fav_beer = current_user.beer_wishlist.fav_beers.create(favbeer_params)
       redirect_to users_bar_wishlists_path

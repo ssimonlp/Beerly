@@ -12,6 +12,7 @@ class BarWishlistsController < ApplicationController
   def index
     @bars_on_wishlist = current_user.bar_wishlists
     @bars_visited = current_user.bar_wishlists.visited
+    @bars_to_visit = current_user.bar_wishlists.to_visit
     @beers = Beer.search(params[:term])
     @fav_beer = FavBeer.new 
     @favorite_beers = current_user.beer_wishlist.fav_beers
