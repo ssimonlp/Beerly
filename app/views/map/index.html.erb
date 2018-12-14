@@ -86,7 +86,7 @@
     });
 
     var latLong = [];
-
+    if (bars[0]) {
     bars.forEach(function(bar) {
       map.addMarker({
         lat: bar.latitude,
@@ -116,15 +116,15 @@
       });
     
     map.fitLatLngBounds(latLong);
+    $('[data-toggle="popover"]').popover();
+    } else {
+      $("#map").html("Oh non, nous n'avons pas trouvé la bière que vous cherchez :'(");
+    };
   };
 
   function barCard(bar) {
-    var card = '<div class="card mb-4"><img src="' + bar.photo + '" class="card-img-top" alt="beer")><div class="card-body"><h5>' + bar.name + '</h5><p>' + bar.address + '</p><a href="bars/' + bar.id + '" class="text-h">Voir</a></div></div>';
+    var card = '<div class="card mb-4"><img src="' + bar.photo + '" class="card-img-top" alt="beer")><div class="card-body"><h5>' + bar.name + '</h5><p>' + bar.address + '</p><a href="bars/' + bar.id + '" class="text-h">Voir</a><button type="button" class="btn btn-secondary" data-html="true" data-container="body" data-toggle="popover" data-placement="bottom" data-content="'+ bar.beers.join("<br>") +'">Bières</button></div></div>';
+    
     $("#result-card").append(card);
   };
-
-  function userMarker(map, lat, lng) {
-    
-  };
-
 </script>

@@ -37,8 +37,13 @@ class Bar < ApplicationRecord
     beers = Beer.search_by_category(cat);
     beers.each do |beer|
       bars = Bar.search_by_beer(beer["name"]).near(location)
-      bars.each do |bar| 
-        json << {id: bar["id"], name: bar["name"], address: bar["address"], photo: bar["photo"], latitude: bar["latitude"], longitude: bar["longitude"]}
+      bars.each do |bar|
+        beers = bar.beers.where(category_id: cat);
+        beer_arr = []
+        beers.each do |beer|
+          beer_arr << beer["name"]
+        end
+        json << {id: bar["id"], name: bar["name"], address: bar["address"], photo: bar["photo"], latitude: bar["latitude"], longitude: bar["longitude"], beers: beer_arr.uniq}
       end
     end
     json.uniq
