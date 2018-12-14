@@ -6,7 +6,7 @@
       <div class="row no-gutters pt-5">
           <div class="col-9 col-md-9 col-lg-9">
                   <%= form_tag map_index_path, method: :get do %>
-                  <%= text_field_tag 'term',nil, placeholder: "Fais ton choix", autocomplete: :off, class:"form-control form-control-lg form-control-borderlessi my_form"%>
+                  <%= text_field_tag 'term',nil, placeholder: "Fais ton choix", autocomplete: :off, class:"form-control form-control-lg form-control-borderless my_form"%>
                   <%= hidden_field_tag :type , "a" %>
                   <ul id="searchResult"></ul>
           </div>
@@ -36,8 +36,8 @@
       <div class="hovereffect">
         <%= image_tag("lager.jpg", class: "img-fluid rounded", alt: "beer") %>
           <div class="overlay">
-           <h2><%= link_to "Les Belges",map_index_path(type: "b", term: 5) %><h2>
-            <p>Voir les bars</p></a>
+            <h2>Les Belges<h2>
+            <%= link_to "Voir les bars",map_index_path(type: "b", term: 5) %>
           </div>
       </div>
     </div>
@@ -45,8 +45,8 @@
       <div class="hovereffect">
         <%= image_tag("lager.jpg", class: "img-fluid rounded", alt: "beer") %>
           <div class="overlay">
-             <h2><%= link_to "Les Ales",map_index_path(type: "b", term: 3) %><h2>
-            <p>Voir les bars</p></a>
+            <h2>Les Ales<h2>
+            <%= link_to "Voir les bars",map_index_path(type: "b", term: 3) %>
           </div>
       </div>
     </div>
@@ -54,8 +54,8 @@
       <div class="hovereffect">
         <%= image_tag("lager.jpg", class: "img-fluid rounded", alt: "beer") %>
           <div class="overlay">
-             <h2><%= link_to "Les Lagers",map_index_path(type: "b", term: 8) %><h2>
-            <p>Voir les bars</p></a>
+            <h2>Les Lagers<h2>
+            <%= link_to "Voir les bars",map_index_path(type: "b", term: 8) %>
           </div>
       </div>
     </div>
@@ -63,8 +63,8 @@
       <div class="hovereffect">
         <%= image_tag("lager.jpg", class: "img-fluid rounded", alt: "beer") %>
           <div class="overlay">
-           <h2><%= link_to "Les Allemandes",map_index_path(type: "b", term: 7) %><h2>
-          <p>Voir les bars</p></a>
+           <h2>Les Allemandes<h2>
+           <%= link_to "Voir les bars",map_index_path(type: "b", term: 7) %>
           </div>
       </div>
     </div>
@@ -82,7 +82,7 @@
       <div class="hovereffect" id="weekbar">
         <%= image_tag("bar.jpg", class: "img-fluid rounded mb-2", alt: "bar") %>
           <div class="overlay">
-            <a href="#"><h2>Le bar</h2><br/>
+            <a href="#"><h2>Le bar</h2>
             <p>Afficher plus d'informations</p></a>
           </div>
       </div>
