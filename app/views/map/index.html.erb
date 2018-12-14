@@ -1,7 +1,7 @@
 <% provide(:title, 'Beerly | Résultats') %>
 
-<div class="container-fluid mt-3" id="result-beers" style="overflow: hidden !important; height: 100vh;">
-  <%= link_to "Retour à l'accueil", root_path, class:"mt-4 mb-2" %>
+<div class="container-fluid" id="result-beers" style="overflow: hidden !important; height: 100vh;">
+  <%= link_to "Retour à l'accueil", root_path, class:"mt-2 mb-2 btn btn-primary", style:"padding: 0.2rem 1.2rem !important; background-color: #05c46b !important;" %>
   <div class="row no-gutters justify-content-center mt-4 mb-3">
     <div class="col-8 col-md-8 col-lg-8">
       <%= form_tag map_index_path, method: :get do %>
