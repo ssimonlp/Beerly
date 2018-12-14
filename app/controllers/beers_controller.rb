@@ -1,6 +1,5 @@
 class BeersController < ApplicationController
   
-  before_action 
 
   def new
     @beer = Beer.new
@@ -9,6 +8,7 @@ class BeersController < ApplicationController
   def index
     @beers = Beer.search(params[:term])
     @beerlist = BeerList.new 
+    @fav_beer = FavBeer.new 
   end
 
   def show
