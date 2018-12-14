@@ -10,7 +10,7 @@ class Beer < ApplicationRecord
     against: :name, 
     using: {
       tsearch: {
-        prefix: true
+        prefix: true,
       }
     }
   

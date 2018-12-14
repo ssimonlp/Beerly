@@ -1,17 +1,17 @@
 <% provide(:title, 'Beerly | Résultats') %>
 
-<div class="container-fluid mt-3" id="result-beers" style="overflow: hidden !important; height: 100vh;">
-  <%= link_to "Retour à l'accueil", root_path, class:"mt-4 mb-2" %>
+<div class="container-fluid" id="result-beers" style="overflow: hidden !important; height: 100vh;">
+  <%= link_to "Retour à l'accueil", root_path, class:"mt-2 mb-2 btn btn-primary", style:"padding: 0.2rem 1.2rem !important; background-color: #05c46b !important;" %>
   <div class="row no-gutters justify-content-center mt-4 mb-3">
     <div class="col-8 col-md-8 col-lg-8">
       <%= form_tag map_index_path, method: :get do %>
       <%= text_field_tag 'term',nil , placeholder: "Fais ton choix", autocomplete: :off, class:"form-control form-control-lg form-control-borderlessi my_form" %>
- <%= hidden_field_tag :type , "a" %>
+      <%= hidden_field_tag :type , "a" %>
       <ul id="searchResult"></ul>
     </div>
     <div class="col-4 col-md-4 col-lg-4">
       <%= button_tag :submit, name: nil do %>
-          <i class='fas fa-search' id="search-button"></i>
+      <i class='fas fa-search' id="search-button"></i>
       <% end %>
       <% end %>
     </div>
@@ -19,7 +19,7 @@
   </div>
 
   <div class="row no-gutters">
-    <div class="col-sm-3 col-md-3 col-lg-3 pr-2" id="result-card" style="overflow: scroll !important; height: 100vh;">
+    <div class="col-sm-3 col-md-3 col-lg-3 pr-2 d-none d-sm-block" id="result-card" style="overflow: scroll !important; height: 100vh;">
     </div>
     <div class="col-sm-9 col-md-9 col-lg-9" id="map-flow" style="overflow: hidden !important;">
       <div id="map"></div>
@@ -30,29 +30,34 @@
 
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.google_maps %>" type="text/javascript"></script>
 <script src="/javascript/lib/gmaps.js"></script>
-<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <script>
   var mapStyle, markers;
   var beer = "<%= params[:term] %>";
-  $.getJSON("/json/style.json", function(json) {
-    mapStyle = json;
-  });
+  window.onload = function() {
+    main();
+  };
 
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function(position) {
-      search(beer, position.coords.latitude, position.coords.longitude);
-    }, function(error) {
-      if (error.code == error.PERMISSION_DENIED)
-        console.warn("You denied geolocation, the data may contain some errors.")
+  function main() {
+    $.getJSON("/json/style.json", function(json) {
+      mapStyle = json;
+    });
+
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        search(beer, position.coords.latitude, position.coords.longitude);
+      }, function(error) {
+        if (error.code == error.PERMISSION_DENIED)
+          console.warn("You denied geolocation, the data may contain some errors.")
         $.getJSON("https://ipapi.co/json", function(json) {
           search(beer, json["latitude"], json["longitude"]);
         });
-    });
-  } else {
-    console.warn("Your browser doesn't support geolocation, the data may contain some errors.")
-    $.getJSON("https://ipapi.co/json", function(json) {
-      search(beer, json["latitude"], json["longitude"]);
-    });
+      });
+    } else {
+      console.warn("Your browser doesn't support geolocation, the data may contain some errors.")
+      $.getJSON("https://ipapi.co/json", function(json) {
+        search(beer, json["latitude"], json["longitude"]);
+      });
+    };
   };
 
   function search(beer, lat, lng) {
@@ -69,11 +74,11 @@
       dataType: 'json'
     }).done(function(data) {
       bars = data.data;
-      newMap(mapStyle, bars);
+      newMap(mapStyle, bars, lat, lng);
     });
   };
 
-  function newMap(style, bars) {
+  function newMap(style, bars, lat, lng) {
     var map = new GMaps({
       div: '#map',
       disableDefaultUI: true,
@@ -98,13 +103,28 @@
       });
       barCard(bar);
     });
+    
+    map.addMarker({
+      lat: lat,
+      lng: lng,
+      title: 'User',
+      icon: '/img/dot.svg'
+    });
+    latLong.push({
+        lat: lat,
+        lng: lng
+      });
+    
     map.fitLatLngBounds(latLong);
   };
 
   function barCard(bar) {
-    var card = '<div class="card mb-2"><img src="' + bar.photo + '" class="card-img-top" alt="beer")><div class="card-body"><h5>' + bar.name + '</h5><p>' + bar.address + '</p><a href="bars/' + bar.id + '" class="text-warning">Voir</a></div></div>';
+    var card = '<div class="card mb-4"><img src="' + bar.photo + '" class="card-img-top" alt="beer")><div class="card-body"><h5>' + bar.name + '</h5><p>' + bar.address + '</p><a href="bars/' + bar.id + '" class="text-h">Voir</a></div></div>';
     $("#result-card").append(card);
+  };
 
+  function userMarker(map, lat, lng) {
+    
   };
 
 </script>

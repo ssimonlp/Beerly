@@ -8,11 +8,10 @@ $(document).ready(function(){
         method: 'GET',
         dataType: 'json',
         data: {'term': search},
-       success:function(data){
-       $("#searchResult").empty();
-        var len = data["data"].length;
-          console.log('Success!', data);
-          for( var i = 0; i<len; i++){
+        success:function(data){
+          $("#searchResult").empty(); 
+          var len = data["data"].length;
+          for( var i = 0; i < len; i++){
             var id = data["data"][i]['id'];
             var name = data["data"][i]['name'];
             if (len > 0){
@@ -24,6 +23,10 @@ $(document).ready(function(){
           });
         }
       });
+    }
+    else{
+       $("#searchResult").empty();
+
     }
   });
 });
