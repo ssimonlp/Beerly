@@ -177,21 +177,5 @@ input[type="button" i]:active, input[type="submit" i]:active, input[type="reset"
     border:none;
 }
 
-[type="reset"], [type="submit"], button, html [type="button"] {
 
-    -webkit-appearance: button;
-    border: none;
-    background: transparent;
-    opacity: 0.8 !important;
-    transition: 0.2s;
-
-
-}
-
-[type="reset"], [type="submit"], button, html [type="button"]:hover {
-
-    opacity: 1 !important;
-    cursor: pointer;
-
-}
 
