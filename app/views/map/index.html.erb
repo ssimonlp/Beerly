@@ -6,12 +6,12 @@
     <div class="col-8 col-md-8 col-lg-8">
       <%= form_tag map_index_path, method: :get do %>
       <%= text_field_tag 'term',nil , placeholder: "Fais ton choix", autocomplete: :off, class:"form-control form-control-lg form-control-borderlessi my_form" %>
- <%= hidden_field_tag :type , "a" %>
+      <%= hidden_field_tag :type , "a" %>
       <ul id="searchResult"></ul>
     </div>
     <div class="col-4 col-md-4 col-lg-4">
       <%= button_tag :submit, name: nil do %>
-          <i class='fas fa-search' id="search-button"></i>
+      <i class='fas fa-search' id="search-button"></i>
       <% end %>
       <% end %>
     </div>
@@ -30,29 +30,34 @@
 
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.google_maps %>" type="text/javascript"></script>
 <script src="/javascript/lib/gmaps.js"></script>
-<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <script>
   var mapStyle, markers;
   var beer = "<%= params[:term] %>";
-  $.getJSON("/json/style.json", function(json) {
-    mapStyle = json;
-  });
+  window.onload = function(){
+    main();
+  };
+  
+  function main() {
+    $.getJSON("/json/style.json", function(json) {
+      mapStyle = json;
+    });
 
-  if (navigator.geolocation) {
-    navigator.geolocation.getCurrentPosition(function(position) {
-      search(beer, position.coords.latitude, position.coords.longitude);
-    }, function(error) {
-      if (error.code == error.PERMISSION_DENIED)
-        console.warn("You denied geolocation, the data may contain some errors.")
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        search(beer, position.coords.latitude, position.coords.longitude);
+      }, function(error) {
+        if (error.code == error.PERMISSION_DENIED)
+          console.warn("You denied geolocation, the data may contain some errors.")
         $.getJSON("https://ipapi.co/json", function(json) {
           search(beer, json["latitude"], json["longitude"]);
         });
-    });
-  } else {
-    console.warn("Your browser doesn't support geolocation, the data may contain some errors.")
-    $.getJSON("https://ipapi.co/json", function(json) {
-      search(beer, json["latitude"], json["longitude"]);
-    });
+      });
+    } else {
+      console.warn("Your browser doesn't support geolocation, the data may contain some errors.")
+      $.getJSON("https://ipapi.co/json", function(json) {
+        search(beer, json["latitude"], json["longitude"]);
+      });
+    };
   };
 
   function search(beer, lat, lng) {
