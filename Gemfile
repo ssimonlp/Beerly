@@ -74,3 +74,8 @@ gem 'geocoder'
 
 # Mailer
 gem 'mailjet'
+
+# OAuth
+gem 'omniauth'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-facebook'
