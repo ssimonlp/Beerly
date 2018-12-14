@@ -1,1 +1,9 @@
-<%= render "beers/index", locals: {beers: @beers, beerlist: @beerlist} %>
+<% if current_manager %>
+
+  <%= render "beers/index", locals: {beers: @beers, beerlist: @beerlist} %>
+
+<% elsif current_user %>
+
+  <%= render "beers/index_user", locals: {beers: @beers, beerlist: @beerlist} %>
+
+<% end %>
