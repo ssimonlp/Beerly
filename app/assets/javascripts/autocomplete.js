@@ -11,10 +11,6 @@ $(document).ready(function(){
         success:function(data){
           $("#searchResult").empty(); 
           var len = data["data"].length;
-          var nb = search.length;
-          console.log(search);
-          console.log(data);
-          console.log(len);
           for( var i = 0; i < len; i++){
             var id = data["data"][i]['id'];
             var name = data["data"][i]['name'];
