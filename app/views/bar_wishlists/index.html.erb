@@ -1,9 +1,39 @@
 <div class="container mt-5">
 
-  <h4>Mes bars favoris</h4>
+
+  <h4>Mes bières favories</h4>
 
   <div class="row">
-    <% @bars_on_wishlist.sort { |a,b| Bar.find(a.bar_id).name <=> Bar.find(b.bar_id).name }.each do |element| %>
+    <% @favorite_beers.sort { |a,b| Beer.find(a.beer_id).name <=> Bar.find(b.beer_id).name }.each do |element| %>
+      <div class="col-12 col-md-4 col-lg-4 mt-3">
+        <div class="card">
+          <div class="container">
+            <div class="card-body">
+              <h5>
+                <%= element.beer.name %>
+              </5>
+              <p>
+              <%= link_to "Enlever de mes favoris", users_fav_beer_path(element.id), method: :delete, data: {confirm: "Vous êtes sûr?"}%></br>
+              </p>
+            </div>  
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="container">
+    <%= render "beers/index_user", locals: {beers: @beers, fav_beer: @fav_beer} %>
+  </div> </br>
+
+
+
+  <h4>Mes bars favoris</h4>
+
+  <h5> Approuvés </h5>
+
+  <div class="row">
+    <% @bars_visited.sort { |a,b| Bar.find(a.bar_id).name <=> Bar.find(b.bar_id).name }.each do |element| %>
       <div class="col-12 col-md-4 col-lg-4 mt-3" id="result-card">
         <div class="card">
           <div class="container" id="visit">
@@ -26,6 +56,9 @@
               <%= element.bar.address %>
             </p>
             <p>
+            <%= link_to "Enlever de mes favoris", users_bar_wishlist_path(element.id), method: :delete, data: {confirm: "Vous êtes sûr?"}%></br>
+            </p>
+            <p>
               <%= link_to "Voir", bar_path(element.bar.id), class:"text-warning" %>
             </p>
           </div>
@@ -34,5 +67,46 @@
       </div>
     <% end %>
   </div>
+  </br>
+  </br>
+
+  <h5> À tester </h5>
+
+  <div class="row">
+    <% @bars_to_visit.sort { |a,b| Bar.find(a.bar_id).name <=> Bar.find(b.bar_id).name }.each do |element| %>
+      <div class="col-12 col-md-4 col-lg-4 mt-3" id="result-card">
+        <div class="card">
+          <div class="container" id="visit">
+            <%= image_tag("lager.jpg", class: "card-img-top", alt: "beer", id:"visit") %>
+            <div class="overlay" id: "visit">
+                <%= link_to visit_users_bar_wishlist_path(element.id), method: :visit do %>
+                  <% if element.is_visited == true %>
+                    <i class='far fa-check-circle' id="check-green"></i>
+                  <% else %>
+                    <i class='far fa-check-circle' id="check-grey"></i>
+                  <% end %>
+                <% end %>
+            </div>
+          </div>
+          <div class="card-body" id="visit">
+            <h5>
+              <%= element.bar.name %>
+            </h5>
+            <p>
+              <%= element.bar.address %>
+            </p>
+            <p>
+            <%= link_to "Enlever de mes favoris", users_bar_wishlist_path(element.id), method: :delete, data: {confirm: "Vous êtes sûr?"}%></br>
+            </p>
+            <p>
+              <%= link_to "Voir", bar_path(element.bar.id), class:"text-warning" %>
+            </p>
+          </div>
+
+        </div>
+      </div>
+    <% end %>
+  </div>
+
 
 </div>

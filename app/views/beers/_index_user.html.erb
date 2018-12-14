@@ -1,0 +1,36 @@
+<h4 class="mt-5 mb-5">Ajoute une bières dans tes favoris!</h4>
+  <div class="col-lg-6 col-md-6 col-8">
+    <h4>Nom de la bière :</h4>
+      <%= form_tag(users_bar_wishlists_path, method: :get) do %>
+        <div class="field mt-3">
+          <%= text_field_tag 'term', nil, placeholder: "Fais ton choix", autocomplete: :off, class:"form-control form-control-lg form-control-borderlessi my_form" %>
+          <ul id="searchResult"></ul>
+        </div>
+        <div class="actions mt-4 mb-2">
+          <%= submit_tag 'Chercher', name: nil, class:"btn btn-primary mb-2" %>
+        </div>
+      <% end %>
+  </div>
+
+<% unless @beers == nil %>
+
+  <% for beer in @beers %>
+  <div class="col-12 col-md-6 col-lg-3">
+    <div class="card">
+      <div class="card-body">
+        <h5 class="card-title mt-3 mb-5"><strong> <%= beer.name %> </strong></h5>
+        <%= form_for @fav_beer, url: url_for(controller: 'fav_beer', action: 'create') do |f| %>
+          <%= f.hidden_field :beer_id, :value => beer.id %>
+          <div class="actions mt-4 mb-3">
+            <%= f.submit "Ajouter", class:"btn btn-primary mb-2" %>
+          </div>
+        <% end %>   
+        </div>
+      </div>
+
+
+    </div>
+  
+  <% end %>
+
+<% end %>

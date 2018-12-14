@@ -1,1 +1,9 @@
-<%= render "beers/index", locals: {beers: @beers, beerlist: @beerlist} %>
+<% if manager_signed_in? %>
+
+  <%= render "beers/index", locals: {beers: @beers, beerlist: @beerlist} %>
+
+<% elsif user_signed_in? %>
+
+  <%= render "beers/index_user", locals: {beers: @beers, fav_beer: @fav_beer} %>
+
+<% end %>

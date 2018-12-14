@@ -25,7 +25,9 @@ Rails.application.routes.draw do
 
   resource :users do 
     resources :bar_wishlists, only: [:index, :destroy, :create, :edit]
+    resources :fav_beer, only: [:index, :destroy, :create]
   end 
+
 
   patch '/users/bar_wishlists/:id/visit', to: "bar_wishlists#visit", as: 'visit_users_bar_wishlist'
   post '/users/bar_wishlists/:id/visit', to: "bar_wishlists#visit"

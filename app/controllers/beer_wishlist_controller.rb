@@ -1,5 +1,11 @@
 class BeerWishlistController < ApplicationController
   before_action :check_wishlist
+  
+  def index 
+    @BeerWishlist = BeerWishlist.new
+  end 
+  
+  
   def show
     @beer_wishlist = BeerWishlist.find_by(user_id: current_user.id)
   end
