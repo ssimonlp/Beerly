@@ -1,29 +1,28 @@
-<div class="jumbotron jumbotron-fluid mb-6" id="home">
-  <div class="container justify-content-center">
-    <h2 class="mt-3 mb-4 text-light">Beerly, comment ça marche ?</h2>
+<div class="container">
+    <h4 class="mt-6 mb-5 text-light">Beerly, comment ça marche ?</h4>
       <p>Notre système de recherche permet aux utilisateurs de trouver quels bars servent la bière qu'ils cherchent.</p>
       <p>En ajoutant des bières à votre carte, vous serez donc trouvable par tous !</p>
-      </br>
+      
 
-    <h2 class="mt-3 mb-4 text-light">Comment commencer ?</h2>
+    <h3 class="mt-6 mb-6 text-light">Comment commencer ?</h3>
 
-    <h4 class="mb-2 text-light"> Mettre à jour les informations sur mon bar </h4>
-    <p>Vous pouvez compléter les informations essentielles sur votre bar <%= link_to 'ici', edit_managers_bar_path(current_manager.bar.id) %>.</p>
+    <h4 class="mt-5 mb-5 text-light"> Mettre à jour les informations sur mon bar </h4>
+    <p>Vous pouvez compléter les informations essentielles sur votre bar <%= link_to 'ici', edit_managers_bar_path(current_manager.bar.id) , class:"text-h ml-1"  %></p>
     <p>Adresse, horaires d'ouverture, happy hours, photo, description... Dites-nous tout !</p>
 
-    <p><strong>Attention: votre bar ne sera pas visible sur Beerly tant que nous ne l'avons pas validé, si tout est complet, on fait ça dans la journée !</strong></p></br>
+    <p><strong>Attention: votre bar ne sera pas visible sur Beerly tant que nous ne l'avons pas validé, si tout est complet, on fait ça dans la journée !</strong></p>
 
-    <h4 class="mt-3 mb-2 text-light"> Mettre à jour ma carte</h4>
-    <p>Vous pouvez ajouter des bières (pression ou bouteille) à votre carte <%= link_to 'ici', managers_beer_lists_path %>. </p>
-    <p>Vous pouvez archiver une bière : elle n'apparaîtra plus sur votre carte mais vous pourrez la rajouter à nouveau plus tard.</p></br>
+    <h4 class="mt-5 mb-5 text-light"> Mettre à jour ma carte</h4>
+    <p>Vous pouvez ajouter des bières (pression ou bouteille) à votre carte <%= link_to 'ici', managers_beer_lists_path, class:"text-h ml-1"  %> </p>
+    <p>Vous pouvez archiver une bière : elle n'apparaîtra plus sur votre carte mais vous pourrez la rajouter à nouveau plus tard.</p>
 
 
-    <h4 class="mt-3 mb-2 text-light">Une bière qui manque ?</h4>
+    <h4 class="mt-5 mb-5 text-light">Une bière qui manque ?</h4>
     <p>Nous avons près de 80 000 bières dans notre base de données et nous n'en sommes pas peu fiers !</p>
-    <p>Si vous ne trouvez pas la bière qu'il vous faut, dites-le nous !</p></br>
+    <p>Si vous ne trouvez pas la bière qu'il vous faut, dites-le nous !</p>
 
-    <h4 class="mt-3 mb-2 text-light"> Voir ma fiche bar </h4>
-    <p>Dès que votre bar est validé par notre équipe, il est visible par tous <%= link_to 'ici', bar_path(current_manager.bar.id) %>.</p>
+    <h4 class="mt-5 mb-5 text-light"> Voir ma fiche bar </h4>
+    <p>Dès que votre bar est validé par notre équipe, il est visible par tous <%= link_to 'ici', bar_path(current_manager.bar.id), class:"text-h ml-1" %></p>
 
-  </div>
+  
 </div>
