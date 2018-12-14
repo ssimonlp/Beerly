@@ -82,8 +82,8 @@
       <div class="hovereffect" id="weekbar">
         <%= image_tag("bar.jpg", class: "img-fluid rounded mb-2", alt: "bar") %>
           <div class="overlay">
-            <a href="#"><h2>Le bar</h2>
-            <p>Afficher plus d'informations</p></a>
+            <h2>The lions</h2>
+            <%= link_to "Afficher plus d'infos", bar_path(3) %>
           </div>
       </div>
       
@@ -93,7 +93,7 @@
 </div>
 
 
-<div class="container-fluid mb-7" id="manager">
+<div class="container-fluid mb-7">
     <div class="container">
       <h4 class="mb-6">Vous avez un bar ?</h4>
       <p>Rejoignez Beerly pour augmenter votre visibilité et attirer de nouveaux clients</p>

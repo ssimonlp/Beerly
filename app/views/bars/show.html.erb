@@ -2,7 +2,12 @@
 	<div class="container">
 	    <h1 class="pb-3"><%= @bar.name %></h1>
 	    <h5 class="pb-3"><%= @bar.address %></h5>
-		<button class="btn btn-sm btn-secondary mt-2">Ajouter à la whishlist</button>
+		<%= form_for @barwishlist, url: url_for(controller: 'bar_wishlists', action: 'create') do |f| %>
+	        <%= f.hidden_field :bar_id, value: @bar.id %>
+	        <div class="actions btn btn-sm btn-secondary mt-2" style="padding: 0 1rem !important;">
+	          <%= f.submit "Ajouter à la wishlist" %>
+	        </div>
+		<% end %>
 	</div>
 </div>
 
