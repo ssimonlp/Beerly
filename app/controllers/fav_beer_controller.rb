@@ -14,6 +14,7 @@ class FavBeerController < ApplicationController
   def destroy
     @fav_beer = FavBeer.find(params[:id])
     @fav_beer.destroy
+    redirect_to users_bar_wishlists_path
   end
 
   def index 

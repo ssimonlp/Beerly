@@ -8,7 +8,14 @@
       <div class="col-12 col-md-4 col-lg-4 mt-3">
         <div class="card">
           <div class="container">
-            <%= element.beer.name %>
+            <div class="card-body">
+              <h5>
+                <%= element.beer.name %>
+              </5>
+              <p>
+              <%= link_to "Enlever de mes favoris", users_fav_beer_path(element.id), method: :delete, data: {confirm: "Vous êtes sûr?"}%></br>
+              </p>
+            </div>  
           </div>
         </div>
       </div>
@@ -17,7 +24,7 @@
 
   <div class="container">
     <%= render "beers/index_user", locals: {beers: @beers, fav_beer: @fav_beer} %>
-  </div>
+  </div> </br>
 
 
 
@@ -45,6 +52,9 @@
             </h5>
             <p>
               <%= element.bar.address %>
+            </p>
+            <p>
+            <%= link_to "Enlever de mes favoris", users_bar_wishlist_path(element.id), method: :delete, data: {confirm: "Vous êtes sûr?"}%></br>
             </p>
             <p>
               <%= link_to "Voir", bar_path(element.bar.id), class:"text-warning" %>
