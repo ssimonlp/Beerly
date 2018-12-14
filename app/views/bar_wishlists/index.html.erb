@@ -1,7 +1,7 @@
 <div class="container mt-5">
 
 
-  <h4>Mes bières favories</h4>
+  <h4>Mes bières favorites</h4>
 
   <div class="row">
     <% @favorite_beers.sort { |a,b| Beer.find(a.beer_id).name <=> Bar.find(b.beer_id).name }.each do |element| %>

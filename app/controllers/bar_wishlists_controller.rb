@@ -1,5 +1,5 @@
 class BarWishlistsController < ApplicationController
-  
+   before_action :check_wishlist
   def new
     @barwishlist = BarWishlist.new
   end 
@@ -38,6 +38,11 @@ private
 
   def barwishlist_params
     params.require(:bar_wishlist).permit(:bar_id)
-  end 
+  end
+  def check_wishlist
+    if BeerWishlist.find_by(user_id: current_user.id) == nil
+      BeerWishlist.create(user_id: current_user.id)
+    end
+  end
 
 end
