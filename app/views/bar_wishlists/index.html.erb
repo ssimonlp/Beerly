@@ -3,6 +3,18 @@
 
   <h4>Mes bières favories</h4>
 
+  <div class="row">
+    <% @favorite_beers.sort { |a,b| Beer.find(a.beer_id).name <=> Bar.find(b.beer_id).name }.each do |element| %>
+      <div class="col-12 col-md-4 col-lg-4 mt-3">
+        <div class="card">
+          <div class="container">
+            <%= element.beer.name %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
   <div class="container">
     <%= render "beers/index_user", locals: {beers: @beers, fav_beer: @fav_beer} %>
   </div>
