@@ -20,8 +20,8 @@ Rails.application.routes.draw do
   resources :bars, only: [:show, :create, :update]
 
   devise_for :users, path:  'users', controllers: {
-    sessions: 'users/sessions'
-  }
+    sessions: 'users/sessions',
+    omniauth_callbacks: 'callbacks' }
 
   resource :users do 
     resources :bar_wishlists, only: [:index, :destroy, :create, :edit]
@@ -42,6 +42,8 @@ Rails.application.routes.draw do
 
   get '/location', to: 'application#location'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  get 'auth/:provider/callback', to: 'user/sessions#create'
+  get 'auth/failure', to: redirect('/')
 end
 
 

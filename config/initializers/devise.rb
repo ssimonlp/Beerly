@@ -287,4 +287,7 @@ Devise.setup do |config|
   # ActiveSupport.on_load(:devise_failure_app) do
   #   include Turbolinks::Controller
   # end
+  config.omniauth :google_oauth2, Rails.application.credentials.omniauth[:google][:client] , Rails.application.credentials.omniauth[:google][:secret]
+  
+  config.omniauth :facebook, Rails.application.credentials.omniauth[:facebook][:app_id], Rails.application.credentials.omniauth[:facebook][:secret]
 end
