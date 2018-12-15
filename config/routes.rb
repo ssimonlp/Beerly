@@ -21,7 +21,8 @@ Rails.application.routes.draw do
 
   devise_for :users, path:  'users', controllers: {
     sessions: 'users/sessions',
-    omniauth_callbacks: 'callbacks' }
+    omniauth_callbacks: 'callbacks',
+    registrations: 'users/registrations'}
 
   resource :users do 
     resources :bar_wishlists, only: [:index, :destroy, :create, :edit]
