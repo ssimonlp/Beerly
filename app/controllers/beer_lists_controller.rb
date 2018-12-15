@@ -17,11 +17,15 @@ class BeerListsController < ApplicationController
   end
 
   def create
-    if no_blank_price
+    if try_to_enter_draft && has_already_this_beer_in_draft
+      redirect_to managers_beer_lists_path, alert: "Attention: cette bière est déjà sur votre carte !"
+    elsif try_to_enter_bottle && has_already_this_beer_in_bottle
+      redirect_to managers_beer_lists_path, alert: "Attention: cette bière est déjà sur votre carte !"
+    elsif no_blank_price
       @beerlist = current_manager.bar.beer_lists.create(beerlist_params)    
       redirect_to managers_beer_lists_path
     else
-      redirect_to managers_beer_lists_path, alert: "Attention: vous avez oublié un prix!"
+      redirect_to managers_beer_lists_path, alert: "Attention: vous avez oublié un prix !"
     end 
   end
 
@@ -35,7 +39,7 @@ class BeerListsController < ApplicationController
       @beerlist.update(beerlist_params)
       redirect_to managers_beer_lists_path
     else 
-      redirect_to edit_managers_beer_list_path(@beerlist.id), alert: "Attention: vous avez oublié un prix!"
+      redirect_to edit_managers_beer_list_path(@beerlist.id), alert: "Attention: vous avez oublié un prix !"
     end 
   end
 
@@ -61,14 +65,4 @@ class BeerListsController < ApplicationController
       params.require(:beer_list).permit(:beer_id, :pint_price, :half_pint_price, :bottle_price)
     end 
 
-    def manager_can_only_edit_their_beerlists 
-      unless current_manager.bar.id =  BeerList.find(params[:id].to_i).manager.id
-        redirect_to managers_beer_lists_path, alert: "Vous ne pouvez pas modifier cette bière"
-      end 
-    end 
-
-    def no_blank_price
-     (!(params[:beer_list][:pint_price].blank?) && !(params[:beer_list][:half_pint_price].blank?)) || !(params[:beer_list][:bottle_price].blank?)
-    end 
-    
 end
