@@ -25,7 +25,7 @@
       <div id="map"></div>
     </div>
   </div>
-
+  
 </div>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.google_maps %>" type="text/javascript"></script>
@@ -94,7 +94,7 @@
         title: bar.name,
         icon: '/img/beer32.png',
         infoWindow: {
-          content: bar.name
+          content: bar.name+'<br>'+bar.address+'<br><a href="bars/' + bar.id +'">Voir</a>'
         }
       });
       latLong.push({
