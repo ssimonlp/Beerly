@@ -1,8 +1,10 @@
+<% provide(:title, 'Beerly | Edition compte utilisateur') %>
+
 <div class="container mt-6 mb-5">
 <div class="row">
   <div class="col-lg-6 col-sm-12">
 
-    <h2 lass="mb-5 mt-5">Modifier les informations de mon compte</h2>
+    <h4 class="mb-6">Modifier les informations de mon compte</h4>
 
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= devise_error_messages! %>
@@ -43,12 +45,12 @@
 
   <div class="col-lg-6 col-sm-12">
 
-    <h2 class="mb-5">Supprimer mon compte</h2>
+    <h4 class="mb-4">Supprimer mon compte</h4>
 
     <div class="field mt-3">
       Pas satisfait?
     </div>
-    <div class="field mt-3">
+    <div class="field mt-3 mb-5">
      <%= button_to "Supprimer mon compte", registration_path(resource_name), data: { confirm: "Êtes-vous sûr?" }, method: :delete, class:"btn btn-primary mb-2" %>
     </div>
   </div>
