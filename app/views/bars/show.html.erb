@@ -1,77 +1,93 @@
 <% provide(:title, 'Beerly | Le bar') %>
 
 <div class="jumbotron jumbotron-fluid" id="showbar">
-	<div class="container">
-	    <h1 class="pb-3"><%= @bar.name %></h1>
-	    <h5 class="pb-3"><%= @bar.address %></h5>
+  <div class="container">
+    <h1 class="pb-3">
+      <%= @bar.name %>
+    </h1>
+    <h5 class="pb-3">
+      <%= @bar.address %>
+    </h5>
+    <% if user_signed_in? %>
 		<%= form_for @barwishlist, url: url_for(controller: 'bar_wishlists', action: 'create') do |f| %>
-	        <%= f.hidden_field :bar_id, value: @bar.id %>
-	        <div class="actions btn btn-sm btn-secondary mt-2" style="padding: 0 1rem !important;">
-	          <%= f.submit "Ajouter à la wishlist" %>
-	        </div>
-		<% end %>
-	</div>
+    <%= f.hidden_field :bar_id, value: @bar.id %>
+    <div class="actions btn btn-sm btn-secondary mt-2" style="padding: 0 1rem !important;">
+      <%= f.submit "Ajouter à la wishlist" %>
+    </div>
+    <% end %>
+    <% end %>
+  </div>
 </div>
 
 <div class="container">
-	<div class="row">
-		<div class="col-lg-8 col-sm-12">
-			<p class="font-italic"><%= @bar.description %></p>	
-		</div>
-		<div class="col-lg-4 col-sm-12">
-				<h4 class="pb-2">Horaires</h4>
-					<p><%= @bar.opening_time %></p>
-				<h4 class="mt-2 pb-2">Happy hours</h4>
-					<p><%= @bar.happy_hours %></p>
-		</div>
-	</div>
+  <div class="row">
+    <div class="col-lg-8 col-sm-12">
+      <p class="font-italic">
+        <%= @bar.description %>
+      </p>
+    </div>
+    <div class="col-lg-4 col-sm-12">
+      <h4 class="pb-2">Horaires</h4>
+      <p>
+        <%= @bar.opening_time %>
+      </p>
+      <h4 class="mt-2 pb-2">Happy hours</h4>
+      <p>
+        <%= @bar.happy_hours %>
+      </p>
+    </div>
+  </div>
 </div>
 
 <div class="container mt-4">
-	<h2 class="mb-5">Le menu du bar</h2>
-	<div class="row">
-
-		<div class="col-lg-6 col-sm-12 mt-4">
-		  <h4 class="pb-5">Pression</h4>
-		  <table class="table table-dark">
-		  <thead>
-		    <tr>
-		      <th scope="col">Bière</th>
-		      <th scope="col">Prix pinte</th>
-		      <th scope="col">Prix demi</th>
-		    </tr>
-		  </thead>
-		  <tbody>
-		    <% @draft_beers.sort { |a,b| Beer.find(a.beer_id).name <=> Beer.find(b.beer_id).name }.each do |item| %>
-		      <tr> 
-		        <td><%= Beer.find(item.beer_id).name %></td>
-		        <td><%= item.pint_price %> €</td>
-		        <td><%= item.half_pint_price %> €</td>
-		      </tr>
-		      <% end %>
-		    </tbody>
-		  </table>
-		</div>
-		<div class="col-lg-6 col-sm-12 mt-4">
-		  <h4 class="pb-5">Bouteille</h4>
-		  <table class="table table-dark">
-		  <thead>
-		    <tr>
-		      <th scope="col">Bière</th>
-		      <th scope="col">Prix bouteille</th>
-		    </tr>
-		  </thead>
-		  <tbody>
-		    <% @bottle_beers.sort { |a,b| Beer.find(a.beer_id).name <=> Beer.find(b.beer_id).name }.each do |item| %>
-		      <tr> 
-		        <td><%= Beer.find(item.beer_id).name %></td>
-		        <td><%= item.bottle_price %> €</td>
-		      </tr>
-		    <% end %>
-		    </tbody>
-		  </table>
-		</div>
-		
-		
-	</div>
+  <h2 class="mb-5">Le menu du bar</h2>
+  <div class="row">
+    <div class="col-lg-6 col-sm-12 mt-4">
+      <h4 class="pb-5">Pression</h4>
+      <table class="table table-dark">
+        <thead>
+          <tr>
+            <th scope="col">Bière</th>
+            <th scope="col">Prix pinte</th>
+            <th scope="col">Prix demi</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @draft_beers.sort { |a,b| Beer.find(a.beer_id).name <=> Beer.find(b.beer_id).name }.each do |item| %>
+          <tr>
+            <td>
+              <%= Beer.find(item.beer_id).name %>
+            </td>
+            <td>
+              <%= item.pint_price %> €</td>
+            <td>
+              <%= item.half_pint_price %> €</td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-lg-6 col-sm-12 mt-4">
+      <h4 class="pb-5">Bouteille</h4>
+      <table class="table table-dark">
+        <thead>
+          <tr>
+            <th scope="col">Bière</th>
+            <th scope="col">Prix bouteille</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @bottle_beers.sort { |a,b| Beer.find(a.beer_id).name <=> Beer.find(b.beer_id).name }.each do |item| %>
+          <tr>
+            <td>
+              <%= Beer.find(item.beer_id).name %>
+            </td>
+            <td>
+              <%= item.bottle_price %> €</td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
