@@ -20,6 +20,7 @@ $(document).ready(function(){
           }
           $("#searchResult li").bind("click",function(){
             setText(this);
+            window.location.replace('http://localhost:3000/map?term='+this.innerText+'&type=a');
           });
         }
       });
