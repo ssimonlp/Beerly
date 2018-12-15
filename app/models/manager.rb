@@ -4,6 +4,6 @@ class Manager < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
 
-  has_one :bar
+  has_one :bar, dependent: :destroy
   has_many :beer_lists, through: :bar 
 end

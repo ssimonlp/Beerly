@@ -4,50 +4,32 @@
 
 
 
-#visit .container {
-  position: relative;
-  width: 100%;
-  max-width: 400px;
-}
-
-/* Make the image to responsive */
-#visit .card-img-top {
-  width: 100%;
-  height: auto;
-}
-
-/* The overlay effect (full height and width) - lays on top of the container and over the image */
-#visit .overlay {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 100%;
-  width: 100%;
-  opacity: 1;
-}
-
-
 /* The icon inside the overlay is positioned in the middle vertically and horizontally */
 #check-grey {
   color:#666;
   font-size: 2.5em;
   font-weight: 400;
-  position: absolute;
-  top: 10%;
-  left: 15%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
+  opacity: 1;
 }
 
 #check-green {
   color: green;
   font-size: 2.5em;
   font-weight: 400;
-  position: absolute;
-  top: 10%;
-  left: 15%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
+  opacity: 1;
+}
+
+#remove-red {
+  color: red;
+  font-size: 2.5em;
+  font-weight: 400;
+  opacity: 1;
+}
+
+
+#heart-red {
+  color: red;
+  font-size: 2.5em;
+  font-weight: 400;
+  opacity: 1;
 }
