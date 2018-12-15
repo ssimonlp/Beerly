@@ -20,16 +20,11 @@ class Bar < ApplicationRecord
   pg_search_scope :search_by_beer, 
    associated_against: {
     beers: [:name]
-   }, 
-   using: {
-    tsearch: {
-      negation: true,
-    }
-  }
-  
+   }
+
   def self.search(beer, location)
     json = []
-    bars = Bar.search_by_beer("#{beer.downcase} !le !la !the").near(location)
+    bars = Bar.search_by_beer(beer).near(location)
     bars.each do |bar|
       draft_beer = bar.beer_lists.up.draft.include?(beer)
       json << {id: bar['id'], name: bar["name"], address: bar["address"], photo: bar["photo"], latitude: bar["latitude"], longitude: bar["longitude"], draft_number: bar.beer_lists.up.draft.count, draft_beer: draft_beer}
