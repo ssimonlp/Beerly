@@ -1,4 +1,4 @@
-<div class="container-fluid mt-3">
+<div class="container-fluid mt-5">
 
   <div class="container">
     <h2 class="mb-5"> Ma carte </h2>
@@ -85,8 +85,8 @@
                   <td><%= item.pint_price %> €</td>
                   <td><%= item.half_pint_price %> €</td>
                   <td>
-                    <%= link_to "modifier les prix", edit_managers_beer_list_path(item.id) %></br>
-                    <%= link_to "rajouter à la carte", archive_managers_beer_list_path(item.id), method: :archive, data: {confirm: "Vous êtes sûr?"} %></br>
+                    <%= link_to "Modifier les prix", edit_managers_beer_list_path(item.id) %></br>
+                    <%= link_to "Ajouter à la carte", archive_managers_beer_list_path(item.id), method: :archive, data: {confirm: "Vous êtes sûr?"} %></br>
                     <%= link_to "supprimer", managers_beer_list_path(item.id), method: :delete, data: {confirm: "Vous êtes sûr?"} %></br>
                   </td>
                 </tr>
@@ -111,8 +111,8 @@
               <td><%= Beer.find(item.beer_id).name %></td>
               <td><%= item.bottle_price %> €</td>
               <td>
-                <%= link_to "modifier le prix", edit_managers_beer_list_path(item.id) %></br>
-                <%= link_to "rajouter à la carte", archive_managers_beer_list_path(item.id), method: :archive, data: {confirm: "Vous êtes sûr?"}%></br>
+                <%= link_to "Modifier le prix", edit_managers_beer_list_path(item.id) %></br>
+                <%= link_to "Ajouter à la carte", archive_managers_beer_list_path(item.id), method: :archive, data: {confirm: "Vous êtes sûr?"}%></br>
                 <%= link_to "supprimer", managers_beer_list_path(item.id), method: :delete, data: {confirm: "Vous êtes sûr?"} %></br>
               </td>
             </tr>
