@@ -123,8 +123,13 @@
   };
 
   function barCard(bar) {
-    console.log();
-    var card = '<div class="card mb-4"><img src="' + bar.photo + '" class="card-img-top" alt="beer")><div class="card-body"><h5>' + bar.name + '</h5><p>' + bar.address + '</p><a href="bars/' + bar.id + '" class="text-h">Voir</a>'
+    var has_beer;
+    if (bar.draft_beer) {
+      has_beer = "Ce bar a la bière que tu cherches en pression :)"
+    } else {
+      has_beer = ""
+    }; 
+    var card = '<div class="card mb-4"><img src="' + bar.photo + '" class="card-img-top" alt="beer")><div class="card-body"><h5>' + bar.name + '</h5><p>' + bar.address + '</p><p>' + bar.draft_number + ' bières en pression</p><p>' + has_beer + ' </p><p><a href="bars/' + bar.id + '" class="text-h">Voir</a>'
     if (bar.hasOwnProperty('beers')) {
     card += '<button type="button" class="btn btn-secondary" data-html="true" data-container="body" data-toggle="popover" data-placement="bottom" data-content="'+ bar.beers.join("<br>") +'">Bières</button></div></div>';
     };

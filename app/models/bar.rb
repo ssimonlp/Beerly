@@ -31,7 +31,8 @@ class Bar < ApplicationRecord
     json = []
     bars = Bar.search_by_beer("#{beer.downcase} !le !la !the").near(location)
     bars.each do |bar|
-      json << {id: bar['id'], name: bar["name"], address: bar["address"], photo: bar["photo"], latitude: bar["latitude"], longitude: bar["longitude"]}
+      draft_beer = bar.beer_lists.up.draft.include?(beer)
+      json << {id: bar['id'], name: bar["name"], address: bar["address"], photo: bar["photo"], latitude: bar["latitude"], longitude: bar["longitude"], draft_number: bar.beer_lists.up.draft.count, draft_beer: draft_beer}
     end
     json
   end
@@ -47,7 +48,7 @@ class Bar < ApplicationRecord
         beers.each do |beer|
           beer_arr << beer["name"]
         end
-        json << {id: bar["id"], name: bar["name"], address: bar["address"], photo: bar["photo"], latitude: bar["latitude"], longitude: bar["longitude"], beers: beer_arr.uniq}
+        json << {id: bar["id"], name: bar["name"], address: bar["address"], photo: bar["photo"], latitude: bar["latitude"], longitude: bar["longitude"], draft_number: bar.beer_lists.up.draft.count, beers: beer_arr.uniq}
       end
     end
     json.uniq
