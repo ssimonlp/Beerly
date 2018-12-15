@@ -27,6 +27,7 @@ class BarWishlistsController < ApplicationController
   def destroy
     @barwishlist = BarWishlist.find(params[:id])
     @barwishlist.destroy
+    redirect_to users_bar_wishlists_path
   end 
 
   def visit
