@@ -1,7 +1,7 @@
 class Bar < ApplicationRecord
   include PgSearch
   belongs_to :manager
-  has_many :beer_lists
+  has_many :beer_lists, dependent: :destroy
   has_many :beers, through: :beer_lists
   has_many :bar_wishlists
   

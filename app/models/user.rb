@@ -3,8 +3,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable, :omniauthable, omniauth_providers: [:google_oauth2, :facebook]
-  has_one :beer_wishlist
-  has_many :bar_wishlists
+  has_one :beer_wishlist, dependent: :destroy
+  has_many :bar_wishlists, dependent: :destroy
   has_many :bars, through: :bar_wishlists
   
   def self.from_omniauth(auth)
