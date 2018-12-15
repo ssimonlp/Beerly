@@ -3,111 +3,86 @@
 <div class="jumbotron jumbotron-fluid" id="home">
   <div class="container mt-6">
     <h1 class="mt-5 mb-2 text-light">Quelle bière veux tu déguster aujourd'hui?</h1>
-
-      <div class="container">
+    <div class="container">
       <div class="row no-gutters pt-5">
-          <div class="col-9 col-md-9 col-lg-9">
-                  <%= form_tag map_index_path, method: :get do %>
-                  <%= text_field_tag 'term',nil, placeholder: "Fais ton choix", autocomplete: :off, class:"form-control form-control-lg form-control-borderless my_form"%>
-                  <%= hidden_field_tag :type , "a" %>
-                  <ul id="searchResult"></ul>
-          </div>
-          <div class="col-3 col-md-3 col-lg-3">
-                  <%= button_tag :submit, name: nil do %>
-                      <i class='fas fa-search' id="search-button"></i>
-                  <% end %>
-                  <% end %>
-          </div>
-
-          <!--end of col-->
+        <div class="col-9 col-md-9 col-lg-9">
+          <%= form_tag map_index_path, method: :get do %>
+          <%= text_field_tag 'term',nil, placeholder: "Fais ton choix", autocomplete: :off, class:"form-control form-control-lg form-control-borderless my_form"%>
+          <%= hidden_field_tag :type , "a" %>
+          <ul id="searchResult"></ul>
+        </div>
+        <div class="col-3 col-md-3 col-lg-3">
+          <%= button_tag :submit, name: nil do %>
+          <i class='fas fa-search' id="search-button"></i>
+          <% end %>
+          <% end %>
+        </div>
       </div>
     </div>
-    
-
   </div>
-
 </div>
-
 <div class="container mt-5 mb-7">
-
   <h4 class="mb-6">Explorer les différents type de bières</h4>
-
   <div class="row">
-
     <div class="col-lg-3 col-md-3 col-sm-6 col-6 mb-3">
       <div class="hovereffect">
         <%= image_tag("lager.jpg", class: "img-fluid rounded", alt: "beer") %>
-          <div class="overlay">
-            <h2>Les Belges<h2>
-            <%= link_to "Voir les bars",map_index_path(type: "b", term: 5) %>
-          </div>
+        <div class="overlay">
+          <h2>Les Belges<h2>
+              <%= link_to "Voir les bars",map_index_path(type: "b", term: 5) %>
+        </div>
       </div>
     </div>
     <div class="col-lg-3 col-md-3 col-sm-6 col-6 mb-3">
       <div class="hovereffect">
         <%= image_tag("lager.jpg", class: "img-fluid rounded", alt: "beer") %>
-          <div class="overlay">
-            <h2>Les Ales<h2>
-            <%= link_to "Voir les bars",map_index_path(type: "b", term: 3) %>
-          </div>
+        <div class="overlay">
+          <h2>Les Ales<h2>
+              <%= link_to "Voir les bars",map_index_path(type: "b", term: 3) %>
+        </div>
       </div>
     </div>
     <div class="col-lg-3 col-md-3 col-sm-6 col-6 mb-3">
       <div class="hovereffect">
         <%= image_tag("lager.jpg", class: "img-fluid rounded", alt: "beer") %>
-          <div class="overlay">
-            <h2>Les Lagers<h2>
-            <%= link_to "Voir les bars",map_index_path(type: "b", term: 8) %>
-          </div>
+        <div class="overlay">
+          <h2>Les Lagers<h2>
+              <%= link_to "Voir les bars",map_index_path(type: "b", term: 8) %>
+        </div>
       </div>
     </div>
     <div class="col-lg-3 col-md-3 col-sm-6 col-6 mb-3">
       <div class="hovereffect">
         <%= image_tag("lager.jpg", class: "img-fluid rounded", alt: "beer") %>
-          <div class="overlay">
-           <h2>Les Allemandes<h2>
-           <%= link_to "Voir les bars",map_index_path(type: "b", term: 7) %>
-          </div>
+        <div class="overlay">
+          <h2>Les Allemandes<h2>
+              <%= link_to "Voir les bars",map_index_path(type: "b", term: 7) %>
+        </div>
       </div>
     </div>
-
   </div>
-
-
 </div>
-
 <div class="container mb-7">
   <h4 class="mb-6">Le bar de la semaine</h4>
-
   <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
       <div class="hovereffect" id="weekbar">
         <%= image_tag("bar.jpg", class: "img-fluid rounded mb-2", alt: "bar") %>
-          <div class="overlay">
-            <h2>The lions</h2>
-            <%= link_to "Afficher plus d'infos", bar_path(3) %>
-          </div>
+        <div class="overlay">
+          <h2>The lions</h2>
+          <%= link_to "Afficher plus d'infos", bar_path(3) %>
+        </div>
       </div>
-      
-    </div> 
+    </div>
   </div>
-  
 </div>
-
-
+<% unless manager_signed_in? %>
 <div class="container-fluid mb-7">
-    <div class="container">
-      <h4 class="mb-6">Vous avez un bar ?</h4>
-      <p>Rejoignez Beerly pour augmenter votre visibilité et attirer de nouveaux clients</p>
-    
-      <%= link_to 'Publier votre carte', new_manager_registration_path, class:"btn btn-sm btn-primary mt-4" %>
+  <div class="container">
+    <h4 class="mb-6">Vous avez un bar ?</h4>
+    <p>Rejoignez Beerly pour augmenter votre visibilité et attirer de nouveaux clients</p>
 
+    <%= link_to 'Publier votre carte', new_manager_registration_path, class:"btn btn-sm btn-primary mt-4" %>
   </div>
-
 </div>
-
-
-
-
-
-
+<% end %>
