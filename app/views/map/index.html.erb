@@ -1,8 +1,8 @@
 <% provide(:title, 'Beerly | Résultats') %>
 
 <div class="container-fluid" id="result-beers" style="overflow: hidden !important; height: 100vh;">
-  <%= link_to "Retour à l'accueil", root_path, class:"mt-2 mb-2 btn btn-primary", style:"padding: 0.2rem 1.2rem !important; background-color: #05c46b !important;" %>
   <div class="row no-gutters justify-content-center mt-4 mb-3">
+    <%= link_to "Retour à l'accueil", root_path, class:"mt-2 mb-2 btn btn-primary", style:"padding: 0.2rem 1.2rem !important; background-color: #05c46b !important;" %>
     <div class="col-8 col-md-8 col-lg-8">
       <%= form_tag map_index_path, method: :get do %>
       <%= text_field_tag 'term',nil , placeholder: "Fais ton choix", autocomplete: :off, class:"form-control form-control-lg form-control-borderlessi my_form" %>
@@ -19,7 +19,7 @@
   </div>
 
   <div class="row no-gutters">
-    <div class="col-sm-3 col-md-3 col-lg-3 pr-2 d-none d-sm-block" id="result-card" style="overflow: scroll !important; height: 100vh;">
+    <div class="col-sm-3 col-md-3 col-lg-3 pr-2 d-none d-sm-block mb-6" id="result-card" style="overflow: scroll !important; height: 100vh;">
     </div>
     <div class="col-sm-9 col-md-9 col-lg-9" id="map-flow" style="overflow: hidden !important;">
       <div id="map"></div>
