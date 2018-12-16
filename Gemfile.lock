@@ -86,7 +86,6 @@ GEM
     diff-lcs (1.3)
     domain_name (0.5.20180417)
       unf (>= 0.0.5, < 1.0.0)
-    dotenv (2.5.0)
     erubi (1.7.1)
     execjs (2.7.0)
     faraday (0.15.4)
@@ -295,7 +294,6 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   csv
   devise
-  dotenv
   geocoder
   httparty
   jbuilder (~> 2.5)
