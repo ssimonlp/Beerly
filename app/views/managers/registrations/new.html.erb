@@ -22,12 +22,12 @@
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> caractères minimum)</em>
     <% end %><br />
-    <%= f.password_field :mot_de_passe, autocomplete: "new-password", class: "form-control" %>
+    <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
   </div>
 
   <div class="field mt-3">
     <%= f.label :password_confirmation %><br />
-    <%= f.password_field :confirmation_mot_de_passe, autocomplete: "new-password", class: "form-control" %>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
   </div>
 
   <div class="actions mt-4 mb-3">
