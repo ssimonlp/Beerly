@@ -1,5 +1,8 @@
 # Beerly
 
+![enter image description here](https://nsa39.casimages.com/img/2018/12/16/mini_181216051550199399.png)
+Hi! you can find our project there https://thp-beerly.herokuapp.com/
+
 Beerly is an application that help you find bars in Paris according to the brand or type of beer you want to drink.
 for example if you are looking for a bar that serve Karmeliet just look it up in beerly and it will show you a map that show all the bar around you that serve Karmeliet.
 
