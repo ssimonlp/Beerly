@@ -25,13 +25,13 @@ puts 'Parsed breweries'
 parsed_beers = CSV.foreach('db/beers.csv', headers: true).map(&:to_h)
 puts 'Parsed beers'
 
-parsed_bars = CSV.foreach('db/bars.csv', headers: true).map(&:to_h)
-<<<<<<< HEAD
+parsed_bars = CSV.foreach("db/bars.csv", quote_char: '"', col_sep: ';', row_sep: :auto, headers: true).map(&:to_h)
+
 puts "Parsed bars"
-=======
+
 p parsed_bars
 puts 'Parsed bars'
->>>>>>> dev
+
 
 categories['data'].each do |category|
   Category.create(name: category['name'])
