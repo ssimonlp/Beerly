@@ -1,24 +1,25 @@
-# README
+Beerly 
+🔧 Installation guide
+To install and test our awesome project :
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+$ git clone https://github.com/Crysicia/THP-Movies.git
+$ cd THP-Movie
+$ bundle install
+$ rails db:create
+Run it like this :
 
-Things you may want to cover:
+$ rails s
+Then you can go to :
 
-* Ruby version
+$ localhost:3000
+And run the tests :
 
-* System dependencies
+$ rails test:system
+📻 What does it do ?
+Simple-yet-effective TMDb scrapper and display.
 
-* Configuration
+🎬 But, what about the live website ?
+He's here : Click me 🌟
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+🐙 Who made this ?
+@ssimonlp the hard-worker and @Crysicia the cookies master !
