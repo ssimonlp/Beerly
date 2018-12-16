@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Manager < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -5,5 +7,5 @@ class Manager < ApplicationRecord
          :recoverable, :rememberable, :validatable, :confirmable
 
   has_one :bar, dependent: :destroy
-  has_many :beer_lists, through: :bar 
+  has_many :beer_lists, through: :bar
 end

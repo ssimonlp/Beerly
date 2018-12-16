@@ -9,12 +9,13 @@
 
 #map {
   width: 100%;
-  height: 80vh;
+  height: 85vh;
   border-radius: 3px;
 }
 
 #result-card {
   overflow-y: scroll;
+  padding-bottom: 100px;
 }
 
 #map-flow {
@@ -33,6 +34,15 @@
 
 .text-h:hover {
   color: #0be881 !important;
+}
+
+.text-r {
+  color: #ffa801 !important;
+  transition: 0.2s;
+}
+
+.text-r:hover {
+  color: #ffd32a !important;
 }
 
 // Dot animation
@@ -81,7 +91,7 @@
   -webkit-box-shadow: inset 0 0 5px #05c46b, inset 0 0 5px #05c46b, inset 0 0 5px #05c46b, 0 0 5px #05c46b, 0 0 5px #05c46b, 0 0 5px #05c46b;
   box-shadow: inset 0 0 5px #05c46b, inset 0 0 5px #05c46b, inset 0 0 5px #05c46b, 0 0 5px #05c46b, 0 0 5px #05c46b, 0 0 5px #05c46b;
   height: 64px !important;
-  margin: -20px 0 0 -20px;
+  margin: -23px 0 0 -23px;
   width: 64px !important;
 }
 
@@ -97,4 +107,5 @@
 .gm-style-iw a {
   padding-top: 5px !important;
   color: #05c46b !important;
+  font-weight: 900;
 }

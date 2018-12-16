@@ -1,8 +1,5 @@
+# frozen_string_literal: true
+
 class MapController < ApplicationController
-
-  layout "devise"
-
-  def index
-  end
-  
+  layout 'devise'
 end

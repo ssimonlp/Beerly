@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateBeerWishlists < ActiveRecord::Migration[5.2]
   def change
     create_table :beer_wishlists do |t|

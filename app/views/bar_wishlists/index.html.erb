@@ -5,7 +5,7 @@
   <h4>Mes bières favorites</h4>
 
   <div class="row">
-    <% @favorite_beers.sort { |a,b| Beer.find(a.beer_id).name <=> Bar.find(b.beer_id).name }.each do |element| %>
+    <% @favorite_beers.sort { |a,b| Beer.find(a.beer_id).name <=> Beer.find(b.beer_id).name }.each do |element| %>
       <div class="col-12 col-md-4 col-lg-4 mt-3">
         <div class="card">
           <div class="container">
