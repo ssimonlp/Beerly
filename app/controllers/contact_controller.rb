@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class ContactController < ApplicationController
   def create
     AdminMailer.contact(contact_params).deliver_now

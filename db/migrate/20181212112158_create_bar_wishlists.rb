@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class CreateBarWishlists < ActiveRecord::Migration[5.2]
   def change
     create_table :bar_wishlists do |t|

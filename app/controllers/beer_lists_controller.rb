@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class BeerListsController < ApplicationController
   before_action :manager_can_only_edit_their_beerlists, only: [:edit]
 

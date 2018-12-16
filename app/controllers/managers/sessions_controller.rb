@@ -4,7 +4,7 @@ class Managers::SessionsController < Devise::SessionsController
   include Accessible
   skip_before_action :check_user, only: :destroy
 
-  layout 'devise'
+  layout "devise"
 
   # before_action :configure_sign_in_params, only: [:create]
 

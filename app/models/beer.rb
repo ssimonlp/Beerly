@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class Beer < ApplicationRecord
   include PgSearch
   belongs_to :brewery
@@ -11,23 +9,26 @@ class Beer < ApplicationRecord
   validates :brewery, presence: true, on: :create
   validates :style, presence: true, on: :create
   validates :category, presence: true, on: :create
-  pg_search_scope :search_beer,
-                  against: :name,
-                  using: {
-                    tsearch: {
-                      prefix: true
-                    }
-                  }
-
-  pg_search_scope :search_by_category,
-                  against: :category_id,
-                  using: {
-                    tsearch: {
-                      prefix: true
-                    }
-                  }
+  pg_search_scope :search_beer, 
+    against: :name, 
+    using: {
+      tsearch: {
+        prefix: true,
+      }
+    }
+  
+  pg_search_scope :search_by_category, 
+    against: :category_id, 
+    using: {
+      tsearch: {
+        prefix: true
+      }
+    }
 
   def self.search(term)
-    where('name ILIKE ?', "%#{term}%") if term
+    if term
+      where('name ILIKE ?', "%#{term}%")
+    end
   end
+  
 end

@@ -24,7 +24,7 @@ class Managers::ConfirmationsController < Devise::ConfirmationsController
   # end
 
   # The path used after confirmation.
-  def after_confirmation_path_for(_resource_name, resource)
+  def after_confirmation_path_for(resource_name, resource)
     sign_in(resource)
     @bar = Bar.new(manager_id: current_manager.id)
     @bar.save(validate: false)

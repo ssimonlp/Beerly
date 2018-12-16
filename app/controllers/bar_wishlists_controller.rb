@@ -1,8 +1,6 @@
-# frozen_string_literal: true
-
 class BarWishlistsController < ApplicationController
   before_action :check_wishlist
-
+  
   def index
     @bars_on_wishlist = current_user.bar_wishlists
     @bars_visited = current_user.bar_wishlists.visited
@@ -31,7 +29,7 @@ class BarWishlistsController < ApplicationController
     @barwishlist = BarWishlist.find(params[:id])
     @barwishlist.destroy
     redirect_to users_bar_wishlists_path
-  end
+  end 
 
   def visit
     @barwishlist = BarWishlist.find(params[:id])

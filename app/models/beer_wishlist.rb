@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class BeerWishlist < ApplicationRecord
   belongs_to :user
   has_many :fav_beers

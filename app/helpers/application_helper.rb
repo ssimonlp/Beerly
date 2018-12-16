@@ -1,16 +1,14 @@
-# frozen_string_literal: true
-
 module ApplicationHelper
-  def bootstrap_class_for(flash_type)
+  def bootstrap_class_for flash_type
     case flash_type
     when :success
-      'alert-success'
+      "alert-success"
     when :error
-      'alert-error'
+      "alert-error"
     when :alert
-      'alert-block'
+      "alert-block"
     when :notice
-      'alert-info'
+      "alert-info"
     else
       flash_type.to_s
     end

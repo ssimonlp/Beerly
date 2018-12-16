@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class BarsController < ApplicationController
   before_action :manager_has_one_bar, only: [:new]
   before_action :manager_can_only_edit_their_bar, only: [:edit]
@@ -35,21 +33,32 @@ class BarsController < ApplicationController
 
   private
 
+<<<<<<< HEAD
   def bar_params
     params.require(:bar).permit(:name, :address, :photo, :opening_time, :happy_hours, :description)
   end
+end
+=======
+  private 
+    def bar_params
+      params.require(:bar).permit(:name, :address, :photo, :opening_time, :happy_hours, :description)
+    end 
 
-  def manager_has_one_bar
-    redirect_to root_path if current_manager.bar
-  end
+  def manager_has_one_bar 
+    if current_manager.bar
+      redirect_to root_path
+    end 
+  end 
 
-  def manager_can_only_edit_their_bar
+  def manager_can_only_edit_their_bar 
     if current_manager.bar.id != params[:id].to_i
       redirect_to edit_managers_bar_path(current_manager.bar.id), alert: "Vous n'avez pas accès à cette page"
-    end
-  end
+    end 
+  end 
 
   def address_or_name_blank
     params[:bar][:address].blank? || params[:bar][:name].blank?
-  end
+  end 
+
 end
+>>>>>>> dev
