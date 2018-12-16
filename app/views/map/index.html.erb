@@ -1,15 +1,16 @@
 <% provide(:title, 'Beerly | Résultats') %>
 
 <div class="container-fluid" id="result-beers" style="overflow: hidden !important; height: 100vh;">
-  <div class="row no-gutters justify-content-center mt-4 mb-3">
-    <%= link_to "Retour à l'accueil", root_path, class:"mt-2 mb-2 btn btn-primary", style:"padding: 0.2rem 1.2rem !important; background-color: #05c46b !important;" %>
-    <div class="col-8 col-md-8 col-lg-8">
+  
+  <div class="row no-gutters justify-content-left mt-4 mb-3">
+    <%= link_to "Accueil", root_path, class:"mt-2 mb-2 btn btn-sm btn-primary mr-2", style:"background-color: #05c46b !important;" %>
+    <div class="col-5 col-md-5 col-lg-5">
       <%= form_tag map_index_path, method: :get do %>
       <%= text_field_tag 'term',nil , placeholder: "Fais ton choix", autocomplete: :off, class:"form-control form-control-lg form-control-borderlessi my_form" %>
       <%= hidden_field_tag :type , "a" %>
       <ul id="searchResult"></ul>
     </div>
-    <div class="col-4 col-md-4 col-lg-4">
+    <div class="col-2 col-md-2 col-lg-2">
       <%= button_tag :submit, name: nil do %>
       <i class='fas fa-search' id="search-button"></i>
       <% end %>
@@ -131,7 +132,7 @@
     }; 
     var card = '<div class="card mb-4"><img src="' + bar.photo + '" class="card-img-top" alt="beer")><div class="card-body"><h5>' + bar.name + '</h5><p>' + bar.address + '</p><p>' + bar.draft_number + ' bières en pression</p><p>' + has_beer + ' </p><p><a href="bars/' + bar.id + '" class="text-h">Voir</a>'
     if (bar.hasOwnProperty('beers')) {
-    card += '<button type="button" class="btn btn-secondary" data-html="true" data-container="body" data-toggle="popover" data-placement="bottom" data-content="'+ bar.beers.join("<br>") +'">Bières</button></div></div>';
+    card += '<button type="button" class="text-r ml-3" data-html="true" data-container="body" data-toggle="popover" data-placement="bottom" data-content="'+ bar.beers.join("<br>") +'">Bières</button></div></div>';
     };
     $("#result-card").append(card);
   };
