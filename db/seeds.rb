@@ -26,8 +26,12 @@ parsed_beers = CSV.foreach('db/beers.csv', headers: true).map(&:to_h)
 puts 'Parsed beers'
 
 parsed_bars = CSV.foreach('db/bars.csv', headers: true).map(&:to_h)
+<<<<<<< HEAD
+puts "Parsed bars"
+=======
 p parsed_bars
 puts 'Parsed bars'
+>>>>>>> dev
 
 categories['data'].each do |category|
   Category.create(name: category['name'])
@@ -52,26 +56,22 @@ parsed_beers.each do |beer|
 end
 puts 'Seeded beers'
 
-parsed_bars.count.times do |i|
-  manager_i = Manager.new(email: "manager#{i}@gmail.com", password: '123456', password_confirmation: '123456')
+parsed_bars.each_with_index do |bar, i|
+  manager_i = Manager.new(email: "manager#{i}@gmail.com", password: "123456", password_confirmation: "123456")
   manager_i.skip_confirmation!
   manager_i.save
+  Bar.create!(manager_id: manager_i.id, name: bar['name'], address: bar['address'], description: bar['description'], photo: bar['photo'])
 end
-puts 'Seeded managers'
-
-parsed_bars.each_with_index do |bar, _i|
-  Bar.create!(manager_id: rand(Manager.count) + 1, name: bar['name'], address: bar['address'], description: bar['description'], photo: bar['photo'])
-end
-puts 'Seeded bars'
+puts "Seeded managers"
+puts "Seeded bars"
 
 parsed_bars.count.times do |i|
   rand(1..10).times do
     BeerList.create!(beer_id: rand(Beer.count) + 1, bar_id: i + 1, pint_price: rand(1..7), half_pint_price: rand(1..2))
     BeerList.create!(beer_id: rand(Beer.count) + 1, bar_id: i + 1, bottle_price: rand(1..10))
   end
-end
-
-puts 'Populated their beerlists'
+end 
+puts "Populated their beerlists"
 
 10.times do |i|
   user_i = User.new(email: "user#{i}@gmail.com", password: '123456', password_confirmation: '123456')
