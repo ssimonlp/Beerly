@@ -9,7 +9,7 @@ Devise.setup do |config|
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
   # config.secret_key = '1ea213692a9280f134b2f0e195361344ae7c70cebf948a10847881ec9876cfb3694a404d872e4efb8b6ef0e4dcd9e70e574e879c1a1aaeb61d6399c9bdc98029'
-  
+
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
   config.parent_controller = 'MyBaseDeviseController'
@@ -229,7 +229,7 @@ Devise.setup do |config|
   # Turn scoped views on. Before rendering "sessions/new", it will first check for
   # "users/sessions/new". It's turned off by default because it's slower if you
   # are using only default views.
-   config.scoped_views = true
+  config.scoped_views = true
 
   # Configure the default scope given to Warden. By default it's the first
   # devise role declared in your routes (usually :user).
@@ -287,7 +287,7 @@ Devise.setup do |config|
   # ActiveSupport.on_load(:devise_failure_app) do
   #   include Turbolinks::Controller
   # end
-  config.omniauth :google_oauth2, Rails.application.credentials.omniauth[:google][:client] , Rails.application.credentials.omniauth[:google][:secret]
-  
+  config.omniauth :google_oauth2, Rails.application.credentials.omniauth[:google][:client], Rails.application.credentials.omniauth[:google][:secret]
+
   config.omniauth :facebook, Rails.application.credentials.omniauth[:facebook][:app_id], Rails.application.credentials.omniauth[:facebook][:secret]
 end
