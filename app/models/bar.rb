@@ -8,8 +8,8 @@ class Bar < ApplicationRecord
   scope :up, -> { where(state: true) }
   scope :down, -> { where(state: false) }
 
+  validates :manager_id, presence: true, uniqueness: true
 
- 
   # Geocoding
   geocoded_by :address
   after_validation :geocode

@@ -6,6 +6,7 @@ class BarWishlist < ApplicationRecord
   belongs_to :bar
   belongs_to :user
 
+  validates :bar_id, presence: true, uniqueness: {scope: :user_id}
 
 end
 

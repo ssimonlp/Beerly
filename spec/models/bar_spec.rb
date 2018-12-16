@@ -7,7 +7,9 @@ RSpec.describe Bar, type: :model do
     context "When a manager wants to update his bar" do 
     
       before do 
-        @manager = Manager.create(email:'juliette@gmail.com', password:'123456', password_confirmation:'123456')
+        @manager = Manager.new(email:'juliette@gmail.com', password:'123456', password_confirmation:'123456')
+        @manager.skip_confirmation!
+        @manager.save
         @bar = Bar.new(manager_id: @manager.id)
         @bar.save(validate: false)
       end 
@@ -32,12 +34,12 @@ RSpec.describe Bar, type: :model do
         @bar = Bar.last
       end 
       
-      it 'should have many Beers through beerlists' do 
+      it 'should be able to have many Beers through beerlists' do 
         expect { @bar.beer }.to raise_error(NoMethodError)
         expect(@bar.beers).not_to be_empty
       end 
 
-      it 'should have many beerlists' do 
+      it 'should be able to have many beerlists' do 
         expect { @bar.beer_list }.to raise_error(NoMethodError)
         expect(@bar.beer_lists).not_to be_empty
       end 
