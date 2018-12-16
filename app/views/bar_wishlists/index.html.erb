@@ -41,7 +41,7 @@
       <div class="col-12 col-md-4 col-lg-4 mt-3" id="result-card">
         <div class="card">
           <%= link_to  bar_path(element.bar.id), method: :get do %>
-            <%= image_tag("lager.jpg", class: "card-img-top", alt: "beer", id:"visit") %>
+            <%= image_tag("#{element.bar.photo}", class: "card-img-top", alt: "beer", id:"visit") %>
           <% end %>
           <div class="card-body" id="visit">
             <h5>
@@ -78,7 +78,7 @@
       <div class="col-12 col-md-4 col-lg-4 mt-3" id="result-card">
         <div class="card">
           <%= link_to  bar_path(element.bar.id), method: :get do %>
-            <%= image_tag("lager.jpg", class: "card-img-top", alt: "beer", id:"visit") %>
+            <%= image_tag("#{element.bar.photo}", class: "card-img-top", alt: "beer", id:"visit") %>
           <% end %>
           <div class="card-body" id="visit">
             <h5>
