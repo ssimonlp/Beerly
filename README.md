@@ -6,17 +6,31 @@ Beerly is an application that help you find bars in Paris according to the brand
 for example if you are looking for a bar that serve Karmeliet just look it up in beerly and it will show you a map that show all the bar around you that serve Karmeliet.
 
 
-# installation Guide
+# Installation Guide
 
-To install and test our awesome project in local :
+To install and try our awesome project in local :
 
 $ git clone https://github.com/Crysicia/THP-Movies.git
 $ cd THP-Movie
 $ bundle install
 $ rails db:create
+$ rake db:seed RAILS_ENV=test
 
 Run it like this :
 $ rails s
 
 Then you can go to :
 $ localhost:3000
+
+
+## how does it work
+
+To make our project work on rails we used differents gems :
+
+-**devise** manage the users and managers identifications and connexion.
+
+-**geocoder** Geocalise the user after  he searched for a beer and return his latitude and longitude for the map to work
+
+-**mailjet** is used to send mail to our users after their created their account.
+
+-**omniauth** allow the user to connect to beerly by his Facebook or google account. 
