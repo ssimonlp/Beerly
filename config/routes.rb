@@ -16,12 +16,13 @@ Rails.application.routes.draw do
     resources :bars, only: [:edit, :new] 
     resources :beer_lists, only: [:index, :destroy, :create, :edit]
   end 
-
+  get '/managers/autocomplete', to:"autocomplete#index", format: "json"
   resources :bars, only: [:show, :create, :update]
 
   devise_for :users, path:  'users', controllers: {
     sessions: 'users/sessions',
-    omniauth_callbacks: 'callbacks' }
+    omniauth_callbacks: 'callbacks',
+    registrations: 'users/registrations'}
 
   resource :users do 
     resources :bar_wishlists, only: [:index, :destroy, :create, :edit]

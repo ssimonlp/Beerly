@@ -3,8 +3,9 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   include Accessible
   skip_before_action :check_user, except: [:new, :create]
-
+  before_action :prevent_oauth, only: [:edit]
   layout "devise"
+
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
@@ -63,4 +64,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # def after_inactive_sign_up_path_for(resource)
   #   super(resource)
   # end
+
+  private
+
+  def prevent_oauth
+    back = request.referer.nil? ? root_path : request.referer
+    redirect_to request if current_user.provider == 'facebook' || current_user.provider == 'google_oauth2'
+  end
 end

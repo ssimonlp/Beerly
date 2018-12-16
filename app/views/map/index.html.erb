@@ -1,8 +1,8 @@
 <% provide(:title, 'Beerly | Résultats') %>
 
 <div class="container-fluid" id="result-beers" style="overflow: hidden !important; height: 100vh;">
-  <%= link_to "Retour à l'accueil", root_path, class:"mt-2 mb-2 btn btn-primary", style:"padding: 0.2rem 1.2rem !important; background-color: #05c46b !important;" %>
   <div class="row no-gutters justify-content-center mt-4 mb-3">
+    <%= link_to "Retour à l'accueil", root_path, class:"mt-2 mb-2 btn btn-primary", style:"padding: 0.2rem 1.2rem !important; background-color: #05c46b !important;" %>
     <div class="col-8 col-md-8 col-lg-8">
       <%= form_tag map_index_path, method: :get do %>
       <%= text_field_tag 'term',nil , placeholder: "Fais ton choix", autocomplete: :off, class:"form-control form-control-lg form-control-borderlessi my_form" %>
@@ -19,13 +19,13 @@
   </div>
 
   <div class="row no-gutters">
-    <div class="col-sm-3 col-md-3 col-lg-3 pr-2 d-none d-sm-block" id="result-card" style="overflow: scroll !important; height: 100vh;">
+    <div class="col-sm-3 col-md-3 col-lg-3 pr-2 d-none d-sm-block mb-6" id="result-card" style="overflow: scroll !important; height: 100vh;">
     </div>
     <div class="col-sm-9 col-md-9 col-lg-9" id="map-flow" style="overflow: hidden !important;">
       <div id="map"></div>
     </div>
   </div>
-
+  
 </div>
 
 <script src="https://maps.googleapis.com/maps/api/js?key=<%= Rails.application.credentials.google_maps %>" type="text/javascript"></script>
@@ -94,7 +94,7 @@
         title: bar.name,
         icon: '/img/beer32.png',
         infoWindow: {
-          content: bar.name
+          content: bar.name+'<br>'+bar.address+'<br><a href="bars/' + bar.id +'">Voir</a>'
         }
       });
       latLong.push({
@@ -123,8 +123,13 @@
   };
 
   function barCard(bar) {
-    console.log();
-    var card = '<div class="card mb-4"><img src="' + bar.photo + '" class="card-img-top" alt="beer")><div class="card-body"><h5>' + bar.name + '</h5><p>' + bar.address + '</p><a href="bars/' + bar.id + '" class="text-h">Voir</a>'
+    var has_beer;
+    if (bar.draft_beer) {
+      has_beer = "Ce bar a la bière que tu cherches en pression :)"
+    } else {
+      has_beer = ""
+    }; 
+    var card = '<div class="card mb-4"><img src="' + bar.photo + '" class="card-img-top" alt="beer")><div class="card-body"><h5>' + bar.name + '</h5><p>' + bar.address + '</p><p>' + bar.draft_number + ' bières en pression</p><p>' + has_beer + ' </p><p><a href="bars/' + bar.id + '" class="text-h">Voir</a>'
     if (bar.hasOwnProperty('beers')) {
     card += '<button type="button" class="btn btn-secondary" data-html="true" data-container="body" data-toggle="popover" data-placement="bottom" data-content="'+ bar.beers.join("<br>") +'">Bières</button></div></div>';
     };

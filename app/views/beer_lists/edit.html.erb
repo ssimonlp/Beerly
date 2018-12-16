@@ -1,3 +1,5 @@
+<% provide(:title, 'Beerly | Modification du prix') %>
+
 <div class="container mt-6 mb-5">
   <div class="row">
     <div class="col-lg-8 col-sm-12">
@@ -5,17 +7,18 @@
     <h2 class="mb-5 mt-5">Modifier le prix de <%=Beer.find(@beerlist.beer_id).name%></h1>
 
     <%= form_for @beerlist, url = {action: "update"} do |f| %>
+      <em>/!\ Attention le prix doit être au format "10.5" et non "10,5" /!\</em>
       <% if @beerlist.pint_price != nil %>
-        <div class="field mt-3">
+        <div class="field col-lg-4 col-sm-12 mt-3 mb-4">
           <%= f.label :prix_pinte %>
-          <%= f.text_field :pint_price, class:"form-control" %> 
+          <%= f.number_field :pint_price, class:"form-control" %> 
         </div>
-        <div class="field mt-3">
+        <div class="field col-lg-4 col-sm-12 mt-3 mb-4">
           <%= f.label :prix_demi %>
-          <%= f.text_field :half_pint_price, class:"form-control" %>
+          <%= f.number_field :half_pint_price, class:"form-control" %>
         </div>
       <% else %>
-        <div class="field mt-3">
+        <div class="field col-lg-4 col-sm-12 mt-3 mb-4">
           <%= f.label :prix_bouteille %>
           <%= f.number_field :bottle_price, class:"form-control" %>
         </div>

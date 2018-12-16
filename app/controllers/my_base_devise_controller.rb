@@ -1,3 +1,3 @@
 class MyBaseDeviseController < ApplicationController
-	layout "devise"
+  layout "devise"
 end

@@ -1,10 +1,14 @@
 class Bar < ApplicationRecord
   include PgSearch
   belongs_to :manager
-  has_many :beer_lists
+  has_many :beer_lists, dependent: :destroy
   has_many :beers, through: :beer_lists
-  has_many :bar_wishlists
+  has_many :bar_wishlists, dependent: :destroy
   
+  scope :up, -> { where(state: true) }
+  scope :down, -> { where(state: false) }
+
+
  
   # Geocoding
   geocoded_by :address
@@ -16,18 +20,14 @@ class Bar < ApplicationRecord
   pg_search_scope :search_by_beer, 
    associated_against: {
     beers: [:name]
-   }, 
-   using: {
-    tsearch: {
-      negation: true,
-    }
-  }
-  
+   }
+
   def self.search(beer, location)
     json = []
-    bars = Bar.search_by_beer("#{beer.downcase} !le !la !the").near(location)
+    bars = Bar.search_by_beer(beer).near(location)
     bars.each do |bar|
-      json << {id: bar['id'], name: bar["name"], address: bar["address"], photo: bar["photo"], latitude: bar["latitude"], longitude: bar["longitude"]}
+      draft_beer = bar.beer_lists.up.draft.include?(beer)
+      json << {id: bar['id'], name: bar["name"], address: bar["address"], photo: bar["photo"], latitude: bar["latitude"], longitude: bar["longitude"], draft_number: bar.beer_lists.up.draft.count, draft_beer: draft_beer}
     end
     json
   end
@@ -43,7 +43,7 @@ class Bar < ApplicationRecord
         beers.each do |beer|
           beer_arr << beer["name"]
         end
-        json << {id: bar["id"], name: bar["name"], address: bar["address"], photo: bar["photo"], latitude: bar["latitude"], longitude: bar["longitude"], beers: beer_arr.uniq}
+        json << {id: bar["id"], name: bar["name"], address: bar["address"], photo: bar["photo"], latitude: bar["latitude"], longitude: bar["longitude"], draft_number: bar.beer_lists.up.draft.count, beers: beer_arr.uniq}
       end
     end
     json.uniq

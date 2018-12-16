@@ -81,10 +81,20 @@
   -webkit-box-shadow: inset 0 0 5px #05c46b, inset 0 0 5px #05c46b, inset 0 0 5px #05c46b, 0 0 5px #05c46b, 0 0 5px #05c46b, 0 0 5px #05c46b;
   box-shadow: inset 0 0 5px #05c46b, inset 0 0 5px #05c46b, inset 0 0 5px #05c46b, 0 0 5px #05c46b, 0 0 5px #05c46b, 0 0 5px #05c46b;
   height: 64px !important;
-  margin: -20px 0 0 -20px;
+  margin: -23px 0 0 -23px;
   width: 64px !important;
 }
 
 #map div[title="User"] img {
   display: none;
+}
+
+.gm-style-iw {
+  color: #000;
+  font-weight: 800 !important;
+}
+
+.gm-style-iw a {
+  padding-top: 5px !important;
+  color: #05c46b !important;
 }

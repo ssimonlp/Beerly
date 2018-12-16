@@ -6,6 +6,9 @@ class Beer < ApplicationRecord
   belongs_to :beer_wishlist, optional: true
   has_many :bars, through: :beer_lists
   has_many :fav_beers, dependent: :destroy
+  validates :brewery, presence: true, on: :create
+  validates :style, presence: true, on: :create
+  validates :category, presence: true, on: :create
   pg_search_scope :search_beer, 
     against: :name, 
     using: {

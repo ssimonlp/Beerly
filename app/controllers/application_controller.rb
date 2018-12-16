@@ -1,31 +1,31 @@
 class ApplicationController < ActionController::Base
   add_flash_types :success, :warning, :danger, :info
-
   layout :layout_by_resource
   
   def location
     respond_to do |format|
-      if params[:type] == "a"
+      case params[:type]
+      when 'a'
         format.json {
-          search = Bar.search(params["term"], [params["lat"], params["lng"]]);
-          render json: { :data => search }
+          search = Bar.search(params['term'], [params['lat'], params['lng']])
+          render json: { data: search }
         }
-      elsif params[:type] == "b"
+      when 'b'
         format.json {
-          search = Bar.search_cat(params["term"], [params["lat"], params["lng"]]);
-          render json: { :data => search }
+          search = Bar.search_cat(params['term'], [params['lat'], params['lng']])
+          render json: { data: search }
         }
-        end
+      end
     end
   end
-  
+
   private
 
   def layout_by_resource
     if devise_controller?
-      "devise"
+      'devise'
     else
-      "application"
+      'application'
     end
   end
 end

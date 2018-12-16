@@ -1,4 +1,6 @@
-<div class="container-fluid" style="height: 100vh; overflow-y: hidden;">
+<% provide(:title, 'Beerly | Inscription Barman') %>
+
+<div class="container-fluid" style="height: 100vh;">
 
 
 <div class="container">
@@ -18,7 +20,7 @@
   <div class="field mt-3">
     <%= f.label :password %>
     <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
+    <em>(<%= @minimum_password_length %> caractères minimum)</em>
     <% end %><br />
     <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
   </div>
