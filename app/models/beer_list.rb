@@ -1,5 +1,6 @@
-class BeerList < ApplicationRecord
+# frozen_string_literal: true
 
+class BeerList < ApplicationRecord
   scope :archived, -> { where(is_archived: true) }
   scope :up, -> { where(is_archived: false) }
   scope :draft, -> { where(bottle_price: nil) }
@@ -7,5 +8,5 @@ class BeerList < ApplicationRecord
 
   belongs_to :beer
   belongs_to :bar
-  has_one :manager, through: :bar 
+  has_one :manager, through: :bar
 end

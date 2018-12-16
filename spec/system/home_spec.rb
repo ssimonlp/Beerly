@@ -1,14 +1,14 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe 'Home', type: :system do
-
   scenario 'visits home page' do
     visit root_path
     expect(page).to have_content 'bière'
   end
 
-  context "Testing links on homepage" do
-
+  context 'Testing links on homepage' do
     scenario 'visits home page, checks link for users' do
       visit root_path
       have_link 'Se connecter', href: new_user_session_path
@@ -21,7 +21,5 @@ RSpec.describe 'Home', type: :system do
       have_link 'Connectez-vous', href: new_manager_session_path
       have_link 'Nous rejoindre', href: new_manager_registration_path
     end
-
-  end 
-
+  end
 end
