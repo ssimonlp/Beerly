@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateBars < ActiveRecord::Migration[5.2]
   def change
     create_table :bars do |t|
@@ -8,9 +10,9 @@ class CreateBars < ActiveRecord::Migration[5.2]
       t.text :opening_time
       t.text :happy_hours
       t.text :description
-      t.decimal :lat, {:precision=>10, :scale=>6}, optional: true 
-      t.decimal :lng, {:precision=>10, :scale=>6}, optional: true 
-      t.boolean :state, default: false 
+      t.decimal :lat, { precision: 10, scale: 6 }, optional: true
+      t.decimal :lng, { precision: 10, scale: 6 }, optional: true
+      t.boolean :state, default: false
 
       t.timestamps
     end

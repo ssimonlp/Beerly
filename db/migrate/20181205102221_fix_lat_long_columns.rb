@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class FixLatLongColumns < ActiveRecord::Migration[5.2]
   def change
     rename_column :bars, :lat, :latitude

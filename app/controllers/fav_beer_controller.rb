@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 class FavBeerController < ApplicationController
   def create
     if has_already_three_favorite_beers
       redirect_to users_bar_wishlists_path, alert: 'Tu ne peux avoir que trois bières en favori !'
     elsif beer_is_already_in_favorites
       redirect_to users_bar_wishlists_path,
-      alert: 'Cette bière est déjà dans tes favoris !'
+                  alert: 'Cette bière est déjà dans tes favoris !'
     else
       @fav_beer = current_user.beer_wishlist.fav_beers.create(favbeer_params)
       redirect_to users_bar_wishlists_path
@@ -24,18 +26,16 @@ class FavBeerController < ApplicationController
 
   private
 
-<<<<<<< HEAD
+  def has_already_three_favorite_beers
+    current_user.beer_wishlist.fav_beers.count == 3
+  end
+
+  def beer_is_already_in_favorites
+    wishlist = current_user.beer_wishlist
+    wishlist.beers.include?(Beer.find((params[:fav_beer][:beer_id]).to_i))
+  end
+  
   def favbeer_params
     params.require(:fav_beer).permit(:beer_id)
   end
 end
-=======
-    def has_already_three_favorite_beers
-      current_user.beer_wishlist.fav_beers.count == 3
-    end
-  
-    def beer_is_already_in_favorites
-      wishlist.beers.include?(Beer.find((params[:fav_beer][:beer_id]).to_i))
-    end
-end
->>>>>>> dev
