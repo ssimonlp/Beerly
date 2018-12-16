@@ -1,5 +1,7 @@
 # Beerly
 
+(https://nsa39.casimages.com/img/2018/12/16/mini_181216051550199399.png)
+
 Hi! you can find our project there https://thp-beerly.herokuapp.com/
 
 Beerly is an application that help you find bars in Paris according to the brand or type of beer you want to drink.
