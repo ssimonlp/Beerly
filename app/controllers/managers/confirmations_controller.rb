@@ -28,6 +28,6 @@ class Managers::ConfirmationsController < Devise::ConfirmationsController
     sign_in(resource)
     @bar = Bar.new(manager_id: current_manager.id)
     @bar.save(validate: false)
-    instructions_path
+    redirect_to instructions_path
   end
 end
