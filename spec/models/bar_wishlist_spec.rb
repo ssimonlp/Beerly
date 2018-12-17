@@ -23,6 +23,12 @@ RSpec.describe BarWishlist, type: :model do
       bar_wishlist_2 = BarWishlist.new(bar_id:1, user_id:@user2.id)
       expect(bar_wishlist_2.valid?).to be true 
     end 
+
+    it "has belongs_to user association" do 
+      association = BarWishlist.reflect_on_association(:user)
+      expect(association.macro).to eq(:belongs_to)
+    end 
+
   end 
 
 end
