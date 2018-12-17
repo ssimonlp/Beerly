@@ -19,7 +19,6 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'mini_racer', platforms: :ruby
 
 gem 'csv'
-gem 'dotenv'
 gem 'httparty'
 gem 'jquery-rails'
 gem 'pg_search'

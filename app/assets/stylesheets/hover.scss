@@ -17,7 +17,7 @@
   overflow: hidden;
   top: 0;
   left: 0;
-  padding: 40px 20px;
+  padding: 5px 20px;
 }
 
 .hovereffect img {
@@ -42,7 +42,7 @@
 
 .hovereffect h2 {
   text-transform: uppercase;
-  color: #fff;
+  color: #05c46b;
   position: relative;
   font-size: 1em;
   overflow: hidden;
@@ -69,6 +69,7 @@
 }
 
 .hovereffect a, .hovereffect p {
+  text-transform: uppercase; 
   color: #FFF;
   opacity: 0;
   filter: alpha(opacity=0);

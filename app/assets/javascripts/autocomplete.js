@@ -4,7 +4,7 @@ $(document).ready(function(){
     if(search != ""){
       var datObject;
       $.ajax({
-        url: 'autocomplete',
+        url: '/autocomplete',
         method: 'GET',
         dataType: 'json',
         data: {'term': search},
