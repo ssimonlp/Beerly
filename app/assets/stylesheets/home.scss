@@ -47,6 +47,19 @@
 	border: none;
 }
 
+.mf{
+	background-color: transparent;
+	border: none;
+	opacity: 0.8;
+	transition: 0.2s;
+	padding-top: 10px;
+}
 
+.mf:hover{
+	background-color: transparent;
+	border: none;
+	opacity: 1;
+	cursor: pointer;
+}
 
 
