@@ -62,8 +62,8 @@ puts "Seeded bars"
 
 parsed_bars.count.times do |i|
   rand(1..10).times do
-    BeerList.create!(beer_id: rand(Beer.count) + 1, bar_id: i + 1, pint_price: rand(1..7), half_pint_price: rand(1..2))
-    BeerList.create!(beer_id: rand(Beer.count) + 1, bar_id: i + 1, bottle_price: rand(1..10))
+    BeerList.create!(beer_id: rand(Beer.count) + 1, bar_id: i + 1, pint_price: rand(1..5) + 3, half_pint_price: rand(1..2) + 1)
+    BeerList.create!(beer_id: rand(Beer.count) + 1, bar_id: i + 1, bottle_price: rand(5..10))
   end
 end 
 puts "Populated their beerlists"

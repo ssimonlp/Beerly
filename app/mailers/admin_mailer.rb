@@ -5,6 +5,6 @@ class AdminMailer < ApplicationMailer
     @sender = params[:name]
     @email = params[:email]
     @message = params[:message]
-    # mail(to: "thestudent@gmail.com", subject: "Contact form, from #{@sender}")
+    mail(to: "thestudent@gmail.com", subject: "Contact form, from #{@sender}")
   end
 end
