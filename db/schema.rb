@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_14_090928) do
+ActiveRecord::Schema.define(version: 2018_12_19_135225) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 2018_12_14_090928) do
     t.boolean "state", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.decimal "siret", precision: 14
     t.index ["manager_id"], name: "index_bars_on_manager_id"
   end
 
