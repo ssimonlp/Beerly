@@ -56,6 +56,8 @@ You can run the tests on the test environement :
 > [**Pry-rails**](https://github.com/rweng/pry-rails) / Debugging tool, used to... well, debug.  
 > [**Rspec-rails**](https://github.com/rspec/rspec-rails) / Testing framework, used to test our crappy associations ^^'
 
+> [**Mailcatcher**](https://github.com/sj26/mailcatcher) / Send emails to a local smtp server in dev | Setup : `gem install mailcatcher` > `mailcatcher` > Go to `127.0.0.1:1080`
+
 ## :clapper: Where can I find the live website ?
  The live website lives here : [On Heroku](http://thp-beerly.herokuapp.com)
 
