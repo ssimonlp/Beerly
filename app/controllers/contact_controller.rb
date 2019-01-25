@@ -2,7 +2,7 @@
 
 class ContactController < ApplicationController
   def create
-    AdminMailer.contact(contact_params).deliver_now
+    AdminMailer.contact(contact_params).deliver_later
     flash[:info] = 'Email envoyé'
     redirect_to contact_index_path
   end
