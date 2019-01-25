@@ -20,7 +20,6 @@
 #  uid                    :string
 #
 
-
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -29,8 +28,6 @@ class User < ApplicationRecord
   has_one :beer_wishlist, dependent: :destroy
   has_many :bar_wishlists, dependent: :destroy
   has_many :bars, through: :bar_wishlists
-
-  protected
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_initialize do |user|
@@ -42,6 +39,8 @@ class User < ApplicationRecord
       user.save!
     end
   end
+
+  protected
 
   def send_devise_notification(notification, *args)
     devise_mailer.send(notification, self, *args).deliver_later

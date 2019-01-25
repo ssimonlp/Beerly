@@ -12,7 +12,6 @@
 #  updated_at :datetime         not null
 #
 
-
 class BarWishlist < ApplicationRecord
   scope :visited, -> { where(is_visited: true) }
   scope :to_visit, -> { where(is_visited: false) }

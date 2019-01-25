@@ -12,7 +12,6 @@
 #  updated_at :datetime         not null
 #
 
-
 class Brewery < ApplicationRecord
   has_many :beers, dependent: :destroy
 end

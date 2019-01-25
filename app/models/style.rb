@@ -11,7 +11,6 @@
 #  updated_at  :datetime         not null
 #
 
-
 class Style < ApplicationRecord
   belongs_to :category
   has_many :beers, dependent: :destroy

@@ -19,7 +19,6 @@
 #  updated_at   :datetime         not null
 #
 
-
 class Bar < ApplicationRecord
   include PgSearch
   belongs_to :manager

@@ -15,7 +15,6 @@
 #  is_archived     :boolean          default(FALSE)
 #
 
-
 class BeerList < ApplicationRecord
   scope :archived, -> { where(is_archived: true) }
   scope :up, -> { where(is_archived: false) }

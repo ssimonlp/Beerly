@@ -18,7 +18,6 @@
 #  updated_at  :datetime         not null
 #
 
-
 class Beer < ApplicationRecord
   include PgSearch
   belongs_to :brewery

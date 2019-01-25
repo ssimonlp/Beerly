@@ -10,7 +10,6 @@
 #  updated_at :datetime         not null
 #
 
-
 class BeerWishlist < ApplicationRecord
   belongs_to :user
   has_many :fav_beers, dependent: :destroy
