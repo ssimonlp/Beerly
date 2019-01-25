@@ -1,5 +1,24 @@
 # frozen_string_literal: true
 
+# == Schema Information
+#
+# Table name: bars
+#
+#  id           :bigint(8)        not null, primary key
+#  manager_id   :bigint(8)
+#  name         :string
+#  address      :text
+#  photo        :string
+#  opening_time :text
+#  happy_hours  :text
+#  description  :text
+#  latitude     :float
+#  longitude    :float
+#  state        :boolean          default(FALSE)
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#
+
 class Bar < ApplicationRecord
   include PgSearch
   belongs_to :manager
@@ -42,8 +61,8 @@ class Bar < ApplicationRecord
       bars.each do |bar|
         beers = bar.beers.where(category_id: cat)
         beer_arr = []
-        beers.each do |beer|
-          beer_arr << beer['name']
+        beers.each do |item|
+          beer_arr << item['name']
         end
         json << { id: bar['id'], name: bar['name'], address: bar['address'], photo: bar['photo'], latitude: bar['latitude'], longitude: bar['longitude'], draft_number: bar.beer_lists.up.draft.count, beers: beer_arr.uniq }
       end

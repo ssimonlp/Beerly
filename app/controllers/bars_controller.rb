@@ -44,9 +44,7 @@ class BarsController < ApplicationController
   end
 
   def manager_can_only_edit_their_bar
-    if current_manager.bar.id != params[:id].to_i
-      redirect_to edit_managers_bar_path(current_manager.bar.id), alert: "Vous n'avez pas accès à cette page"
-    end
+    redirect_to edit_managers_bar_path(current_manager.bar.id), alert: "Vous n'avez pas accès à cette page" if current_manager.bar.id != params[:id].to_i
   end
 
   def address_or_name_blank
