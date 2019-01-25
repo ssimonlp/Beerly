@@ -2,5 +2,5 @@
 
 class Style < ApplicationRecord
   belongs_to :category
-  has_many :beers
+  has_many :beers, dependent: :destroy
 end

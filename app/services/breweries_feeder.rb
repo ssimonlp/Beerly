@@ -10,7 +10,7 @@ class BreweriesFeeder
 
   def feed
     File.open('db/breweries.json', 'w') do |f|
-      for i in 1..237
+      (1..237).each do |i|
         brewery = HTTParty.get("https://api.brewerydb.com/v2/breweries?p=#{i}&key=#{@key}")
         f.write(brewery.to_json)
         puts i

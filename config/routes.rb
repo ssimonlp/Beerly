@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     sessions: 'managers/sessions', registrations: 'managers/registrations', confirmations: 'managers/confirmations'
   }
 
-  devise_for :users, path:  'users', controllers: {
+  devise_for :users, path: 'users', controllers: {
     sessions: 'users/sessions',
     omniauth_callbacks: 'callbacks',
     registrations: 'users/registrations'
