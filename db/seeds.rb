@@ -55,7 +55,8 @@ parsed_bars.each_with_index do |bar, i|
   manager_i = Manager.new(email: "manager#{i}@gmail.com", password: '123456', password_confirmation: '123456')
   manager_i.skip_confirmation!
   manager_i.save
-  Bar.create!(manager_id: manager_i.id, name: bar['name'], address: bar['address'], description: bar['description'], photo: bar['photo'], opening_time: '11h-2h', happy_hours: '18h-20h')
+  bar_i = Bar.new(manager_id: manager_i.id, name: bar['name'], address: bar['address'], description: bar['description'], photo: bar['photo'], opening_time: '11h-2h', happy_hours: '18h-20h')
+  bar_i.save(validate: false)
 end
 puts 'Seeded managers'
 puts 'Seeded bars'
