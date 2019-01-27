@@ -70,13 +70,11 @@ class Bar < ApplicationRecord
     end
     json.uniq
   end
-  
+
   private
-  
+
   def siret_is_valid?
     url = "https://api.insee.fr/entreprises/sirene/V3/siret/#{siret}"
-    unless HTTParty.get(url, headers: {'Authorization': "Bearer #{Rails.application.credentials.insee}", 'Accept': 'application/json'}).success?
-      errors.add(:siret, 'doit être valide')
-    end
+    errors.add(:siret, 'doit être valide') unless HTTParty.get(url, headers: { 'Authorization': "Bearer #{Rails.application.credentials.insee}", 'Accept': 'application/json' }).success?
   end
 end
