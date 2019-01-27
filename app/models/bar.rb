@@ -37,7 +37,8 @@ class Bar < ApplicationRecord
 
   validates :name, presence: true
   validates :address, presence: true
-
+  validates :siret, presence: true
+  validate :siret_is_valid?
   pg_search_scope :search_by_beer,
                   associated_against: {
                     beers: [:name]
@@ -68,5 +69,14 @@ class Bar < ApplicationRecord
       end
     end
     json.uniq
+  end
+  
+  private
+  
+  def siret_is_valid?
+    url = "https://api.insee.fr/entreprises/sirene/V3/siret/#{siret}"
+    unless HTTParty.get(url, headers: {'Authorization': "Bearer #{Rails.application.credentials.insee}", 'Accept': 'application/json'}).success?
+      errors.add(:siret, 'doit être valide')
+    end
   end
 end

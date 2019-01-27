@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(version: 2019_01_25_105651) do
     t.boolean "state", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.decimal "siret", precision: 14
     t.index ["manager_id"], name: "index_bars_on_manager_id"
   end
 

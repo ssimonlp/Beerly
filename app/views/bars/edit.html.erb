@@ -1,27 +1,37 @@
 <% provide(:title, 'Beerly | Edition bar') %>
 <div class="container mt-5">
-<h2 class="mb-3"><%= @bar.name %></h2>
+  <h2 class="mb-3">
+    <%= @bar.name %>
+  </h2>
   <div class="row">
     <div class="col-lg-8 col-sm-12">
       <h4 class="mt-3">Adresse</h4>
-      <p> <%= @bar.address %></p>
+      <p>
+        <%= @bar.address %>
+      </p>
       <h4 class="mt-3">Description</h4>
-      <p><%= @bar.description %></p> 
+      <p>
+        <%= @bar.description %>
+      </p>
     </div>
     <div class="col-lg-4 col-sm-12">
-        <h4>Horaires</h4>
-          <p><%= @bar.opening_time %></p>
-        <h4 class="mt-2">Happy hours</h4>
-          <p><%= @bar.happy_hours %></p>
+      <h4>Horaires</h4>
+      <p>
+        <%= @bar.opening_time %>
+      </p>
+      <h4 class="mt-2">Happy hours</h4>
+      <p>
+        <%= @bar.happy_hours %>
+      </p>
     </div>
   </div>
 </div>
 
 <div class="container mt-4">
-<div class="col-12 col-lg-8">
-<h4 class="mb-5 mt-6">Mettre à jour les informations sur mon bar</h4>
+  <div class="col-12 col-lg-8">
+    <h4 class="mb-5 mt-6">Mettre à jour les informations sur mon bar</h4>
 
-  <%= form_for @bar, url = {action: "update"} do |f| %>
+    <%= form_for @bar, url = {action: "update"} do |f| %>
 
     <div class="field mt-3">
       <%= f.label :nom %>
@@ -53,10 +63,15 @@
       <%= f.text_field :photo, class: "form-control" %>
     </div>
 
+    <div class="field mt-3">
+      <%= f.label :siret %>
+      <%= f.text_field :siret, class: "form-control" %>
+    </div>
+
     <div class="actions mt-5 mb-3">
       <%= f.submit "Mettre à jour", class:"btn btn-primary" %>
     </div>
-  <% end %>
-</div>
+    <% end %>
+  </div>
 
 </div>
