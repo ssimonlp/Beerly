@@ -18,9 +18,9 @@ class BeerListsController < ApplicationController
   end
 
   def create
-    if try_to_enter_draft && has_already_this_beer_in_draft
+    if try_to_enter_draft && already_this_beer_in_draft?
       redirect_to managers_beer_lists_path, alert: 'Attention: cette bière est déjà sur votre carte !'
-    elsif try_to_enter_bottle && has_already_this_beer_in_bottle
+    elsif try_to_enter_bottle && already_this_beer_in_bottle?
       redirect_to managers_beer_lists_path, alert: 'Attention: cette bière est déjà sur votre carte !'
     elsif no_blank_price
       @beerlist = current_manager.bar.beer_lists.create(beerlist_params)
@@ -53,9 +53,9 @@ class BeerListsController < ApplicationController
   def archive
     @beerlist = BeerList.find(params[:id])
     if @beerlist.is_archived?
-      @beerlist.update_attributes(is_archived: false)
+      @beerlist.update(is_archived: false)
     else
-      @beerlist.update_attributes(is_archived: true)
+      @beerlist.update(is_archived: true)
     end
     redirect_to managers_beer_lists_path
   end
@@ -65,30 +65,28 @@ class BeerListsController < ApplicationController
   def beerlist_params
     params.require(:beer_list).permit(:beer_id, :pint_price, :half_pint_price, :bottle_price)
   end
-  
-  def manager_can_only_edit_their_beerlists 
-    unless current_manager.bar.id =  BeerList.find(params[:id].to_i).manager.id
-      redirect_to managers_beer_lists_path, alert: 'Vous ne pouvez pas modifier cette bière'
-    end
+
+  def manager_can_only_edit_their_beerlists
+    redirect_to managers_beer_lists_path, alert: 'Vous ne pouvez pas modifier cette bière' unless current_manager.bar.id = BeerList.find(params[:id].to_i).manager.id
   end
-  
+
   def no_blank_price
-   (!(params[:beer_list][:pint_price].blank?) && !(params[:beer_list][:half_pint_price].blank?)) || !(params[:beer_list][:bottle_price].blank?)
+    (params[:beer_list][:pint_price].present? && params[:beer_list][:half_pint_price].present?) || params[:beer_list][:bottle_price].present?
   end
-  
+
   def try_to_enter_draft
-    (!(params[:beer_list][:pint_price].blank?) && !(params[:beer_list][:half_pint_price].blank?))
+    (params[:beer_list][:pint_price].present? && params[:beer_list][:half_pint_price].present?)
   end
-  
-  def has_already_this_beer_in_draft
-    !(current_manager.beer_lists.draft.where(beer_id: (params[:beer_list][:beer_id]).to_i).empty?)
+
+  def already_this_beer_in_draft?
+    current_manager.beer_lists.draft.where(beer_id: (params[:beer_list][:beer_id]).to_i).present?
   end
-  
+
   def try_to_enter_bottle
-    !(params[:beer_list][:bottle_price].blank?)
+    params[:beer_list][:bottle_price].present?
   end
-  
-  def has_already_this_beer_in_bottle
-    !(current_manager.beer_lists.bottle.where(beer_id: (params[:beer_list][:beer_id]).to_i).empty?)
+
+  def already_this_beer_in_bottle?
+    current_manager.beer_lists.bottle.where(beer_id: (params[:beer_list][:beer_id]).to_i).present?
   end
 end

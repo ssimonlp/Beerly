@@ -11,7 +11,7 @@ class BeersFeeder
     @search_url = 'https://www.brewerydb.com/search?q='
   end
 
-  def get_beers
+  def scrap_beers
     beers = []
     file = File.open('db/beer.txt', 'r')
     file.each_line do |line|
@@ -20,7 +20,7 @@ class BeersFeeder
     beers
   end
 
-  def get_ids(beers)
+  def scrap_ids(beers)
     beer_ids = []
     beers.each do |beer|
       webpage = Nokogiri::HTML(open(@search_url + URI.encode(beer)))
@@ -30,7 +30,7 @@ class BeersFeeder
     beer_ids
   end
 
-  def get_data(ids)
+  def scrap_data(ids)
     data = []
     ids.each do |beer_id|
       beer = HTTParty.get("https://api.brewerydb.com/v2/beer/#{beer_id}?withBreweries=Y&key=" + @key)
@@ -52,9 +52,9 @@ class BeersFeeder
   end
 
   def perform
-    beers = get_beers
-    ids = get_ids(beers)
-    data = get_data(ids)
+    beers = scrap_beers
+    ids = scrap_ids(beers)
+    data = scrap_data(ids)
     write(data)
   end
 end

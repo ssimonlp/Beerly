@@ -1,6 +1,15 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  require 'sidekiq/web'
+  if Rails.env.production?
+    Sidekiq::Web.use Rack::Auth::Basic do |username, password|
+      ActiveSupport::SecurityUtils.secure_compare(::Digest::SHA256.hexdigest(username), ::Digest::SHA256.hexdigest(Rails.application.credentials.SIDEKIQ_USERNAME)) &
+        ActiveSupport::SecurityUtils.secure_compare(::Digest::SHA256.hexdigest(password), ::Digest::SHA256.hexdigest(Rails.application.credentials.SIDEKIQ_PASSWORD))
+    end
+  end
+  mount Sidekiq::Web => '/sidekiq'
+
   root 'home#index'
 
   resources :beers, only: %i[create new index]
@@ -14,7 +23,7 @@ Rails.application.routes.draw do
     sessions: 'managers/sessions', registrations: 'managers/registrations', confirmations: 'managers/confirmations'
   }
 
-  devise_for :users, path:  'users', controllers: {
+  devise_for :users, path: 'users', controllers: {
     sessions: 'users/sessions',
     omniauth_callbacks: 'callbacks',
     registrations: 'users/registrations'

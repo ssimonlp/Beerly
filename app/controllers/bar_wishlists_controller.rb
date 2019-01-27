@@ -36,9 +36,9 @@ class BarWishlistsController < ApplicationController
   def visit
     @barwishlist = BarWishlist.find(params[:id])
     if @barwishlist.is_visited?
-      @barwishlist.update_attributes(is_visited: false)
+      @barwishlist.update(is_visited: false)
     else
-      @barwishlist.update_attributes(is_visited: true)
+      @barwishlist.update(is_visited: true)
     end
     redirect_to users_bar_wishlists_path
   end

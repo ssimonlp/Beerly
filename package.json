@@ -1,5 +1,14 @@
 {
   "name": "beerly",
   "private": true,
-  "dependencies": {}
+  "dependencies": {},
+  "husky": {
+    "hooks": {
+      "pre-commit": "rubocop && annotate",
+      "pre-push": "rspec"
+    }
+  },
+  "devDependencies": {
+    "husky": "^1.3.1"
+  }
 }
