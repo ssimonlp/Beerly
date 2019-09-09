@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: managers
+# Table name: users
 #
 #  id                     :bigint           not null, primary key
 #  email                  :string           default(""), not null
@@ -14,12 +14,16 @@
 #  confirmed_at           :datetime
 #  confirmation_sent_at   :datetime
 #  unconfirmed_email      :string
+#  provider               :string
+#  uid                    :string
 #
+
+OAUTH_PROVIDERS = ['google_oauth2', 'facebook']
 
 FactoryBot.define do
   password = Faker::Internet.password(min_length: 6)
 
-  factory :manager do
+  factory :user do
     email { Faker::Internet.email }
     password { password }
     password_confirmation { password }
@@ -27,6 +31,11 @@ FactoryBot.define do
 
     trait :not_confirmed do
       confirmed_at { nil }
+    end
+
+    trait :from_oauth do
+      provider { OAUTH_PROVIDERS.sample }
+      uid { Faker::Number.number(digits: 21) }
     end
   end
 end
