@@ -23,6 +23,7 @@ gem 'pry-rails'
 gem 'puma', '~> 3.11'
 gem 'rack'
 gem 'rails', '~> 5.2.1'
+gem 'rails-erd', require: false
 gem 'sass-rails', '~> 5.0'
 gem 'sidekiq'
 gem 'turbolinks', '~> 5'
