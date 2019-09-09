@@ -17,7 +17,7 @@
 #
 
 FactoryBot.define do
-  password = Faker::Internet.password(6)
+  password = Faker::Internet.password(min_length: 6)
 
   factory :manager do
     email { Faker::Internet.email }
