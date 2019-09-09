@@ -29,3 +29,6 @@
 .env
 
 coverage
+
+dump.rdb
+erd.pdf
