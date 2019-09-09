@@ -4,16 +4,16 @@
 #
 # Table name: beers
 #
-#  id          :bigint(8)        not null, primary key
+#  id          :bigint           not null, primary key
 #  name        :string
 #  image_url   :string
 #  description :text
 #  abv         :decimal(, )
 #  ibu         :decimal(, )
 #  verified    :boolean          default(FALSE)
-#  category_id :bigint(8)
-#  style_id    :bigint(8)
-#  brewery_id  :bigint(8)
+#  category_id :bigint
+#  style_id    :bigint
+#  brewery_id  :bigint
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #

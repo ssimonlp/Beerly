@@ -1,8 +1,19 @@
+# == Schema Information
+#
+# Table name: styles
+#
+#  id          :bigint           not null, primary key
+#  name        :string
+#  category_id :bigint
+#  created_at  :datetime         not null
+#  updated_at  :datetime         not null
+#
+
 require 'rails_helper'
 
 RSpec.describe Style, type: :model do
   describe 'Database' do
-    subject(:category) { described_class.new }
+    subject(:style) { described_class.new }
 
     it { is_expected.to have_db_column(:id).of_type(:integer).with_options(null: false) }
     it { is_expected.to have_db_column(:name).of_type(:string) }

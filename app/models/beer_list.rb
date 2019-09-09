@@ -4,12 +4,12 @@
 #
 # Table name: beer_lists
 #
-#  id              :bigint(8)        not null, primary key
+#  id              :bigint           not null, primary key
 #  pint_price      :decimal(, )
 #  half_pint_price :decimal(, )
 #  bottle_price    :decimal(, )
-#  beer_id         :bigint(8)
-#  bar_id          :bigint(8)
+#  beer_id         :bigint
+#  bar_id          :bigint
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
 #  is_archived     :boolean          default(FALSE)

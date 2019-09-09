@@ -4,9 +4,9 @@
 #
 # Table name: fav_beers
 #
-#  id               :bigint(8)        not null, primary key
-#  beer_wishlist_id :bigint(8)
-#  beer_id          :bigint(8)
+#  id               :bigint           not null, primary key
+#  beer_wishlist_id :bigint
+#  beer_id          :bigint
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
 #

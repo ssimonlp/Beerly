@@ -3,8 +3,8 @@
 #
 # Table name: bars
 #
-#  id           :bigint(8)        not null, primary key
-#  manager_id   :bigint(8)
+#  id           :bigint           not null, primary key
+#  manager_id   :bigint
 #  name         :string
 #  address      :text
 #  photo        :string
