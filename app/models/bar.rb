@@ -1,5 +1,4 @@
 # frozen_string_literal: true
-
 # == Schema Information
 #
 # Table name: bars
@@ -17,6 +16,7 @@
 #  state        :boolean          default(FALSE)
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
+#  siret        :decimal(14, )
 #
 
 class Bar < ApplicationRecord
