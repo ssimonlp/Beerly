@@ -29,6 +29,7 @@ class Bar < ApplicationRecord
   scope :up, -> { where(state: true) }
   scope :down, -> { where(state: false) }
 
+  # 💩 Useless validation, to remove
   validates :manager_id, presence: true, uniqueness: true
 
   # Geocoding
@@ -38,7 +39,8 @@ class Bar < ApplicationRecord
   validates :name, presence: true
   validates :address, presence: true
   validates :siret, presence: true
-  validate :siret_is_valid?
+  # 💩 Crappy validation, to improve
+  # validate :siret_is_valid?
   pg_search_scope :search_by_beer,
                   associated_against: {
                     beers: [:name]
