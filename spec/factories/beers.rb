@@ -33,8 +33,8 @@ FactoryBot.define do
       verified { true }
     end
 
-    # trait :in_wishlist do
-    #   beer_wishlist
-    # end
+    trait :in_wishlist do
+      beer_wishlist
+    end
   end
 end
